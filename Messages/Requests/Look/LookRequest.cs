@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Repository.Models.Messages.Requests.Look
+namespace BeforeOurTime.Models.Messages.Requests.Look
 {
     public class LookRequest : Request, IRequest
     {

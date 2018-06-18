@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeforeOurTime.Models.Messages.Events.Emotes;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
