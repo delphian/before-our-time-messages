@@ -10,6 +10,10 @@ namespace BeforeOurTime.Models.Messages.Responses.List
     public class ListLocationResponse : Response, IResponse
     {
         /// <summary>
+        /// Our unique message identifier
+        /// </summary>
+        public static Guid _Id = new Guid("e8de221a-381a-45f3-898f-ca12e1badad1");
+        /// <summary>
         /// Unique location item identifier
         /// </summary>
         public Guid ItemId { set; get; }
@@ -38,7 +42,7 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         /// </summary>
         public ListLocationResponse()
         {
-            this.MessageId = new Guid("e8de221a-381a-45f3-898f-ca12e1badad1");
+            this.MessageId = _Id;
             this.MessageName = "Location Response";
         }
     }

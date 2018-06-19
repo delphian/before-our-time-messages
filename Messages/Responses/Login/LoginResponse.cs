@@ -10,6 +10,10 @@ namespace BeforeOurTime.Models.Messages.Responses.Login
     public class LoginResponse : Response, IResponse
     {
         /// <summary>
+        /// Our unique message identifier
+        /// </summary>
+        public static Guid _Id = new Guid("dbee9538-048c-4ea7-b518-8b6cc17fdeb7");
+        /// <summary>
         /// Unique account identifier
         /// </summary>
         public Guid? AccountId { set; get; }
@@ -18,7 +22,7 @@ namespace BeforeOurTime.Models.Messages.Responses.Login
         /// </summary>
         public LoginResponse()
         {
-            this.MessageId = new Guid("dbee9538-048c-4ea7-b518-8b6cc17fdeb7");
+            this.MessageId = _Id;
             this.MessageName = "Login Response";
         }
     }

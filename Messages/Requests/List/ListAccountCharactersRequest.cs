@@ -7,6 +7,10 @@ namespace BeforeOurTime.Models.Messages.Requests.List
     public class ListAccountCharactersRequest : Request, IRequest
     {
         /// <summary>
+        /// Our unique message identifier
+        /// </summary>
+        public static Guid _Id = new Guid("afea0f2d-83cf-48ce-ab0f-3555417bfab9");
+        /// <summary>
         /// Unique account identifier of player to list characters of
         /// </summary>
         public Guid AccountId { set; get; }
@@ -15,7 +19,7 @@ namespace BeforeOurTime.Models.Messages.Requests.List
         /// </summary>
         public ListAccountCharactersRequest()
         {
-            this.MessageId = new Guid("afea0f2d-83cf-48ce-ab0f-3555417bfab9");
+            this.MessageId = _Id;
             this.MessageName = "List Player Characters Request";
         }
     }

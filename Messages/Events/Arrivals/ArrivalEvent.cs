@@ -10,6 +10,10 @@ namespace BeforeOurTime.Models.Messages.Events.Arrivals
     public class ArrivalEvent : Event, IEvent
     {
         /// <summary>
+        /// Our unique message identifier
+        /// </summary>
+        public static Guid _Id = new Guid("2d6bb89d-08d3-4d3f-acff-2e0dc0481a56");
+        /// <summary>
         /// Unique item identifier
         /// </summary>
         public Guid ItemId { set; get; }
@@ -22,7 +26,7 @@ namespace BeforeOurTime.Models.Messages.Events.Arrivals
         /// </summary>
         public ArrivalEvent()
         {
-            this.MessageId = new Guid("2d6bb89d-08d3-4d3f-acff-2e0dc0481a56");
+            this.MessageId = _Id;
             this.MessageName = "Item has arrived at location";
         }
     }

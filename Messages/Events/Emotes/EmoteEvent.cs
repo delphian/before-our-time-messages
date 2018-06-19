@@ -10,6 +10,10 @@ namespace BeforeOurTime.Models.Messages.Events.Emotes
     public class EmoteEvent : Event, IEvent
     {
         /// <summary>
+        /// Our unique message identifier
+        /// </summary>
+        public static Guid _Id = new Guid("6cedfd1c-89ec-4389-998b-1e076c9d7b48");
+        /// <summary>
         /// Unique item identifier
         /// </summary>
         public Guid ItemId { set; get; }
@@ -26,7 +30,7 @@ namespace BeforeOurTime.Models.Messages.Events.Emotes
         /// </summary>
         public EmoteEvent()
         {
-            this.MessageId = new Guid("6cedfd1c-89ec-4389-998b-1e076c9d7b48");
+            this.MessageId = _Id;
             this.MessageName = "Item has emoted";
         }
     }

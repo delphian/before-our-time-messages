@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BeforeOurTime.Models.Json;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,11 +14,14 @@ namespace BeforeOurTime.Models.Messages
         /// <summary>
         /// Unique message identifier
         /// </summary>
-        protected Guid MessageId { set; get; }
+        [JsonProperty(PropertyName = "messageId", Order = 10)]
+        [JsonConverter(typeof(GuidJsonConverter))]
+        public Guid MessageId { set; get; }
         /// <summary>
         /// Human friendly name describing message
         /// </summary>
-        protected string MessageName { set; get; }
+        [JsonProperty(PropertyName = "messageName", Order = 20)]
+        public string MessageName { set; get; }
         /// <summary>
         /// Get unique message identifier
         /// </summary>
@@ -40,7 +45,13 @@ namespace BeforeOurTime.Models.Messages
         /// <returns></returns>
         public bool IsMessageType<T>()
         {
-            return (this.GetType() == typeof(T));
+            bool isOfType = (this.GetType() == typeof(T));
+            if (isOfType == false)
+            {
+                Guid? messageId = (Guid?)typeof(T).GetProperty("_Id").GetValue(null);
+                isOfType = (this.GetMessageId() == messageId);
+            }
+            return isOfType;
         }
         /// <summary>
         /// Upcast message as a derived type (that it already is!)

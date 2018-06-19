@@ -10,6 +10,10 @@ namespace BeforeOurTime.Models.Messages.Events.Departures
     public class DepartureEvent : Event, IEvent
     {
         /// <summary>
+        /// Our unique message identifier
+        /// </summary>
+        public static Guid _Id = new Guid("1e889a17-2171-488d-b3c9-9920ef664fca");
+        /// <summary>
         /// Unique item identifier
         /// </summary>
         public Guid ItemId { set; get; }
@@ -22,7 +26,7 @@ namespace BeforeOurTime.Models.Messages.Events.Departures
         /// </summary>
         public DepartureEvent()
         {
-            this.MessageId = new Guid("1e889a17-2171-488d-b3c9-9920ef664fca");
+            this.MessageId = _Id;
             this.MessageName = "Item has departed from location";
         }
     }

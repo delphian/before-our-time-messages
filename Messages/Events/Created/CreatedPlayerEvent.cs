@@ -10,6 +10,10 @@ namespace BeforeOurTime.Models.Messages.Events.Created
     public class CreatedPlayerEvent : Event, IEvent
     {
         /// <summary>
+        /// Our unique message identifier
+        /// </summary>
+        public static Guid _Id = new Guid("662e5eb5-8f4a-41e3-a148-52eeacc04121");
+        /// <summary>
         /// Unique item identifier of player
         /// </summary>
         public Guid ItemId { set; get; }
@@ -22,7 +26,7 @@ namespace BeforeOurTime.Models.Messages.Events.Created
         /// </summary>
         public CreatedPlayerEvent()
         {
-            this.MessageId = new Guid("662e5eb5-8f4a-41e3-a148-52eeacc04121");
+            this.MessageId = _Id;
             this.MessageName = "Player has been created";
         }
     }

@@ -8,6 +8,10 @@ namespace BeforeOurTime.Models.Messages.Responses.List
     public class ListAccountCharactersResponse : Response, IResponse
     {
         /// <summary>
+        /// Our unique message identifier
+        /// </summary>
+        public static Guid _Id = new Guid("11753eca-fd29-42ca-8af1-bc24908d29dd");
+        /// <summary>
         /// List of character items that an account is able to use as avatars
         /// </summary>
         /// <remarks>
@@ -19,7 +23,7 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         /// </summary>
         public ListAccountCharactersResponse()
         {
-            this.MessageId = new Guid("11753eca-fd29-42ca-8af1-bc24908d29dd");
+            this.MessageId = _Id;
             this.MessageName = "List Account Characters Response";
         }
     }

@@ -11,6 +11,10 @@ namespace BeforeOurTime.Models.Messages.Responses.Create
     public class CreatePlayerResponse : Response, IResponse
     {
         /// <summary>
+        /// Our unique message identifier
+        /// </summary>
+        public static Guid _Id = new Guid("ebb9c305-5902-4c59-97ce-6137eebbe472");
+        /// <summary>
         /// Event message for player creation
         /// </summary>
         public CreatedPlayerEvent CreatedPlayerEvent { set; get; }
@@ -19,7 +23,7 @@ namespace BeforeOurTime.Models.Messages.Responses.Create
         /// </summary>
         public CreatePlayerResponse()
         {
-            this.MessageId = new Guid("ebb9c305-5902-4c59-97ce-6137eebbe472");
+            this.MessageId = _Id;
             this.MessageName = "Create Player Response";
         }
     }

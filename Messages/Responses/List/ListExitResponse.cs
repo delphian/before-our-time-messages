@@ -10,6 +10,10 @@ namespace BeforeOurTime.Models.Messages.Responses.List
     public class ListExitResponse : Response, IResponse
     {
         /// <summary>
+        /// Our unique message identifier
+        /// </summary>
+        public static Guid _Id = new Guid("88f8dbfe-cd70-4da4-97cf-6eeeadc7b861");
+        /// <summary>
         /// Unique exit item identifier
         /// </summary>
         public Guid ItemId { set; get; }
@@ -26,7 +30,7 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         /// </summary>
         public ListExitResponse()
         {
-            this.MessageId = new Guid("88f8dbfe-cd70-4da4-97cf-6eeeadc7b861");
+            this.MessageId = _Id;
             this.MessageName = "List Exit Response";
         }
     }
