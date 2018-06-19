@@ -34,8 +34,14 @@ namespace BeforeOurTime.Models.Messages
         /// <summary>
         /// Upcast message as a derived type (that it already is!)
         /// </summary>
-        /// <param name="attributeType"></param>
+        /// <param name="attributeType">Message class type</param>
         /// <returns></returns>
         T GetMessageAsType<T>();
+        /// <summary>
+        /// Upcast message as a serived type (that it already is!)
+        /// </summary>
+        /// <param name="messageTypeId">Unique message identifier</param>
+        /// <returns></returns>
+        object GetMessageAsType(Guid messageTypeId);
     }
 }

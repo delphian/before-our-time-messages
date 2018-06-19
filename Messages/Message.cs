@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BeforeOurTime.Models.Messages
@@ -11,6 +12,10 @@ namespace BeforeOurTime.Models.Messages
     /// </summary>
     public class Message
     {
+        /// <summary>
+        /// Map message Guids to model Types
+        /// </summary>
+        private static Dictionary<Guid, Type> MessageTypeDictionary { set; get; }
         /// <summary>
         /// Unique message identifier
         /// </summary>
@@ -22,6 +27,25 @@ namespace BeforeOurTime.Models.Messages
         /// </summary>
         [JsonProperty(PropertyName = "messageName", Order = 20)]
         public string MessageName { set; get; }
+        /// <summary>
+        /// Get dictionary map of message Guids to model Types
+        /// </summary>
+        /// <param name="reload"></param>
+        /// <returns></returns>
+        public static Dictionary<Guid, Type> GetMessageTypeDictionary(bool reload = false)
+        {
+            if (MessageTypeDictionary == null || reload == true)
+            {
+                MessageTypeDictionary = new Dictionary<Guid, Type>();
+                var interfaceType = typeof(IMessage);
+                AppDomain.CurrentDomain.GetAssemblies()
+                    .SelectMany(x => x.GetTypes())
+                    .Where(x => interfaceType.IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+                    .ToList()
+                    .ForEach(x => MessageTypeDictionary.Add(((IMessage)Activator.CreateInstance(x)).GetMessageId(), x));
+            }
+            return MessageTypeDictionary;
+        }
         /// <summary>
         /// Get unique message identifier
         /// </summary>
@@ -56,11 +80,21 @@ namespace BeforeOurTime.Models.Messages
         /// <summary>
         /// Upcast message as a derived type (that it already is!)
         /// </summary>
-        /// <param name="attributeType"></param>
+        /// <param name="attributeType">Message class type</param>
         /// <returns></returns>
         public object GetMessageAsType(Type messageType)
         {
             return Convert.ChangeType(this, messageType);
+        }
+        /// <summary>
+        /// Upcast message as a serived type (that it already is!)
+        /// </summary>
+        /// <param name="messageTypeId">Unique message identifier</param>
+        /// <returns></returns>
+        public object GetMessageAsType(Guid messageTypeId)
+        {
+            var messageType = Message.GetMessageTypeDictionary()[GetMessageId()];
+            return GetMessageAsType(messageType);
         }
         /// <summary>
         /// Upcast message as a derived type (that it already is!)
