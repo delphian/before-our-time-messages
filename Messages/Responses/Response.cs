@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,6 +17,7 @@ namespace BeforeOurTime.Models.Messages.Responses
         /// The request that initiated this response was a success
         /// </summary>
         /// <returns></returns>
+        [JsonProperty(PropertyName = "responseSuccess", Order = 100)]
         public bool ResponseSuccess { set; get; }
         /// <summary>
         /// The request that initiated this response was a success

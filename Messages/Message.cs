@@ -1,4 +1,5 @@
-﻿using BeforeOurTime.Models.Json;
+﻿using BeforeOurTime.Models.Exceptions;
+using BeforeOurTime.Models.Json;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -72,8 +73,15 @@ namespace BeforeOurTime.Models.Messages
             bool isOfType = (this.GetType() == typeof(T));
             if (isOfType == false)
             {
-                Guid? messageId = (Guid?)typeof(T).GetProperty("_Id").GetValue(null);
-                isOfType = (this.GetMessageId() == messageId);
+                try
+                {
+                    Guid? messageId = (Guid?)typeof(T).GetField("_Id").GetValue(null);
+                    isOfType = (this.GetMessageId() == messageId);
+                }
+                catch (Exception e)
+                {
+                    throw new MessageDefinitionInvalidException(typeof(T).ToString());
+                }
             }
             return isOfType;
         }
