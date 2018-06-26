@@ -71,7 +71,8 @@ namespace BeforeOurTime.Models.Items
         /// Additional optional properties provided by attribute managers
         /// </summary>
         [JsonProperty(PropertyName = "attributes", Order = 60)]
-        public List<IItemAttribute> Attributes = new List<IItemAttribute>();
+        [JsonConverter(typeof(ItemAttributeJsonConverter))]
+        public List<ItemAttribute> Attributes = new List<ItemAttribute>();
         /// <summary>
         /// Determin if item has attribute
         /// </summary>

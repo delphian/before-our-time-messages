@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Json;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,19 +15,24 @@ namespace BeforeOurTime.Models.Messages.Events.Emotes
         /// <summary>
         /// Our unique message identifier
         /// </summary>
+        [JsonIgnore]
+        [JsonConverter(typeof(GuidJsonConverter))]
         public static Guid _Id = new Guid("6cedfd1c-89ec-4389-998b-1e076c9d7b48");
-        /// <summary>
-        /// Unique item identifier
-        /// </summary>
-        public Guid ItemId { set; get; }
         /// <summary>
         /// Name of item that has emoted
         /// </summary>
+        [JsonProperty(PropertyName = "name", Order = 1000)]
         public string Name { set; get; }
         /// <summary>
         /// Type of emote
         /// </summary>
+        [JsonProperty(PropertyName = "type", Order = 1100)]
         public EmoteType Type { set; get; }
+        /// <summary>
+        /// Item object
+        /// </summary>
+        [JsonProperty(PropertyName = "item", Order = 1200)]
+        public Item Item { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>

@@ -16,11 +16,11 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// <summary>
         /// Unique item identifier that this item type is associated with
         /// </summary>
-        [JsonProperty(PropertyName = "itemId", Order = 15)]
-        [JsonConverter(typeof(GuidJsonConverter))]
         /// <summary>
         /// Item that this item type is associated with
         /// </summary>
+        [JsonProperty(PropertyName = "itemId", Order = 15)]
+        [JsonConverter(typeof(GuidJsonConverter))]
         public Guid ItemId { set; get; }
         [JsonIgnore]
         public virtual Item Item { set; get; }
