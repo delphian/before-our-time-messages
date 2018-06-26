@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Requests.Look
+namespace BeforeOurTime.Models.Messages.Requests.List
 {
-    public class LookRequest : Request, IRequest
+    public class ListLocationRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
@@ -13,7 +13,7 @@ namespace BeforeOurTime.Models.Messages.Requests.Look
         /// <summary>
         /// Constructor
         /// </summary>
-        public LookRequest()
+        public ListLocationRequest()
         {
             this.MessageId = _Id;
             this.MessageName = "Look Request";

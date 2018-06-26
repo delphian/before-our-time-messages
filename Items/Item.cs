@@ -1,41 +1,125 @@
 ﻿using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Items.Attributes;
+using BeforeOurTime.Models.Scripts.Delegates;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BeforeOurTime.Models.Items
 {
     /// <summary>
-    /// Normalized item for consumption as a DTO
+    /// Generic item
     /// </summary>
-    public class Item : System.ComponentModel.INotifyPropertyChanged
+    public class Item : Model
     {
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         /// <summary>
-        /// Unique item identifier
+        /// Short (less than 3) word description of item
         /// </summary>
-        [JsonProperty(PropertyName = "id", Order = 1000)]
+        [JsonProperty(PropertyName = "name", Order = 22)]
+        public string Name { set; get; }
+        /// <summary>
+        /// Long detailed description of item while in a generic state
+        /// </summary>
+        [JsonProperty(PropertyName = "description", Order = 23)]
+        public string Description { set; get; }
+        /// <summary>
+        /// NON unique pre-defined identifier that may be referenced by a third party
+        /// </summary>
+        /// <remarks>
+        /// Used to identity a type of item. There may be many spoons each with
+        /// their own unique Uuid. If any spoon will do, and they all share the
+        /// 'spoon' UuidType, then check against the item's UuidType instead of 
+        /// Uuid
+        /// </remarks>
+        [JsonProperty(PropertyName = "uuidType", Order = 30)]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public Guid Id { set; get; }
-        private string _name { set; get; }
+        public Guid UuidType { set; get; }
         /// <summary>
-        /// Normalized name of item
+        /// Javascript that provides custom properties and their management
         /// </summary>
-        [JsonProperty(PropertyName = "name", Order = 1100)]
-        public string Name
+        [JsonProperty(PropertyName = "script", Order = 35)]
+        public string Script { set; get; }
+        /// <summary>
+        /// Delegates that an item script implements
+        /// </summary>
+        [JsonProperty(PropertyName = "delegateLinks", Order = 40)]
+        public List<ScriptDelegateItemLink> DelegateLinks { set; get; }
+        /// <summary>
+        /// Data bag for script to persist variables
+        /// </summary>
+        /// <remarks>
+        /// Probably, but not always, a monolothic JSON object
+        /// </remarks>
+        [JsonProperty(PropertyName = "data", Order = 45)]
+        public string Data { set; get; }
+        /// <summary>
+        /// Unique parent item identifier and navigation property
+        /// </summary>
+        [JsonProperty(PropertyName = "parentId", Order = 50)]
+        [JsonConverter(typeof(GuidJsonConverter))]
+        public Guid? ParentId { set; get; }
+        [JsonIgnore]
+        public virtual Item Parent { set; get; }
+        /// <summary>
+        /// Items contained by this item
+        /// </summary>
+        [JsonIgnore]
+        public List<Item> Children = new List<Item>();
+        /// <summary>
+        /// Additional optional properties provided by attribute managers
+        /// </summary>
+        [JsonProperty(PropertyName = "attributes", Order = 60)]
+        public List<IItemAttribute> Attributes = new List<IItemAttribute>();
+        /// <summary>
+        /// Determin if item has attribute
+        /// </summary>
+        /// <returns></returns>
+        public bool HasAttribute(Type attributeType)
         {
-            get { return _name; }
-            set { _name = value; NotifyPropertyChanged("Name"); }
+            return Attributes.Any(x => x.GetType() == attributeType);
         }
         /// <summary>
-        /// Normalized description of item
+        /// Determin if item has attribute
         /// </summary>
-        [JsonProperty(PropertyName = "description", Order = 1200)]
-        public string Description { set; get; }
-        private void NotifyPropertyChanged(String propertyName)
+        /// <returns></returns>
+        public bool HasAttribute<T>()
         {
-            PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            return HasAttribute(typeof(T));
+        }
+        /// <summary>
+        /// Get an attribute from the item
+        /// </summary>
+        /// <example>
+        /// var location = (AttributeLocation)item.GetAttribute(typeof(AttributeLocation));
+        /// </example>
+        /// <param name="attributeType"></param>
+        /// <returns></returns>
+        public object GetAttribute(Type attributeType)
+        {
+            var attribute = Attributes.Where(x => x.GetType() == attributeType).FirstOrDefault();
+            return Convert.ChangeType(attribute, attributeType);
+        }
+        /// <summary>
+        /// Get an attribute from the item
+        /// </summary>
+        /// <example>
+        /// var location = item.GetAttribute<AttributeLocation>();
+        /// </example>
+        /// <param name="attributeType"></param>
+        /// <returns></returns>
+        public T GetAttribute<T>()
+        {
+            return (T)GetAttribute(typeof(T));
+        }
+        /// <summary>
+        /// Clone the item
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
