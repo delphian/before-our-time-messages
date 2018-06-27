@@ -1,4 +1,5 @@
-﻿using BeforeOurTime.Models.Json;
+﻿using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Json;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,8 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         /// <summary>
         /// Unique location item identifier
         /// </summary>
-        [JsonProperty(PropertyName = "itemId", Order = 1000)]
-        [JsonConverter(typeof(GuidJsonConverter))]
-        public Guid ItemId { set; get; }
+        [JsonProperty(PropertyName = "item", Order = 1000)]
+        public Item Item { set; get; }
         /// <summary>
         /// Short name of location
         /// </summary>
