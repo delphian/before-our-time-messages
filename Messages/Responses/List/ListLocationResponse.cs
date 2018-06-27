@@ -53,7 +53,7 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         public ListLocationResponse()
         {
             this.MessageId = _Id;
-            this.MessageName = "Location Response";
+            this.MessageName = "List Location Response";
         }
     }
 }

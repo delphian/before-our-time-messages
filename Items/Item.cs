@@ -15,15 +15,29 @@ namespace BeforeOurTime.Models.Items
     public class Item : Model
     {
         /// <summary>
+        /// Structure that subscriber must implement to recieve property updates
+        /// </summary>
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        private string _name { set; get; }
+        /// <summary>
         /// Short (less than 3) word description of item
         /// </summary>
         [JsonProperty(PropertyName = "name", Order = 22)]
-        public string Name { set; get; }
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; NotifyPropertyChanged("Name"); }
+        }
+        private string _description { set; get; }
         /// <summary>
         /// Long detailed description of item while in a generic state
         /// </summary>
         [JsonProperty(PropertyName = "description", Order = 23)]
-        public string Description { set; get; }
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; NotifyPropertyChanged("Description"); }
+        }
         /// <summary>
         /// NON unique pre-defined identifier that may be referenced by a third party
         /// </summary>
@@ -121,6 +135,14 @@ namespace BeforeOurTime.Models.Items
         public object Clone()
         {
             return this.MemberwiseClone();
+        }
+        /// <summary>
+        /// Notify all subscribers that a property has been updated
+        /// </summary>
+        /// <param name="propertyName">Name of public property that has changed</param>
+        private void NotifyPropertyChanged(String propertyName)
+        {
+            PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
         }
     }
 }
