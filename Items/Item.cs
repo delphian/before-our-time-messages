@@ -25,7 +25,15 @@ namespace BeforeOurTime.Models.Items
         [JsonProperty(PropertyName = "name", Order = 22)]
         public string Name
         {
-            get { return _name; }
+            get
+            {
+                string name = _name;
+                Attributes?.ForEach((attribute) =>
+                {
+                    name = attribute.GetName(name);
+                });
+                return name;
+            }
             set { _name = value; NotifyPropertyChanged("Name"); }
         }
         private string _description { set; get; }
@@ -35,7 +43,15 @@ namespace BeforeOurTime.Models.Items
         [JsonProperty(PropertyName = "description", Order = 23)]
         public string Description
         {
-            get { return _description; }
+            get
+            {
+                string description = _description;
+                Attributes?.ForEach((attribute) =>
+                {
+                    description = attribute.GetDescription(description);
+                });
+                return description;
+            }
             set { _description = value; NotifyPropertyChanged("Description"); }
         }
         /// <summary>

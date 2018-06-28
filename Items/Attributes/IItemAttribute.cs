@@ -14,5 +14,17 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// </summary>
         /// <returns></returns>
         Item GetItem();
+        /// <summary>
+        /// Modify the item name before it is returned
+        /// </summary>
+        /// <param name="name">Previous name of item</param>
+        /// <returns></returns>
+        string GetName(string name);
+        /// <summary>
+        /// Modify the item description before it is returned
+        /// </summary>
+        /// <param name="name">Previous description of item</param>
+        /// <returns></returns>
+        string GetDescription(string description);
     }
 }

@@ -32,5 +32,23 @@ namespace BeforeOurTime.Models.Items.Attributes
         {
             return this.Item;
         }
+        /// <summary>
+        /// Modify the item name before it is returned
+        /// </summary>
+        /// <param name="name">Previous name of item</param>
+        /// <returns></returns>
+        public virtual string GetName(string name)
+        {
+            return name;
+        }
+        /// <summary>
+        /// Modify the item description before it is returned
+        /// </summary>
+        /// <param name="name">Previous description of item</param>
+        /// <returns></returns>
+        public virtual string GetDescription(string description)
+        {
+            return description;
+        }
     }
 }

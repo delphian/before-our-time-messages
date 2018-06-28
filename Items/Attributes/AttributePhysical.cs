@@ -40,5 +40,23 @@ namespace BeforeOurTime.Models.Items.Attributes
         {
             AttributeType = this.GetType().ToString();
         }
+        /// <summary>
+        /// Modify the item name before it is returned
+        /// </summary>
+        /// <param name="name">Previous name of item</param>
+        /// <returns></returns>
+        public override string GetName(string name)
+        {
+            return Name;
+        }
+        /// <summary>
+        /// Modify the item description before it is returned
+        /// </summary>
+        /// <param name="name">Previous description of item</param>
+        /// <returns></returns>
+        public override string GetDescription(string description)
+        {
+            return Description;
+        }
     }
 }
