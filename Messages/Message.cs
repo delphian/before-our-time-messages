@@ -43,7 +43,15 @@ namespace BeforeOurTime.Models.Messages
                     .SelectMany(x => x.GetTypes())
                     .Where(x => interfaceType.IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
                     .ToList()
-                    .ForEach(x => MessageTypeDictionary.Add(((IMessage)Activator.CreateInstance(x)).GetMessageId(), x));
+                    .ForEach(x =>
+                    {
+                        var instance = (IMessage)Activator.CreateInstance(x);
+                        var messageId = instance.GetMessageId();
+                        if (messageId != Guid.Empty)
+                        {
+                            MessageTypeDictionary.Add(instance.GetMessageId(), x);
+                        }
+                    });
             }
             return MessageTypeDictionary;
         }
