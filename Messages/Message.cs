@@ -86,7 +86,7 @@ namespace BeforeOurTime.Models.Messages
                     Guid? messageId = (Guid?)typeof(T).GetField("_Id").GetValue(null);
                     isOfType = (this.GetMessageId() == messageId);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     throw new MessageDefinitionInvalidException(typeof(T).ToString());
                 }
