@@ -26,5 +26,13 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// <param name="name">Previous description of item</param>
         /// <returns></returns>
         string GetDescription(string description);
+        /// <summary>
+        /// Get priority order of attribute in comparison to other attributes
+        /// </summary>
+        /// <remarks>
+        /// Defaults to 1000. Higher number has higher priority and will be executed _last_
+        /// </remarks>
+        /// <returns></returns>
+        int GetOrder();
     }
 }

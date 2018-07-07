@@ -33,6 +33,16 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         [JsonProperty(PropertyName = "exits", Order = 1400)]
         public List<ListExitResponse> Exits = new List<ListExitResponse>();
         /// <summary>
+        /// Dumb object items at the location
+        /// </summary>
+        [JsonProperty(PropertyName = "objects", Order = 1450)]
+        public List<Item> Objects { set; get; } = new List<Item>();
+        /// <summary>
+        /// Character items at the location
+        /// </summary>
+        [JsonProperty(PropertyName = "characters", Order = 1480)]
+        public List<Item> Characters { set; get; } = new List<Item>();
+        /// <summary>
         /// Additional descrete textual adendums to the description
         /// </summary>
         [JsonProperty(PropertyName = "adendums", Order = 1500)]
