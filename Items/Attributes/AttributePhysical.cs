@@ -18,6 +18,10 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// </summary>
         public string Description { set; get; }
         /// <summary>
+        /// Item image suitable for display as an icon
+        /// </summary>
+        public string ImageIcon { set; get; }
+        /// <summary>
         /// Height
         /// </summary>
         public int Height { set; get; }
@@ -57,6 +61,15 @@ namespace BeforeOurTime.Models.Items.Attributes
         public override string GetDescription(string description)
         {
             return Description;
+        }
+        /// <summary>
+        /// Modify the item image icon before it is returned
+        /// </summary>
+        /// <param name="imageIcon">Previous value of item image icon</param>
+        /// <returns></returns>
+        public override string GetImageIcon(string imageIcon)
+        {
+            return ImageIcon;
         }
     }
 }

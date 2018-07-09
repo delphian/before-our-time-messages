@@ -27,6 +27,12 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// <returns></returns>
         string GetDescription(string description);
         /// <summary>
+        /// Modify the item image icon before it is returned
+        /// </summary>
+        /// <param name="imageIcon">Previous value of item image icon</param>
+        /// <returns></returns>
+        string GetImageIcon(string imageIcon);
+        /// <summary>
         /// Get priority order of attribute in comparison to other attributes
         /// </summary>
         /// <remarks>
