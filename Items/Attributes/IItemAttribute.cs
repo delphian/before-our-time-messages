@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeforeOurTime.Models.Primitives.Images;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -31,7 +32,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// </summary>
         /// <param name="imageIcon">Previous value of item image icon</param>
         /// <returns></returns>
-        string GetImageIcon(string imageIcon);
+        Image GetImageIcon(Image imageIcon);
         /// <summary>
         /// Get priority order of attribute in comparison to other attributes
         /// </summary>

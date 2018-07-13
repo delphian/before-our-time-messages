@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.IO.Compression;
 using System.IO;
+using BeforeOurTime.Models.Primitives.Images;
 
 namespace BeforeOurTime.Models.Items
 {
@@ -58,7 +59,7 @@ namespace BeforeOurTime.Models.Items
             }
             set { _description = value; NotifyPropertyChanged("Description"); }
         }
-        private string _imageIcon { set; get; }
+        private Image _imageIcon { set; get; }
         /// <summary>
         /// Item image suitable for display as a small icon
         /// </summary>
@@ -66,10 +67,10 @@ namespace BeforeOurTime.Models.Items
         /// Image content will be provided by item attribute
         /// </remarks>
         [JsonIgnore]
-        public string ImageIcon
+        public Image ImageIcon
         {
             get {
-                string imageIcon = _imageIcon;
+                Image imageIcon = _imageIcon;
                 Attributes?.OrderBy(x => x.GetOrder()).ToList().ForEach((attribute) =>
                 {
                     imageIcon = attribute.GetImageIcon(imageIcon);
@@ -175,59 +176,6 @@ namespace BeforeOurTime.Models.Items
         public object Clone()
         {
             return this.MemberwiseClone();
-        }
-        /// <summary>
-        /// Compress and base64 encode a string
-        /// </summary>
-        /// <param name="text">Normal string</param>
-        /// <returns></returns>
-        public static string Compress(string text)
-        {
-            if (string.IsNullOrEmpty(text))
-                return "";
-            byte[] raw = Encoding.UTF8.GetBytes(text);
-            using (MemoryStream memory = new MemoryStream())
-            {
-                using (GZipStream gzip = new GZipStream(memory,
-                    CompressionMode.Compress, true))
-                {
-                    gzip.Write(raw, 0, raw.Length);
-                }
-                return Convert.ToBase64String(memory.ToArray());
-            }
-        }
-        /// <summary>
-        /// Decompress a string that was compressed and then base64 encoded
-        /// </summary>
-        /// <param name="compressedText">Compressed and base64 encoded string</param>
-        /// <returns></returns>
-        public static string Decompress(string compressedText)
-        {
-            if (string.IsNullOrEmpty(compressedText))
-                return "";
-            byte[] gzip = Convert.FromBase64String(compressedText);
-            // Create a GZIP stream with decompression mode.
-            // ... Then create a buffer and write into while reading from the GZIP stream.
-            using (GZipStream stream = new GZipStream(new MemoryStream(gzip),
-                CompressionMode.Decompress))
-            {
-                const int size = 4096;
-                byte[] buffer = new byte[size];
-                using (MemoryStream memory = new MemoryStream())
-                {
-                    int count = 0;
-                    do
-                    {
-                        count = stream.Read(buffer, 0, size);
-                        if (count > 0)
-                        {
-                            memory.Write(buffer, 0, count);
-                        }
-                    }
-                    while (count > 0);
-                    return Encoding.UTF8.GetString(memory.ToArray());
-                }
-            }
         }
         /// <summary>
         /// Notify all subscribers that a property has been updated

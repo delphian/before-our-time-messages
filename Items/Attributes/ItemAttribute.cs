@@ -1,4 +1,5 @@
 ﻿using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Primitives.Images;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -55,7 +56,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// </summary>
         /// <param name="imageIcon">Previous value of item image icon</param>
         /// <returns></returns>
-        public virtual string GetImageIcon(string imageIcon)
+        public virtual Image GetImageIcon(Image imageIcon)
         {
             return imageIcon;
         }

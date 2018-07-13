@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeforeOurTime.Models.Primitives.Images;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -20,7 +21,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// <summary>
         /// Item image suitable for display as an icon
         /// </summary>
-        public string ImageIcon { set; get; }
+        public Image ImageIcon { set; get; }
         /// <summary>
         /// Height
         /// </summary>
@@ -67,7 +68,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// </summary>
         /// <param name="imageIcon">Previous value of item image icon</param>
         /// <returns></returns>
-        public override string GetImageIcon(string imageIcon)
+        public override Image GetImageIcon(Image imageIcon)
         {
             return ImageIcon;
         }
