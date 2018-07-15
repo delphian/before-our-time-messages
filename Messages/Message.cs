@@ -97,10 +97,18 @@ namespace BeforeOurTime.Models.Messages
         /// Upcast message as a derived type (that it already is!)
         /// </summary>
         /// <param name="attributeType">Message class type</param>
-        /// <returns></returns>
+        /// <returns>Null if wrong message type</returns>
         public object GetMessageAsType(Type messageType)
         {
-            return Convert.ChangeType(this, messageType);
+            object response = null;
+            try
+            {
+                response = Convert.ChangeType(this, messageType);
+            } catch(Exception)
+            {
+                // Swallow it
+            }
+            return response;
         }
         /// <summary>
         /// Upcast message as a serived type (that it already is!)

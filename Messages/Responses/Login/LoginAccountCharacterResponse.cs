@@ -15,6 +15,7 @@ namespace BeforeOurTime.Models.Messages.Responses.Login
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
+        [JsonConverter(typeof(GuidJsonConverter))]
         public static Guid _Id = new Guid("bf3361e5-1e36-4610-8fda-36b8e540292d");
         /// <summary>
         /// Constructor

@@ -16,6 +16,7 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
+        [JsonConverter(typeof(GuidJsonConverter))]
         public static Guid _Id = new Guid("e8de221a-381a-45f3-898f-ca12e1badad1");
         /// <summary>
         /// Unique location item identifier

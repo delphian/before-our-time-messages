@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BeforeOurTime.Models.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,6 +15,7 @@ namespace BeforeOurTime.Models.Messages.Requests.Login
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
+        [JsonConverter(typeof(GuidJsonConverter))]
         public static Guid _Id = new Guid("26f1db1d-1545-4db0-be7e-f127578d6299");
         /// <summary>
         /// Character's unique item identifier

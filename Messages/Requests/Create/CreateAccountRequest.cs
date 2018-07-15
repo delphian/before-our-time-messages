@@ -4,33 +4,33 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Requests.Login
+namespace BeforeOurTime.Models.Messages.Requests.Create
 {
-    public class LoginRequest : Request, IRequest
+    public class CreateAccountRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("29908ab8-6403-4094-aa32-1ea0b3af70bf");
+        public static Guid _Id = new Guid("53b95bc4-fce1-492b-997b-ee3ab787a7c9");
         /// <summary>
-        /// Credential's email
+        /// Unique email to be used as account name
         /// </summary>
-        [JsonProperty(PropertyName = "email", Order = 100)]
+        [JsonProperty(PropertyName = "email", Order = 1000)]
         public string Email { set; get; }
         /// <summary>
-        /// Credential's password
+        /// Password for account
         /// </summary>
-        [JsonProperty(PropertyName = "password", Order = 200)]
+        [JsonProperty(PropertyName = "password", Order = 1100)]
         public string Password { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public LoginRequest()
+        public CreateAccountRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "Login Request";
+            this.MessageName = "Create Account Request";
         }
     }
 }
