@@ -9,7 +9,7 @@ namespace BeforeOurTime.Models.Messages.Events.Created
     /// <summary>
     /// A player has been created
     /// </summary>
-    public class CreatedPlayerEvent : Event, IEvent
+    public class CreatedAccountCharacterEvent : Event, IEvent
     {
         /// <summary>
         /// Our unique message identifier
@@ -31,10 +31,10 @@ namespace BeforeOurTime.Models.Messages.Events.Created
         /// <summary>
         /// Constructor
         /// </summary>
-        public CreatedPlayerEvent()
+        public CreatedAccountCharacterEvent()
         {
             this.MessageId = _Id;
-            this.MessageName = "Player has been created";
+            this.MessageName = "Account character has been created";
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BeforeOurTime.Models.Messages.Requests.Create
 {
-    public class CreatePlayerRequest : Request, IRequest
+    public class CreateAccountCharacterRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
@@ -22,10 +22,10 @@ namespace BeforeOurTime.Models.Messages.Requests.Create
         /// <summary>
         /// Constructor
         /// </summary>
-        public CreatePlayerRequest()
+        public CreateAccountCharacterRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "Create Player Request";
+            this.MessageName = "Create Account Character Request";
         }
     }
 }

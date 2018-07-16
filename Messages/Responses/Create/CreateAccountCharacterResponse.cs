@@ -10,7 +10,7 @@ namespace BeforeOurTime.Models.Messages.Responses.Create
     /// <summary>
     /// A player has been created
     /// </summary>
-    public class CreatePlayerResponse : Response, IResponse
+    public class CreateAccountCharacterResponse : Response, IResponse
     {
         /// <summary>
         /// Our unique message identifier
@@ -21,15 +21,15 @@ namespace BeforeOurTime.Models.Messages.Responses.Create
         /// <summary>
         /// Event message for player creation
         /// </summary>
-        [JsonProperty(PropertyName = "createPlayerEvent", Order = 1000)]
-        public CreatedPlayerEvent CreatedPlayerEvent { set; get; }
+        [JsonProperty(PropertyName = "createdAccountCharacterEvent", Order = 1000)]
+        public CreatedAccountCharacterEvent CreatedAccountCharacterEvent { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public CreatePlayerResponse()
+        public CreateAccountCharacterResponse()
         {
             this.MessageId = _Id;
-            this.MessageName = "Create Player Response";
+            this.MessageName = "Create account character response";
         }
     }
 }
