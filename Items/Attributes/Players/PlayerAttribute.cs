@@ -4,28 +4,28 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Attributes
+namespace BeforeOurTime.Models.Items.Attributes.Players
 {
     /// <summary>
-    /// User played character
+    /// Item is being played by an account
     /// </summary>
-    public class AttributePlayer : ItemAttribute, IItemAttribute
+    public class PlayerAttribute : ItemAttribute, IItemAttribute
     {
         /// <summary>
-        /// Account to which this player belongs
+        /// Account of player
         /// </summary>
         [JsonProperty(PropertyName = "accountId")]
         [JsonConverter(typeof(GuidJsonConverter))]
         public Guid AccountId { set; get; }
         /// <summary>
-        /// Public name of the player
+        /// Public name of player
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public AttributePlayer()
+        public PlayerAttribute()
         {
             AttributeType = this.GetType().ToString();
         }
