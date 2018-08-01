@@ -1,11 +1,12 @@
 ﻿using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Messages.Requests;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Requests.CRUD
+namespace BeforeOurTime.Models.Messages.CRUD.Items.CreateItem
 {
     public class CreateItemRequest : Request, IRequest
     {

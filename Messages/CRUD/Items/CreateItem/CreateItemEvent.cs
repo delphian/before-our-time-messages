@@ -1,31 +1,36 @@
 ﻿using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Messages.Events;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Requests.CRUD
+namespace BeforeOurTime.Models.Messages.CRUD.Items.CreateItem
 {
-    public class UpdateItemRequest : Request, IRequest
+    /// <summary>
+    /// An item has been created
+    /// </summary>
+    public class CreateItemEvent : Event, IEvent
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("26127ca1-5604-40a0-b93e-4b424aa6ca63");
+        public static Guid _Id = new Guid("8d7b3a16-966e-47f0-8bae-d4f340b3d8a1");
         /// <summary>
-        /// Item to update
+        /// Item that has been created
         /// </summary>
+        [JsonProperty(PropertyName = "item", Order = 1100)]
         public Item Item { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public UpdateItemRequest()
+        public CreateItemEvent()
         {
             this.MessageId = _Id;
-            this.MessageName = "Update Item Request";
+            this.MessageName = "Item has been created";
         }
     }
 }
