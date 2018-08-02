@@ -19,9 +19,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// Default location of a new item when parent is not specified
         /// </summary>
         [JsonProperty(PropertyName = "defaultLocationId")]
-        public Guid DefaultLocationId { set; get; }
-        [JsonIgnore]
-        public virtual AttributeLocation DefaultLocation { set; get; }
+        public Guid? DefaultLocationId { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
