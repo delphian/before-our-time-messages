@@ -1,14 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using BeforeOurTime.Models.Items.Attributes.Locations;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Attributes
+namespace BeforeOurTime.Models.Items.Attributes.Exits
 {
     /// <summary>
     /// A one way path from the exit's current location to a specified and static one
     /// </summary>
-    public class AttributeExit : ItemAttribute, IItemAttribute
+    public class ExitAttribute : ItemAttribute, IItemAttribute
     {
         /// <summary>
         /// Short description of exit
@@ -26,7 +27,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         [JsonProperty(PropertyName = "destinationLocationId", Order = 30)]
         public Guid DestinationLocationId { set; get; }
         [JsonIgnore]
-        public virtual AttributeLocation DestinationLocation { set; get; }
+        public virtual LocationAttribute DestinationLocation { set; get; }
         /// <summary>
         /// Time in seconds journey will consume
         /// </summary>
@@ -40,7 +41,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// <summary>
         /// Constructor
         /// </summary>
-        public AttributeExit()
+        public ExitAttribute()
         {
             AttributeType = this.GetType().ToString();
         }

@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Attributes
+namespace BeforeOurTime.Models.Items.Attributes.Terminals
 {
     /// <summary>
     /// When a client attaches to the game a terminal attribute will be added to the play item
     /// </summary>
-    public class AttributeTerminal : ItemAttribute, IItemAttribute
+    public class TerminalAttribute : ItemAttribute, IItemAttribute
     {
         /// <summary>
         /// Single generic connection used by the environment to communicate with clients
@@ -17,7 +17,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// <summary>
         /// Constructor
         /// </summary>
-        public AttributeTerminal()
+        public TerminalAttribute()
         {
             AttributeType = this.GetType().ToString();
         }

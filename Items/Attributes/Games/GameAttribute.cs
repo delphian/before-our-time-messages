@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Attributes
+namespace BeforeOurTime.Models.Items.Attributes.Games
 {
     /// <summary>
     /// A game environmnent containing users, locations, items, and unique rules
     /// </summary>
-    public class AttributeGame : ItemAttribute, IItemAttribute
+    public class GameAttribute : ItemAttribute, IItemAttribute
     {
         /// <summary>
         /// Name of the game
@@ -23,7 +23,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// <summary>
         /// Constructor
         /// </summary>
-        public AttributeGame()
+        public GameAttribute()
         {
             AttributeType = this.GetType().ToString();
         }

@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Attributes
+namespace BeforeOurTime.Models.Items.Attributes.Locations
 {
     /// <summary>
     /// A physical, common area of influence
     /// </summary>
-    public class AttributeLocation : ItemAttribute, IItemAttribute
+    public class LocationAttribute : ItemAttribute, IItemAttribute
     {
         /// <summary>
         /// Short description of location
@@ -23,7 +23,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// <summary>
         /// Constructor
         /// </summary>
-        public AttributeLocation()
+        public LocationAttribute()
         {
             AttributeType = this.GetType().ToString();
         }

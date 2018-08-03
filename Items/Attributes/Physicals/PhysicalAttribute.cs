@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Attributes
+namespace BeforeOurTime.Models.Items.Attributes.Physicals
 {
     /// <summary>
     /// Any item that possesses at least one of the five senses
     /// </summary>
-    public class AttributePhysical : ItemAttribute, IItemAttribute
+    public class PhysicalAttribute : ItemAttribute, IItemAttribute
     {
         /// <summary>
         /// One, two, or three word short description of item
@@ -41,7 +41,7 @@ namespace BeforeOurTime.Models.Items.Attributes
         /// <summary>
         /// Constructor
         /// </summary>
-        public AttributePhysical()
+        public PhysicalAttribute()
         {
             AttributeType = this.GetType().ToString();
         }
