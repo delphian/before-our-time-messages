@@ -1,4 +1,5 @@
-﻿using BeforeOurTime.Models.Items.Attributes;
+﻿using BeforeOurTime.Models.Exceptions;
+using BeforeOurTime.Models.Items.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -17,7 +18,12 @@ namespace BeforeOurTime.Models.Json
                 List<ItemAttribute> itemAttributes = new List<ItemAttribute>();
                 foreach(JToken attributeObj in token)
                 {
-                    var itemAttributeType = Type.GetType(attributeObj["attributeType"].ToString());
+                    var itemAttributeTypeName = attributeObj["attributeType"].ToString();
+                    var itemAttributeType = Type.GetType(itemAttributeTypeName);
+                    if (itemAttributeType == null)
+                    {
+                        throw new InvalidAttributeTypeException(itemAttributeTypeName);
+                    }
                     var itemAttribute = (ItemAttribute)JsonConvert.DeserializeObject(attributeObj.ToString(), itemAttributeType);
                     itemAttributes.Add(itemAttribute);
                 }
