@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using BeforeOurTime.Models.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,6 +18,7 @@ namespace BeforeOurTime.Models.Messages.Responses
         /// Same message request instance identifer copied from request
         /// </summary>
         [JsonProperty(PropertyName = "_requestInstanceId", Order = 100)]
+        [JsonConverter(typeof(GuidJsonConverter))]
         public Guid _requestInstanceId { set; get; }
         /// <summary>
         /// The request that initiated this response was a success
