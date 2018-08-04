@@ -14,10 +14,15 @@ namespace BeforeOurTime.Models.Messages.Responses
     public class Response : Message, IResponse
     {
         /// <summary>
+        /// Same message request instance identifer copied from request
+        /// </summary>
+        [JsonProperty(PropertyName = "_requestInstanceId", Order = 100)]
+        public Guid _requestInstanceId { set; get; }
+        /// <summary>
         /// The request that initiated this response was a success
         /// </summary>
         /// <returns></returns>
-        [JsonProperty(PropertyName = "responseSuccess", Order = 100)]
+        [JsonProperty(PropertyName = "responseSuccess", Order = 110)]
         public bool ResponseSuccess { set; get; }
         /// <summary>
         /// The request that initiated this response was a success

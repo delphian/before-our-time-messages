@@ -24,6 +24,7 @@ namespace BeforeOurTime.Models.Messages.CRUD.Items.CreateItem
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="requestInstanceId">Message request instance identifier</param>
         public CreateItemResponse()
         {
             this.MessageId = _Id;

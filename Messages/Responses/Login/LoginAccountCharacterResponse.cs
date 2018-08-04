@@ -20,6 +20,7 @@ namespace BeforeOurTime.Models.Messages.Responses.Login
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="requestInstanceId">Message request instance identifier</param>
         public LoginAccountCharacterResponse()
         {
             this.MessageId = _Id;

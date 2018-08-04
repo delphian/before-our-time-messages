@@ -9,5 +9,10 @@ namespace BeforeOurTime.Models.Messages.Requests
     /// </summary>
     public interface IRequest : IMessage
     {
+        /// <summary>
+        /// Get the unique message request identifier
+        /// </summary>
+        /// <returns></returns>
+        Guid GetRequestInstanceId();
     }
 }
