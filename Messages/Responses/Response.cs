@@ -22,15 +22,15 @@ namespace BeforeOurTime.Models.Messages.Responses
         /// The request that initiated this response was a success
         /// </summary>
         /// <returns></returns>
-        [JsonProperty(PropertyName = "responseSuccess", Order = 110)]
-        public bool ResponseSuccess { set; get; }
+        [JsonProperty(PropertyName = "_responseSuccess", Order = 110)]
+        public bool _responseSuccess { set; get; }
         /// <summary>
         /// The request that initiated this response was a success
         /// </summary>
         /// <returns></returns>
         public bool IsSuccess()
         {
-            return ResponseSuccess;
+            return _responseSuccess;
         }
     }
 }
