@@ -13,6 +13,11 @@ namespace BeforeOurTime.Models.Messages.Responses
     public interface IResponse : IMessage
     {
         /// <summary>
+        /// Get the unique message request identifier
+        /// </summary>
+        /// <returns></returns>
+        Guid GetRequestInstanceId();
+        /// <summary>
         /// The request that initiated this response was a success
         /// </summary>
         /// <returns></returns>

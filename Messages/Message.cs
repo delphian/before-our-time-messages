@@ -79,7 +79,11 @@ namespace BeforeOurTime.Models.Messages
         public bool IsMessageType<T>()
         {
             bool isOfType = (this.GetType() == typeof(T));
-            if (isOfType == false)
+            if (!isOfType)
+            {
+                isOfType = this is T;
+            }
+            if (!isOfType)
             {
                 try
                 {

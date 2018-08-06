@@ -27,6 +27,14 @@ namespace BeforeOurTime.Models.Messages.Responses
         [JsonProperty(PropertyName = "_responseSuccess", Order = 110)]
         public bool _responseSuccess { set; get; }
         /// <summary>
+        /// Get the unique message request identifier
+        /// </summary>
+        /// <returns></returns>
+        public Guid GetRequestInstanceId()
+        {
+            return _requestInstanceId;
+        }
+        /// <summary>
         /// The request that initiated this response was a success
         /// </summary>
         /// <returns></returns>
