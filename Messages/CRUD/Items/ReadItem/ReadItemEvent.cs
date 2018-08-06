@@ -20,17 +20,17 @@ namespace BeforeOurTime.Models.Messages.CRUD.Items.ReadItem
         [JsonConverter(typeof(GuidJsonConverter))]
         public static Guid _Id = new Guid("3fdc8029-e67f-4d6c-819e-1adc4ef91b47");
         /// <summary>
-        /// Item that has been read
+        /// List of item that have been read
         /// </summary>
-        [JsonProperty(PropertyName = "item", Order = 1100)]
-        public Item Item { set; get; }
+        [JsonProperty(PropertyName = "items", Order = 1100)]
+        public List<Item> Items { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
         public ReadItemEvent()
         {
             this.MessageId = _Id;
-            this.MessageName = "Item has been read via CRUD";
+            this.MessageName = "Items have been read via CRUD";
         }
     }
 }
