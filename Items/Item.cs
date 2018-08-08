@@ -21,7 +21,6 @@ namespace BeforeOurTime.Models.Items
         /// Structure that subscriber must implement to recieve property updates
         /// </summary>
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        private string _name { set; get; }
         /// <summary>
         /// Short (less than 3) word description of item
         /// </summary>
@@ -40,7 +39,7 @@ namespace BeforeOurTime.Models.Items
             }
             set { _name = value; NotifyPropertyChanged("Name"); }
         }
-        private string _description { set; get; }
+        private string _name { set; get; }
         /// <summary>
         /// Long detailed description of item while in a generic state
         /// </summary>
@@ -59,7 +58,7 @@ namespace BeforeOurTime.Models.Items
             }
             set { _description = value; NotifyPropertyChanged("Description"); }
         }
-        private Image _imageIcon { set; get; }
+        private string _description { set; get; }
         /// <summary>
         /// Item image suitable for display as a small icon
         /// </summary>
@@ -78,7 +77,8 @@ namespace BeforeOurTime.Models.Items
                 return imageIcon;
             }
             set { _imageIcon = value; NotifyPropertyChanged("ImageIcon"); }
-        } 
+        }
+        private Image _imageIcon { set; get; }
         /// <summary>
         /// NON unique pre-defined identifier that may be referenced by a third party
         /// </summary>

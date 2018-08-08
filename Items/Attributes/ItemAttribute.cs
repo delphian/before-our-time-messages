@@ -12,6 +12,10 @@ namespace BeforeOurTime.Models.Items.Attributes
     /// </summary>
     public class ItemAttribute : Model, IItemAttribute
     {
+        /// <summary>
+        /// Structure that subscriber must implement to recieve property updates
+        /// </summary>
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [JsonProperty(PropertyName = "attributeType", Order = 14)]
         public string AttributeType { set; get; }
         /// <summary>
@@ -70,6 +74,14 @@ namespace BeforeOurTime.Models.Items.Attributes
         public virtual int GetOrder()
         {
             return 1000;
+        }
+        /// <summary>
+        /// Notify all subscribers that a property has been updated
+        /// </summary>
+        /// <param name="propertyName">Name of public property that has changed</param>
+        protected void NotifyPropertyChanged(String propertyName)
+        {
+            PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
         }
     }
 }
