@@ -22,15 +22,15 @@ namespace BeforeOurTime.Models.Messages.CRUD.Items.UpdateItem
         /// <summary>
         /// Item that has been updated
         /// </summary>
-        [JsonProperty(PropertyName = "item", Order = 1100)]
-        public Item Item { set; get; }
+        [JsonProperty(PropertyName = "items", Order = 1100)]
+        public List<Item> Items { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
         public UpdateItemEvent()
         {
             this.MessageId = _Id;
-            this.MessageName = "Item has been updated via CRUD";
+            this.MessageName = "Item Has Been Updated via CRUD";
         }
     }
 }

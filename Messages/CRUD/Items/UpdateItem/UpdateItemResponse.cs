@@ -27,7 +27,7 @@ namespace BeforeOurTime.Models.Messages.CRUD.Items.UpdateItem
         public UpdateItemResponse()
         {
             this.MessageId = _Id;
-            this.MessageName = "Update item response";
+            this.MessageName = "Update Item Response";
         }
     }
 }

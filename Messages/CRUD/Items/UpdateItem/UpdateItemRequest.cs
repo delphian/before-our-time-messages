@@ -8,6 +8,9 @@ using System.Text;
 
 namespace BeforeOurTime.Models.Messages.CRUD.Items.UpdateItem
 {
+    /// <summary>
+    /// Update one or more items
+    /// </summary>
     public class UpdateItemRequest : Request, IRequest
     {
         /// <summary>
@@ -19,7 +22,8 @@ namespace BeforeOurTime.Models.Messages.CRUD.Items.UpdateItem
         /// <summary>
         /// Item to update
         /// </summary>
-        public Item Item { set; get; }
+        [JsonProperty(PropertyName = "items", Order = 1100)]
+        public List<Item> Items { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
