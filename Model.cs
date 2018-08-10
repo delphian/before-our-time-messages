@@ -12,7 +12,7 @@ namespace BeforeOurTime.Models
     /// <summary>
     /// All models inherit from this
     /// </summary>
-    public class Model
+    public class Model : IModel
     {
         private Guid _id { set; get; }
         /// <summary>
@@ -85,5 +85,13 @@ namespace BeforeOurTime.Models
                 }
             }
         }
+        /// <summary>
+        /// Copy all source properties into our properties
+        /// </summary>
+        /// <param name="source"></param>
+        public virtual void Copy(object source)
+        {
+
+        } 
     }
 }

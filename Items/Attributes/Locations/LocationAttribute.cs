@@ -45,5 +45,15 @@ namespace BeforeOurTime.Models.Items.Attributes.Locations
         {
             return Description;
         }
+        /// <summary>
+        /// Copy all source properties into our properties
+        /// </summary>
+        /// <param name="source"></param>
+        public override void Copy(object source)
+        {
+            var locationAttribute = (LocationAttribute)source;
+            Name = locationAttribute.Name;
+            Description = locationAttribute.Description;
+        }
     }
 }
