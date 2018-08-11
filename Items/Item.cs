@@ -120,8 +120,11 @@ namespace BeforeOurTime.Models.Items
         /// <summary>
         /// Items contained by this item
         /// </summary>
+        [JsonProperty(PropertyName = "childrenIds", Order = 52)]
+        [JsonConverter(typeof(GuidJsonConverter))]
+        public List<Guid> ChildrenIds { set; get; }
         [JsonIgnore]
-        public List<Item> Children = new List<Item>();
+        public virtual List<Item> Children { set; get; }
         /// <summary>
         /// Additional optional properties provided by attribute managers
         /// </summary>
