@@ -63,5 +63,16 @@ namespace BeforeOurTime.Models.Items.Attributes.Exits
         {
             return Description;
         }
+        /// <summary>
+        /// Copy all source properties into our properties
+        /// </summary>
+        /// <param name="source"></param>
+        public override void Copy(object source)
+        {
+            var exitAttribute = (ExitAttribute)source;
+            Name = exitAttribute.Name;
+            Description = exitAttribute.Description;
+            DestinationLocationId = exitAttribute.DestinationLocationId;
+        }
     }
 }
