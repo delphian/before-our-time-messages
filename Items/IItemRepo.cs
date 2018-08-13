@@ -63,12 +63,6 @@ namespace BeforeOurTime.Models.Items
         /// <returns></returns>
         List<Guid> GetDelegateImplementerIds(IDelegate scriptDelegate);
         /// <summary>
-        /// Read item and fully load all immediate children
-        /// </summary>
-        /// <param name="itemId">Unique item identifier</param>
-        /// <returns></returns>
-        Item ReadWithChildren(Guid itemId);
-        /// <summary>
         /// Get the item identifiers of all item's children
         /// </summary>
         /// <param name="itemId">Unique item identifier of potential parent</param>

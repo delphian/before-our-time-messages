@@ -17,10 +17,10 @@ namespace BeforeOurTime.Models.Messages.CRUD.Items.DeleteItem
         [JsonConverter(typeof(GuidJsonConverter))]
         public static Guid _Id = new Guid("0bebb17e-1742-4fe4-a3b9-61ec8c6c6771");
         /// <summary>
-        /// Unique item identifier of item to delete
+        /// List of unique item identifiers of items to delete
         /// </summary>
         [JsonConverter(typeof(GuidJsonConverter))]
-        public Guid ItemId { set; get; }
+        public List<Guid> ItemIds { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>

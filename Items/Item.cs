@@ -181,6 +181,16 @@ namespace BeforeOurTime.Models.Items
             return this.MemberwiseClone();
         }
         /// <summary>
+        /// Copy all source properties into our properties
+        /// </summary>
+        /// <param name="source"></param>
+        public override void Copy(object source)
+        {
+            var item = (Item)source;
+            ParentId = item.ParentId;
+            Parent = item.Parent;
+        }
+        /// <summary>
         /// Notify all subscribers that a property has been updated
         /// </summary>
         /// <param name="propertyName">Name of public property that has changed</param>
