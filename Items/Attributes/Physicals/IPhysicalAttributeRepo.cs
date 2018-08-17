@@ -10,7 +10,7 @@ namespace BeforeOurTime.Models.Items.Attributes.Physicals
     /// <summary>
     /// Central data repository for all physical attributes
     /// </summary>
-    public interface IAttributePhysicalRepo : IRepository<PhysicalAttribute>, IAttributeRepo<PhysicalAttribute>
+    public interface IPhysicalAttributeRepo : IRepository<PhysicalAttribute>, IAttributeRepo<PhysicalAttribute>
     {
     }
 }

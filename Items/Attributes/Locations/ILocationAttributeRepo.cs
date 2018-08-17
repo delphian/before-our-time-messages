@@ -9,7 +9,7 @@ namespace BeforeOurTime.Models.Items.Attributes.Locations
     /// <summary>
     /// Central data repository for all location items
     /// </summary>
-    public interface IAttributeLocationRepo : IAttributeRepo<LocationAttribute>
+    public interface ILocationAttributeRepo : IAttributeRepo<LocationAttribute>
     {
     }
 }

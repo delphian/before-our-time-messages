@@ -9,7 +9,7 @@ namespace BeforeOurTime.Models.Items.Attributes.Games
     /// <summary>
     /// Central data repository for all game items
     /// </summary>
-    public interface IAttributeGameRepo : IAttributeRepo<GameAttribute>
+    public interface IGameAttributeRepo : IAttributeRepo<GameAttribute>
     {
     }
 }

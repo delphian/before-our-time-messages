@@ -81,18 +81,18 @@ namespace BeforeOurTime.Models.Messages
             bool isOfType = (this.GetType() == typeof(T));
             if (!isOfType)
             {
-                isOfType = this is T;
+                isOfType = (this is T);
             }
             if (!isOfType)
             {
                 try
                 {
-                    Guid? messageId = (Guid?)typeof(T).GetField("_Id").GetValue(null);
+                    Guid? messageId = (Guid?)typeof(T)?.GetField("_Id")?.GetValue(null);
                     isOfType = (this.GetMessageId() == messageId);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    throw new MessageDefinitionInvalidException(typeof(T).ToString());
+                    throw new MessageDefinitionInvalidException(typeof(T).ToString() + ": " + e.Message);
                 }
             }
             return isOfType;

@@ -15,6 +15,7 @@ namespace BeforeOurTime.Models.Messages.Systems.Ping
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
+        [JsonConverter(typeof(GuidJsonConverter))]
         public static Guid _Id = new Guid("c113348e-9cc3-4eaf-abfe-a5d6152792f0");
         /// <summary>
         /// Constructor

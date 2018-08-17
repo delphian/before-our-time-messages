@@ -9,7 +9,7 @@ namespace BeforeOurTime.Models.Items.Attributes.Exits
     /// <summary>
     /// Central data repository for all exit items
     /// </summary>
-    public interface IAttributeExitRepo : IAttributeRepo<ExitAttribute>
+    public interface IExitAttributeRepo : IAttributeRepo<ExitAttribute>
     {
     }
 }
