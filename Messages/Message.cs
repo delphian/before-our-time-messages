@@ -1,5 +1,6 @@
 ﻿using BeforeOurTime.Models.Exceptions;
 using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Messages.Systems.Ping;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -29,29 +30,54 @@ namespace BeforeOurTime.Models.Messages
         [JsonProperty(PropertyName = "messageName", Order = 20)]
         public string MessageName { set; get; }
         /// <summary>
+        /// Errors encountered when mapping message guids to class types
+        /// </summary>
+        public static List<string> GuidDictionaryErrors { set; get; } = new List<string>();
+        /// <summary>
         /// Get dictionary map of message Guids to model Types
         /// </summary>
         /// <param name="reload"></param>
         /// <returns></returns>
         public static Dictionary<Guid, Type> GetMessageTypeDictionary(bool reload = false)
         {
-            if (MessageTypeDictionary == null || reload == true)
+            if (MessageTypeDictionary == null || MessageTypeDictionary.Count() == 0 || reload == true)
             {
                 MessageTypeDictionary = new Dictionary<Guid, Type>();
                 var interfaceType = typeof(IMessage);
-                AppDomain.CurrentDomain.GetAssemblies()
-                    .SelectMany(x => x.GetTypes())
-                    .Where(x => interfaceType.IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
-                    .ToList()
-                    .ForEach(x =>
-                    {
-                        var instance = (IMessage)Activator.CreateInstance(x);
-                        var messageId = instance.GetMessageId();
-                        if (messageId != Guid.Empty)
+                try
+                {
+                    var assemblyTypes = AppDomain.CurrentDomain.GetAssemblies()
+                        .SelectMany(x => x.GetTypes())
+                        .ToList();
+                    assemblyTypes?
+// Required because of UWP 'release' build runtime error when traversing GetAssemblies()
+                        //.Where(x => interfaceType.IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+                        //.ToList()
+                        .ForEach(x =>
                         {
-                            MessageTypeDictionary.Add(instance.GetMessageId(), x);
-                        }
-                    });
+                            try
+                            {
+// Required because of UWP 'release' build runtime error when traversing GetAssemblies()
+                                if (typeof(Message).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract) {
+                                    var instance = (IMessage)Activator.CreateInstance(x);
+                                    var messageId = instance.GetMessageId();
+                                    if (messageId != Guid.Empty)
+                                    {
+                                        MessageTypeDictionary.Add(instance.GetMessageId(), x);
+                                    }
+                                }
+                            }
+                            catch (Exception)
+                            {
+// Required because of UWP 'release' build runtime error when traversing GetAssemblies()
+                                GuidDictionaryErrors.Add($"{x.FullName}");
+                            }
+                        });
+                }
+                catch (Exception e)
+                {
+                    throw new BotMessageException($"Unable to register message definitions", e);
+                }
             }
             return MessageTypeDictionary;
         }
