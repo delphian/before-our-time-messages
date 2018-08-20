@@ -13,4 +13,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Messages\Locations\UpdateLocation\" />
+    <Folder Include="Messages\Requests\LocationAttributes\" />
+  </ItemGroup>
+
 </Project>

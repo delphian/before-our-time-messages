@@ -1,10 +1,11 @@
 ﻿using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Messages.Requests;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Requests.LocationAttributes
+namespace BeforeOurTime.Models.Messages.Locations.Locations.CreateLocation
 {
     public class CreateLocationQuickRequest : Request, IRequest
     {
