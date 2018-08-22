@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Messages\Locations\UpdateLocation\" />
-    <Folder Include="Messages\Requests\LocationAttributes\" />
   </ItemGroup>
 
 </Project>
