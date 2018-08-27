@@ -21,7 +21,7 @@ namespace BeforeOurTime.Models.Messages.CRUD.Items.ReadItemGraph
         /// </summary>
         [JsonConverter(typeof(GuidJsonConverter))]
         [JsonProperty(PropertyName = "itemId", Order = 100)]
-        public List<Guid> ItemId { set; get; }
+        public Guid? ItemId { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
