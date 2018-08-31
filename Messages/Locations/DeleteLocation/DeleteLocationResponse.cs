@@ -21,7 +21,7 @@ namespace BeforeOurTime.Models.Messages.Locations.DeleteLocation
         /// Event message for item creation
         /// </summary>
         [JsonProperty(PropertyName = "deleteItemEvents", Order = 1000)]
-        public List<DeleteItemEvent> DeleteItemEvents { set; get; }
+        public DeleteItemEvent DeleteItemEvent { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
