@@ -27,5 +27,14 @@ namespace BeforeOurTime.Models.Items.Attributes.Games
         {
             AttributeType = this.GetType().ToString();
         }
+        /// <summary>
+        /// Modify the item name before it is returned
+        /// </summary>
+        /// <param name="name">Previous name of item</param>
+        /// <returns></returns>
+        public override string GetName(string name)
+        {
+            return Name;
+        }
     }
 }
