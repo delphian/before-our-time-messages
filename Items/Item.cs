@@ -132,7 +132,7 @@ namespace BeforeOurTime.Models.Items
         [JsonConverter(typeof(ItemAttributeJsonConverter))]
         public List<ItemAttribute> Attributes = new List<ItemAttribute>();
         /// <summary>
-        /// Determin if item has attribute
+        /// Determine if item has attribute
         /// </summary>
         /// <returns></returns>
         public bool HasAttribute(Type attributeType)
@@ -194,7 +194,7 @@ namespace BeforeOurTime.Models.Items
         /// Notify all subscribers that a property has been updated
         /// </summary>
         /// <param name="propertyName">Name of public property that has changed</param>
-        private void NotifyPropertyChanged(String propertyName)
+        protected void NotifyPropertyChanged(String propertyName)
         {
             PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
         }

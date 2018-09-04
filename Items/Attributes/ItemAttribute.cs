@@ -38,6 +38,16 @@ namespace BeforeOurTime.Models.Items.Attributes
             return this.Item;
         }
         /// <summary>
+        /// Populate an item property value
+        /// </summary>
+        /// <param name="propertyName">Name of item property to populate with value</param>
+        /// <param name="previousValue">Value assigned to property by previous attribute</param>
+        /// <returns></returns>
+        public virtual object GetPropertyValue(string propertyName, object previousValue)
+        {
+            return previousValue;   
+        }
+        /// <summary>
         /// Modify the item name before it is returned
         /// </summary>
         /// <param name="name">Previous name of item</param>

@@ -1,16 +1,18 @@
 ﻿using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Messages.Responses.List;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Responses.List
+namespace BeforeOurTime.Models.Messages.Locations.ReadLocationSummary
 {
     /// <summary>
     /// Describe a location and enumerate essential properties
     /// </summary>
-    public class ListLocationResponse : Response, IResponse
+    public class ReadLocationSummaryResponse : Response, IResponse
     {
         /// <summary>
         /// Our unique message identifier
@@ -34,15 +36,15 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         [JsonProperty(PropertyName = "exits", Order = 1400)]
         public List<ListExitResponse> Exits = new List<ListExitResponse>();
         /// <summary>
-        /// Dumb object items at the location
-        /// </summary>
-        [JsonProperty(PropertyName = "objects", Order = 1450)]
-        public List<Item> Objects { set; get; } = new List<Item>();
-        /// <summary>
         /// Character items at the location
         /// </summary>
         [JsonProperty(PropertyName = "characters", Order = 1480)]
         public List<Item> Characters { set; get; } = new List<Item>();
+        /// <summary>
+        /// All items present at location
+        /// </summary>
+        [JsonProperty(PropertyName = "items", Order = 1490)]
+        public List<Item> Items { set; get; } = new List<Item>();
         /// <summary>
         /// Additional descrete textual adendums to the description
         /// </summary>
@@ -51,10 +53,10 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         /// <summary>
         /// Constructor
         /// </summary>
-        public ListLocationResponse()
+        public ReadLocationSummaryResponse()
         {
             this.MessageId = _Id;
-            this.MessageName = "List Location Response";
+            this.MessageName = "Read Location Summary Response";
         }
     }
 }

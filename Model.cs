@@ -14,11 +14,10 @@ namespace BeforeOurTime.Models
     /// </summary>
     public class Model : IModel
     {
-        private Guid _id { set; get; }
         /// <summary>
         /// Unique identifier
         /// </summary>
-        [JsonProperty(PropertyName = "id", Order = 10)]
+        [JsonProperty(PropertyName = "id", Order = 1)]
         [JsonConverter(typeof(GuidJsonConverter))]
         public Guid Id
         {
@@ -32,6 +31,7 @@ namespace BeforeOurTime.Models
                 return _id;
             }
         }
+        private Guid _id { set; get; }
         /// <summary>
         /// Compress and base64 encode a string
         /// </summary>
