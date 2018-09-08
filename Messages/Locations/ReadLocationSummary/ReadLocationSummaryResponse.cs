@@ -1,4 +1,6 @@
 ﻿using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Items.Characters;
+using BeforeOurTime.Models.Items.Locations;
 using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Messages.Responses.List;
@@ -24,7 +26,7 @@ namespace BeforeOurTime.Models.Messages.Locations.ReadLocationSummary
         /// Unique location item identifier
         /// </summary>
         [JsonProperty(PropertyName = "item", Order = 1000)]
-        public Item Item { set; get; }
+        public LocationItem Item { set; get; }
         /// <summary>
         /// Background image for location
         /// </summary>
@@ -39,7 +41,7 @@ namespace BeforeOurTime.Models.Messages.Locations.ReadLocationSummary
         /// Character items at the location
         /// </summary>
         [JsonProperty(PropertyName = "characters", Order = 1480)]
-        public List<Item> Characters { set; get; } = new List<Item>();
+        public List<CharacterItem> Characters { set; get; } = new List<CharacterItem>();
         /// <summary>
         /// All items present at location
         /// </summary>

@@ -57,12 +57,6 @@ namespace BeforeOurTime.Models.Items
         /// </remarks>
         event onItemDelete OnItemDelete;
         /// <summary>
-        /// Read all items that implement a script delegate
-        /// </summary>
-        /// <param name="scriptDelegate">A script function name, it's argument type, and return type</param>
-        /// <returns></returns>
-        List<Guid> GetDelegateImplementerIds(IDelegate scriptDelegate);
-        /// <summary>
         /// Get the item identifiers of all item's children
         /// </summary>
         /// <param name="itemId">Unique item identifier of potential parent</param>

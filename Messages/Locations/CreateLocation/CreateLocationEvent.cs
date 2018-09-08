@@ -1,4 +1,5 @@
 ﻿using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Items.Locations;
 using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Messages.Events;
 using Newtonsoft.Json;
@@ -23,7 +24,7 @@ namespace BeforeOurTime.Models.Messages.Locations.CreateLocation
         /// Item that has been created
         /// </summary>
         [JsonProperty(PropertyName = "item", Order = 1100)]
-        public Item Item { set; get; }
+        public LocationItem Item { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>

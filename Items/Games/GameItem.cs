@@ -1,16 +1,16 @@
-﻿using BeforeOurTime.Models.ItemProperties.Exit;
+﻿using BeforeOurTime.Models.ItemProperties.Game;
 using BeforeOurTime.Models.ItemProperties.Visible;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Exits
+namespace BeforeOurTime.Models.Items.Games
 {
     /// <summary>
-    /// A one way path from one item to another
+    /// Game wide definition and configurations
     /// </summary>
-    public class ExitItem : Item
+    public class GameItem : Item
     {
         /// <summary>
         /// Make an item visible
@@ -31,29 +31,28 @@ namespace BeforeOurTime.Models.Items.Exits
         }
         private VisibleProperty _visible { set; get; }
         /// <summary>
-        /// Movement between locations
+        /// Game wide definition and configurations
         /// </summary>
-        [JsonProperty(PropertyName = "exit", Order = 110)]
-        public ExitProperty Exit
+        public GameProperty Game
         {
-            set { _exit = value; NotifyPropertyChanged("Exit"); }
+            set { _game = value; NotifyPropertyChanged("Game"); }
             get
             {
-                var value = _exit;
+                var value = _game;
                 Attributes?.ForEach((attribute) =>
                 {
-                    value = attribute.GetProperty<ExitProperty>("Exit", value);
+                    value = attribute.GetProperty<GameProperty>("Game", value);
                 });
                 return value;
             }
         }
-        private ExitProperty _exit { set; get; }
+        private GameProperty _game { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public ExitItem()
+        public GameItem()
         {
-            Type = ItemType.Exit;
+            Type = ItemType.Game;
         }
     }
 }

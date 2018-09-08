@@ -12,7 +12,7 @@ namespace BeforeOurTime.Models
     /// <summary>
     /// All models inherit from this
     /// </summary>
-    public class Model : IModel
+    public abstract class Model : IModel
     {
         /// <summary>
         /// Unique identifier

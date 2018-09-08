@@ -1,5 +1,5 @@
 ﻿using BeforeOurTime.Models.Exceptions;
-using BeforeOurTime.Models.Items.Attributes;
+using BeforeOurTime.Models.ItemAttributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -22,7 +22,7 @@ namespace BeforeOurTime.Models.Json
                     var itemAttributeType = Type.GetType(itemAttributeTypeName);
                     if (itemAttributeType == null)
                     {
-                        throw new InvalidAttributeTypeException(itemAttributeTypeName);
+                        throw new InvalidAttributeTypeException($"Unable to locate class for item attribute type: {itemAttributeTypeName}");
                     }
                     var itemAttribute = (ItemAttribute)JsonConvert.DeserializeObject(attributeObj.ToString(), itemAttributeType);
                     itemAttributes.Add(itemAttribute);

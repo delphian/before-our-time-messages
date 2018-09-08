@@ -1,4 +1,5 @@
 ﻿using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Items.Exits;
 using BeforeOurTime.Models.Json;
 using Newtonsoft.Json;
 using System;
@@ -22,7 +23,7 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         /// Unique exit item identifier
         /// </summary>
         [JsonProperty(PropertyName = "item", Order = 1000)]
-        public Item Item { set; get; }
+        public ExitItem Item { set; get; }
         /// <summary>
         /// Name of the exit
         /// </summary>

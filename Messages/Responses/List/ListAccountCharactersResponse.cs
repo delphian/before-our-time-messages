@@ -1,4 +1,5 @@
 ﻿using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Items.Characters;
 using BeforeOurTime.Models.Json;
 using Newtonsoft.Json;
 using System;
@@ -22,7 +23,7 @@ namespace BeforeOurTime.Models.Messages.Responses.List
         /// These will be detached items (Db.Set.AsNoTracking()...)
         /// </remarks>
         [JsonProperty(PropertyName = "accountCharacters", Order = 1000)]
-        public List<Item> AccountCharacters { set; get; }
+        public List<CharacterItem> AccountCharacters { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>

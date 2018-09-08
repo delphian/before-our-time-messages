@@ -1,136 +1,66 @@
-﻿using BeforeOurTime.Models.Json;
-using BeforeOurTime.Models.Items.Attributes;
-using BeforeOurTime.Models.Scripts.Delegates;
+﻿using BeforeOurTime.Models.ItemAttributes;
+using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Primitives.Images;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.IO.Compression;
-using System.IO;
-using BeforeOurTime.Models.Primitives.Images;
 
 namespace BeforeOurTime.Models.Items
 {
     /// <summary>
-    /// Generic item
+    /// Core functionality and interface properties common to all items
     /// </summary>
-    public class Item : Model
+    /// <remarks>
+    /// Properties on all items should be considered a form of view model.
+    /// The attributes property contains the actual models persisted to
+    /// the data store and item specific logic which load values into
+    /// the item properties.
+    /// </remarks>
+    public class Item : Model, IModel, INotifyPropertyChanged
     {
         /// <summary>
         /// Structure that subscriber must implement to recieve property updates
         /// </summary>
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
-        /// Short (less than 3) word description of item
+        /// Type of item, conveying it's primary purpose
         /// </summary>
-        //[JsonProperty(PropertyName = "name", Order = 22)]
-        [JsonIgnore]
-        public string Name
+        [JsonProperty(PropertyName = "type", Order = 10)]
+        public ItemType Type
         {
-            get
-            {
-                string name = _name;
-                Attributes?.ForEach((attribute) =>
-                {
-                    name = attribute.GetName(name);
-                });
-                return name;
-            }
-            set { _name = value; NotifyPropertyChanged("Name"); }
+            set { _type = value; NotifyPropertyChanged("Type"); }
+            get { return _type; }
         }
-        private string _name { set; get; }
+        private ItemType _type { set; get; }
         /// <summary>
-        /// Long detailed description of item while in a generic state
-        /// </summary>
-        //[JsonProperty(PropertyName = "description", Order = 23)]
-        [JsonIgnore]
-        public string Description
-        {
-            get
-            {
-                string description = _description;
-                Attributes?.ForEach((attribute) =>
-                {
-                    description = attribute.GetDescription(description);
-                });
-                return description;
-            }
-            set { _description = value; NotifyPropertyChanged("Description"); }
-        }
-        private string _description { set; get; }
-        /// <summary>
-        /// Item image suitable for display as a small icon
-        /// </summary>
-        /// <remarks>
-        /// Image content will be provided by item attribute
-        /// </remarks>
-        [JsonIgnore]
-        public Image ImageIcon
-        {
-            get {
-                Image imageIcon = _imageIcon;
-                Attributes?.OrderBy(x => x.GetOrder()).ToList().ForEach((attribute) =>
-                {
-                    imageIcon = attribute.GetImageIcon(imageIcon);
-                });
-                return imageIcon;
-            }
-            set { _imageIcon = value; NotifyPropertyChanged("ImageIcon"); }
-        }
-        private Image _imageIcon { set; get; }
-        /// <summary>
-        /// NON unique pre-defined identifier that may be referenced by a third party
-        /// </summary>
-        /// <remarks>
-        /// Used to identity a type of item. There may be many spoons each with
-        /// their own unique Uuid. If any spoon will do, and they all share the
-        /// 'spoon' UuidType, then check against the item's UuidType instead of 
-        /// Uuid
-        /// </remarks>
-        [JsonProperty(PropertyName = "uuidType", Order = 30)]
-        [JsonConverter(typeof(GuidJsonConverter))]
-        public Guid UuidType { set; get; }
-        /// <summary>
-        /// Javascript that provides custom properties and their management
-        /// </summary>
-        [JsonProperty(PropertyName = "script", Order = 35)]
-        public string Script { set; get; }
-        /// <summary>
-        /// Delegates that an item script implements
-        /// </summary>
-        [JsonProperty(PropertyName = "delegateLinks", Order = 40)]
-        public List<ScriptDelegateItemLink> DelegateLinks { set; get; }
-        /// <summary>
-        /// Data bag for script to persist variables
-        /// </summary>
-        /// <remarks>
-        /// Probably, but not always, a monolothic JSON object
-        /// </remarks>
-        [JsonProperty(PropertyName = "data", Order = 45)]
-        public string Data { set; get; }
-        /// <summary>
-        /// Unique parent item identifier and navigation property
+        /// Parent item
         /// </summary>
         [JsonProperty(PropertyName = "parentId", Order = 50)]
         [JsonConverter(typeof(GuidJsonConverter))]
         public Guid? ParentId { set; get; }
         [JsonIgnore]
-        public virtual Item Parent { set; get; }
+        public Item Parent { set; get; }
         /// <summary>
-        /// Items contained by this item
+        /// List of children item ids
         /// </summary>
-        [JsonProperty(PropertyName = "childrenIds", Order = 52)]
-        [JsonConverter(typeof(GuidJsonConverter))]
+        [JsonProperty(PropertyName = "childrenIds", Order = 60)]
         public List<Guid> ChildrenIds { set; get; }
         [JsonIgnore]
-        public virtual List<Item> Children { set; get; }
+        public List<Item> Children { set; get; }
         /// <summary>
         /// Additional optional properties provided by attribute managers
         /// </summary>
-        [JsonProperty(PropertyName = "attributes", Order = 60)]
+        [JsonProperty(PropertyName = "attributes", Order = 10000)]
         [JsonConverter(typeof(ItemAttributeJsonConverter))]
-        public List<ItemAttribute> Attributes = new List<ItemAttribute>();
+        public List<ItemAttribute> Attributes
+        {
+            set { _attributes = value; NotifyPropertyChanged("Attributes"); }
+            get { return _attributes; }
+        }
+        private List<ItemAttribute> _attributes { set; get; } = new List<ItemAttribute>();
         /// <summary>
         /// Determine if item has attribute
         /// </summary>
@@ -173,30 +103,40 @@ namespace BeforeOurTime.Models.Items
             return (T)GetAttribute(typeof(T));
         }
         /// <summary>
-        /// Clone the item
+        /// Convert item to a derrived type
         /// </summary>
+        /// <typeparam name="T">Derrived item type</typeparam>
         /// <returns></returns>
-        public object Clone()
+        public T GetAsItem<T>() where T : Item, new()
         {
-            return this.MemberwiseClone();
+            var derrivedItem = new T
+            {
+                Attributes = Attributes,
+                Children = Children,
+                ChildrenIds = ChildrenIds,
+                Id = Id,
+                Parent = Parent,
+                ParentId = ParentId
+            };
+            return derrivedItem;
         }
         /// <summary>
-        /// Copy all source properties into our properties
+        /// Get a property by name
         /// </summary>
-        /// <param name="source"></param>
-        public override void Copy(object source)
+        /// <typeparam name="T"></typeparam>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public T GetProperty<T>(string propertyName)
         {
-            var item = (Item)source;
-            ParentId = item.ParentId;
-            Parent = item.Parent;
+            return (T)this.GetType().GetProperty(propertyName).GetValue(this, null);
         }
         /// <summary>
         /// Notify all subscribers that a property has been updated
         /// </summary>
         /// <param name="propertyName">Name of public property that has changed</param>
-        protected void NotifyPropertyChanged(String propertyName)
+        public void NotifyPropertyChanged(String propertyName)
         {
-            PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

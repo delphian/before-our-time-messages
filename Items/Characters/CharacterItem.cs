@@ -1,16 +1,16 @@
-﻿using BeforeOurTime.Models.ItemProperties.Exit;
+﻿using BeforeOurTime.Models.ItemProperties.Character;
 using BeforeOurTime.Models.ItemProperties.Visible;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Exits
+namespace BeforeOurTime.Models.Items.Characters
 {
     /// <summary>
-    /// A one way path from one item to another
+    /// An item with an animating force
     /// </summary>
-    public class ExitItem : Item
+    public class CharacterItem : Item
     {
         /// <summary>
         /// Make an item visible
@@ -31,29 +31,29 @@ namespace BeforeOurTime.Models.Items.Exits
         }
         private VisibleProperty _visible { set; get; }
         /// <summary>
-        /// Movement between locations
+        /// Properties describing an animating force
         /// </summary>
-        [JsonProperty(PropertyName = "exit", Order = 110)]
-        public ExitProperty Exit
+        [JsonProperty(PropertyName = "character", Order = 110)]
+        public CharacterProperty Character
         {
-            set { _exit = value; NotifyPropertyChanged("Exit"); }
+            set { _character = value; NotifyPropertyChanged("Character"); }
             get
             {
-                var value = _exit;
+                var value = _character;
                 Attributes?.ForEach((attribute) =>
                 {
-                    value = attribute.GetProperty<ExitProperty>("Exit", value);
+                    value = attribute.GetProperty<CharacterProperty>("Character", value);
                 });
                 return value;
             }
         }
-        private ExitProperty _exit { set; get; }
+        private CharacterProperty _character { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public ExitItem()
+        public CharacterItem()
         {
-            Type = ItemType.Exit;
+            Type = ItemType.Character;
         }
     }
 }
