@@ -3,6 +3,7 @@ using BeforeOurTime.Models.ItemProperties.Visible;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BeforeOurTime.Models.Items.Characters
@@ -10,7 +11,7 @@ namespace BeforeOurTime.Models.Items.Characters
     /// <summary>
     /// An item with an animating force
     /// </summary>
-    public class CharacterItem : Item
+    public class CharacterItem : Item, INotifyPropertyChanged
     {
         /// <summary>
         /// Make an item visible
@@ -22,10 +23,14 @@ namespace BeforeOurTime.Models.Items.Characters
             get
             {
                 var value = _visible;
-                Attributes?.ForEach((attribute) =>
+                if (value == null)
                 {
-                    value = attribute.GetProperty<VisibleProperty>("Visible", value);
-                });
+                    Attributes?.ForEach((attribute) =>
+                    {
+                        value = attribute.GetProperty<VisibleProperty>("Visible", value);
+                    });
+                    _visible = value;
+                }
                 return value;
             }
         }
@@ -40,10 +45,14 @@ namespace BeforeOurTime.Models.Items.Characters
             get
             {
                 var value = _character;
-                Attributes?.ForEach((attribute) =>
+                if (value == null)
                 {
-                    value = attribute.GetProperty<CharacterProperty>("Character", value);
-                });
+                    Attributes?.ForEach((attribute) =>
+                    {
+                        value = attribute.GetProperty<CharacterProperty>("Character", value);
+                    });
+                }
+                _character = value;
                 return value;
             }
         }

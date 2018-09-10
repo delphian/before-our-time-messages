@@ -35,5 +35,28 @@ namespace BeforeOurTime.Models.Primitives.Images
         /// </summary>
         [JsonProperty(PropertyName = "value", Order = 200)]
         public string Value { set; get; }
+        /// <summary>
+        /// Compare this object to another object of same type
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public bool Equals(Image obj)
+        {
+            if (obj == null)
+                return false;
+            return (Type == obj.Type) &&
+                   (Location == obj.Location) &&
+                   (Gzipped == obj.Gzipped) &&
+                   (Base64 == obj.Base64) &&
+                   (Value == obj.Value);
+        }
+        /// <summary>
+        /// Get hash
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return Value.GetHashCode() ^ Type.GetHashCode();
+        }
     }
 }

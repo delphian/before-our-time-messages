@@ -30,5 +30,25 @@ namespace BeforeOurTime.Models.ItemProperties.Character
             get { return _value; }
         }
         private int _value { set; get; }
+        /// <summary>
+        /// Compare this object to another object of same type
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public bool Equals(CharacterHealthProperty obj)
+        {
+            if (obj == null)
+                return false;
+            return (Max == obj.Max) &&
+                   (Value == obj.Value);
+        }
+        /// <summary>
+        /// Get hash
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return Max.GetHashCode() ^ Value.GetHashCode();
+        }
     }
 }

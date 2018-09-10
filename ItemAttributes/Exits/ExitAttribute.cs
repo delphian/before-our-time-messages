@@ -54,23 +54,20 @@ namespace BeforeOurTime.Models.ItemAttributes.Exits
         /// <param name="propertyName">Name of item property to populate with value</param>
         /// <param name="previousValue">Value assigned to property by previous attribute</param>
         /// <returns></returns>
-        public override T GetProperty<T>(string propertyName, T previousValue)
+        public override T GetProperty<T>(string propertyName, object previousValue)
         {
-            previousValue = previousValue ?? new T();
             if (typeof(T) == typeof(VisibleProperty))
             {
-                var value = (VisibleProperty)Convert.ChangeType(previousValue, typeof(VisibleProperty));
-                value.Name = Name;
-                value.Description = Description;
-                previousValue = (T)Convert.ChangeType(value, typeof(T));
+                previousValue = previousValue ?? new VisibleProperty();
+                ((VisibleProperty)previousValue).Name = Name;
+                ((VisibleProperty)previousValue).Description = Description;
             }
             if (typeof(T) == typeof(ExitProperty))
             {
-                var value = (ExitProperty)Convert.ChangeType(previousValue, typeof(ExitProperty));
-                value.DestinationId = DestinationLocationId.ToString();
-                previousValue = (T)Convert.ChangeType(value, typeof(T));
+                previousValue = previousValue ?? new ExitProperty();
+                ((ExitProperty)previousValue).DestinationId = DestinationLocationId.ToString();
             }
-            return previousValue;
+            return (T)previousValue;
         }
         /// <summary>
         /// Copy all source properties into our properties

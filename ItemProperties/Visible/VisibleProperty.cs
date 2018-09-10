@@ -41,5 +41,26 @@ namespace BeforeOurTime.Models.ItemProperties.Visible
             get { return _icon; }
         }
         private Image _icon { set; get; }
+        /// <summary>
+        /// Compare this object to another object of same type
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public bool Equals(VisibleProperty obj)
+        {
+            if (obj == null)
+                return false;
+            return (Name == obj.Name) && 
+                   (Description == obj.Description) &&
+                   (Icon == obj.Icon);
+        }
+        /// <summary>
+        /// Get hash
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode() ^ Description.GetHashCode();
+        }
     }
 }

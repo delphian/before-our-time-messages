@@ -40,5 +40,26 @@ namespace BeforeOurTime.Models.ItemProperties.Exit
             get { return _time; }
         }
         private int _time;
+        /// <summary>
+        /// Compare this object to another object of same type
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public bool Equals(ExitProperty obj)
+        {
+            if (obj == null)
+                return false;
+            return (DestinationId == obj.DestinationId) &&
+                   (Effort == obj.Effort) &&
+                   (Time == obj.Time);
+        }
+        /// <summary>
+        /// Get hash
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return DestinationId.GetHashCode();
+        }
     }
 }

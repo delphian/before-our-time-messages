@@ -33,19 +33,16 @@ namespace BeforeOurTime.Models.ItemAttributes.Characters
         /// <param name="propertyName">Name of item property to populate with value</param>
         /// <param name="previousValue">Value assigned to property by previous attribute</param>
         /// <returns></returns>
-        public override T GetProperty<T>(string propertyName, T previousValue)
+        public override T GetProperty<T>(string propertyName, object previousValue)
         {
-            previousValue = previousValue ?? new T();
             if (typeof(T) == typeof(CharacterProperty))
             {
-                var value = (CharacterProperty)Convert.ChangeType(previousValue, typeof(CharacterProperty));
-                value.Health = new CharacterHealthProperty() {
-                    Max = Health?.Max ?? 0,
-                    Value = Health?.Value ?? 0
-                };
-                previousValue = (T)Convert.ChangeType(value, typeof(T));
+                previousValue = previousValue ?? new CharacterProperty();
+                ((CharacterProperty)previousValue).Health = ((CharacterProperty)previousValue).Health ?? new CharacterHealthProperty();
+                ((CharacterProperty)previousValue).Health.Max = Health?.Max ?? 0;
+                ((CharacterProperty)previousValue).Health.Value = Health?.Value ?? 0;
             }
-            return previousValue;
+            return (T)previousValue;
         }
     }
 }

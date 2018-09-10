@@ -24,7 +24,7 @@ namespace BeforeOurTime.Models.ItemAttributes
         /// <param name="propertyName">Name of item property to populate with value</param>
         /// <param name="previousValue">Value assigned to property by previous attribute</param>
         /// <returns></returns>
-        T GetProperty<T>(string propertyName, T previousValue) where T : ItemProperty, new();
+        T GetProperty<T>(string propertyName, object previousValue) where T : ItemProperty, new();
         /// <summary>
         /// Get priority order of attribute in comparison to other attributes
         /// </summary>

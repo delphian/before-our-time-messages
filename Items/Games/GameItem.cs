@@ -22,10 +22,14 @@ namespace BeforeOurTime.Models.Items.Games
             get
             {
                 var value = _visible;
-                Attributes?.ForEach((attribute) =>
+                if (value != null)
                 {
-                    value = attribute.GetProperty<VisibleProperty>("Visible", value);
-                });
+                    Attributes?.ForEach((attribute) =>
+                    {
+                        value = attribute.GetProperty<VisibleProperty>("Visible", value);
+                    });
+                    _visible = value;
+                }
                 return value;
             }
         }
@@ -39,10 +43,14 @@ namespace BeforeOurTime.Models.Items.Games
             get
             {
                 var value = _game;
-                Attributes?.ForEach((attribute) =>
+                if (value == null)
                 {
-                    value = attribute.GetProperty<GameProperty>("Game", value);
-                });
+                    Attributes?.ForEach((attribute) =>
+                    {
+                        value = attribute.GetProperty<GameProperty>("Game", value);
+                    });
+                    _game = value;
+                }
                 return value;
             }
         }

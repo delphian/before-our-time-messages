@@ -19,5 +19,24 @@ namespace BeforeOurTime.Models.ItemProperties.Character
             get { return _health; }
         }
         private CharacterHealthProperty _health { set; get; }
+        /// <summary>
+        /// Compare this object to another object of same type
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public bool Equals(CharacterProperty obj)
+        {
+            if (obj == null)
+                return false;
+            return (Health == obj.Health);
+        }
+        /// <summary>
+        /// Get hash
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return Health.GetHashCode();
+        }
     }
 }

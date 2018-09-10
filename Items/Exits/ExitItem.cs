@@ -22,10 +22,14 @@ namespace BeforeOurTime.Models.Items.Exits
             get
             {
                 var value = _visible;
-                Attributes?.ForEach((attribute) =>
+                if (value != null)
                 {
-                    value = attribute.GetProperty<VisibleProperty>("Visible", value);
-                });
+                    Attributes?.ForEach((attribute) =>
+                    {
+                        value = attribute.GetProperty<VisibleProperty>("Visible", value);
+                    });
+                    _visible = value;
+                }
                 return value;
             }
         }
@@ -40,10 +44,14 @@ namespace BeforeOurTime.Models.Items.Exits
             get
             {
                 var value = _exit;
-                Attributes?.ForEach((attribute) =>
+                if (value == null)
                 {
-                    value = attribute.GetProperty<ExitProperty>("Exit", value);
-                });
+                    Attributes?.ForEach((attribute) =>
+                    {
+                        value = attribute.GetProperty<ExitProperty>("Exit", value);
+                    });
+                    _exit = value;
+                }
                 return value;
             }
         }

@@ -21,10 +21,14 @@ namespace BeforeOurTime.Models.Items.Locations
             get
             {
                 var value = _visible;
-                Attributes?.ForEach((attribute) =>
+                if (value == null)
                 {
-                    value = attribute.GetProperty<VisibleProperty>("Visible", value);
-                });
+                    Attributes?.ForEach((attribute) =>
+                    {
+                        value = attribute.GetProperty<VisibleProperty>("Visible", value);
+                    });
+                    _visible = value;
+                }
                 return value;
             }
         }

@@ -47,9 +47,9 @@ namespace BeforeOurTime.Models.ItemAttributes
         /// <param name="propertyName">Name of item property to populate with value</param>
         /// <param name="previousValue">Value assigned to property by previous attribute</param>
         /// <returns></returns>
-        public virtual T GetProperty<T>(string propertyName, T previousValue) where T : ItemProperty, new()
+        public virtual T GetProperty<T>(string propertyName, object previousValue) where T : ItemProperty, new()
         {
-            return previousValue;   
+            return (T)previousValue;   
         }
         /// <summary>
         /// Modify the item name before it is returned

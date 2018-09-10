@@ -36,23 +36,19 @@ namespace BeforeOurTime.Models.ItemAttributes.Games
         /// <param name="propertyName">Name of item property to populate with value</param>
         /// <param name="previousValue">Value assigned to property by previous attribute</param>
         /// <returns></returns>
-        public override T GetProperty<T>(string propertyName, T previousValue)
+        public override T GetProperty<T>(string propertyName, object previousValue)
         {
-            previousValue = previousValue ?? new T();
             if (typeof(T) == typeof(VisibleProperty))
             {
-                var value = (VisibleProperty)Convert.ChangeType(previousValue, typeof(VisibleProperty));
-                value.Name = Name;
-                value.Description = null;
-                previousValue = (T)Convert.ChangeType(value, typeof(T));
+                previousValue = previousValue ?? new VisibleProperty();
+                ((VisibleProperty)previousValue).Name = Name;
             }
             if (typeof(T) == typeof(GameProperty))
             {
-                var value = (GameProperty)Convert.ChangeType(previousValue, typeof(GameProperty));
-                value.DefaultLocationId = DefaultLocationId.ToString();
-                previousValue = (T)Convert.ChangeType(value, typeof(T));
+                previousValue = previousValue ?? new GameProperty();
+                ((GameProperty)previousValue).DefaultLocationId = DefaultLocationId?.ToString();
             }
-            return previousValue;
+            return (T)previousValue;
         }
     }
 }
