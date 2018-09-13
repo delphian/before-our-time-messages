@@ -74,6 +74,22 @@ namespace BeforeOurTime.Models.Items
         }
         private List<IData> _data { set; get; } = new List<IData>();
         /// <summary>
+        /// Determine if item has data
+        /// </summary>
+        /// <returns></returns>
+        public bool HasData(Type dataType)
+        {
+            return Data.Any(x => x.GetType() == dataType);
+        }
+        /// <summary>
+        /// Determin if item has data
+        /// </summary>
+        /// <returns></returns>
+        public bool HasData<T>()
+        {
+            return HasData(typeof(T));
+        }
+        /// <summary>
         /// Determine if item has attribute
         /// </summary>
         /// <returns></returns>
