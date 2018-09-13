@@ -1,4 +1,5 @@
-﻿using BeforeOurTime.Models.ItemAttributes;
+﻿using BeforeOurTime.Business.Models;
+using BeforeOurTime.Models.ItemAttributes;
 using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Primitives.Images;
 using Newtonsoft.Json;
@@ -62,6 +63,17 @@ namespace BeforeOurTime.Models.Items
         }
         private List<ItemAttribute> _attributes { set; get; } = new List<ItemAttribute>();
         /// <summary>
+        /// Additional optional properties provided by attribute managers
+        /// </summary>
+        [JsonProperty(PropertyName = "data", Order = 11000)]
+        [JsonConverter(typeof(ItemDataJsonConverter))]
+        public List<IData> Data
+        {
+            set { _data = value; NotifyPropertyChanged("Data"); }
+            get { return _data; }
+        }
+        private List<IData> _data { set; get; } = new List<IData>();
+        /// <summary>
         /// Determine if item has attribute
         /// </summary>
         /// <returns></returns>
@@ -101,6 +113,25 @@ namespace BeforeOurTime.Models.Items
         public T GetAttribute<T>()
         {
             return (T)GetAttribute(typeof(T));
+        }
+        /// <summary>
+        /// Get data from the item
+        /// </summary>
+        /// <param name="dataType"></param>
+        /// <returns></returns>
+        public object GetData(Type dataType)
+        {
+            var data = Data.Where(x => x.GetType() == dataType).FirstOrDefault();
+            return Convert.ChangeType(data, dataType);
+        }
+        /// <summary>
+        /// Get data from the item
+        /// </summary>
+        /// <param name="dataType"></param>
+        /// <returns></returns>
+        public T GetData<T>()
+        {
+            return (T)GetData(typeof(T));
         }
         /// <summary>
         /// Convert item to a derrived type
