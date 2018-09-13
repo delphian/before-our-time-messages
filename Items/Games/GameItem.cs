@@ -22,11 +22,15 @@ namespace BeforeOurTime.Models.Items.Games
             get
             {
                 var value = _visible;
-                if (value != null)
+                if (value == null)
                 {
                     Attributes?.ForEach((attribute) =>
                     {
                         value = attribute.GetProperty<VisibleProperty>("Visible", value);
+                    });
+                    Data?.ForEach((data) =>
+                    {
+                        value = data.GetProperty<VisibleProperty>("Visible", value);
                     });
                     _visible = value;
                 }
@@ -37,6 +41,7 @@ namespace BeforeOurTime.Models.Items.Games
         /// <summary>
         /// Game wide definition and configurations
         /// </summary>
+        [JsonProperty(PropertyName = "game", Order = 110)]
         public GameProperty Game
         {
             set { _game = value; NotifyPropertyChanged("Game"); }
@@ -48,6 +53,10 @@ namespace BeforeOurTime.Models.Items.Games
                     Attributes?.ForEach((attribute) =>
                     {
                         value = attribute.GetProperty<GameProperty>("Game", value);
+                    });
+                    Data?.ForEach((data) =>
+                    {
+                        value = data.GetProperty<GameProperty>("Game", value);
                     });
                     _game = value;
                 }

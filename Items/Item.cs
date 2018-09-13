@@ -1,5 +1,6 @@
 ﻿using BeforeOurTime.Business.Models;
 using BeforeOurTime.Models.ItemAttributes;
+using BeforeOurTime.Models.ItemProperties;
 using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Primitives.Images;
 using Newtonsoft.Json;
@@ -158,6 +159,7 @@ namespace BeforeOurTime.Models.Items
         {
             var derrivedItem = new T
             {
+                Data = Data,
                 Attributes = Attributes,
                 Children = Children,
                 ChildrenIds = ChildrenIds,
@@ -173,9 +175,23 @@ namespace BeforeOurTime.Models.Items
         /// <typeparam name="T"></typeparam>
         /// <param name="propertyName"></param>
         /// <returns></returns>
-        public T GetProperty<T>(string propertyName)
+        public T GetProperty<T>(string propertyName) where T : ItemProperty, new()
         {
-            return (T)this.GetType().GetProperty(propertyName).GetValue(this, null);
+            // Allow item subclasses to fill their properties first
+            var value = this.GetType().GetProperty(propertyName)?.GetValue(this, null);
+            if (value == null)
+            {
+                // If we are running on the superclass then get values directly from data
+                Attributes?.ForEach((attribute) =>
+                {
+                    value = attribute.GetProperty<T>(propertyName, value);
+                });
+                Data?.ForEach((data) =>
+                {
+                    value = data.GetProperty<T>(propertyName, value);
+                });
+            }
+            return (T)value;
         }
         /// <summary>
         /// Notify all subscribers that a property has been updated
