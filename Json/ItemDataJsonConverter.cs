@@ -16,7 +16,7 @@ namespace BeforeOurTime.Models.Json
             JToken token = JToken.Load(reader);
             if (token.Type == JTokenType.Array)
             {
-                List<IData> itemData = new List<IData>();
+                List<IItemData> itemData = new List<IItemData>();
                 foreach(JToken attributeObj in token)
                 {
                     var itemDataTypeName = attributeObj["dataType"].ToString();
@@ -25,7 +25,7 @@ namespace BeforeOurTime.Models.Json
                     {
                         throw new InvalidAttributeTypeException($"Unable to locate class for item data type: {itemDataTypeName}");
                     }
-                    var data = (IData)JsonConvert.DeserializeObject(attributeObj.ToString(), itemDataType);
+                    var data = (IItemData)JsonConvert.DeserializeObject(attributeObj.ToString(), itemDataType);
                     itemData.Add(data);
                 }
                 return itemData;

@@ -10,7 +10,7 @@ namespace BeforeOurTime.Business.Models
     /// <summary>
     /// Additional information wrapping, but based on an item's type
     /// </summary>
-    public interface IData
+    public interface IItemData
     {
         /// <summary>
         /// Populate an item property value

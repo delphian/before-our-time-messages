@@ -68,12 +68,12 @@ namespace BeforeOurTime.Models.Items
         /// </summary>
         [JsonProperty(PropertyName = "data", Order = 11000)]
         [JsonConverter(typeof(ItemDataJsonConverter))]
-        public List<IData> Data
+        public List<IItemData> Data
         {
             set { _data = value; NotifyPropertyChanged("Data"); }
             get { return _data; }
         }
-        private List<IData> _data { set; get; } = new List<IData>();
+        private List<IItemData> _data { set; get; } = new List<IItemData>();
         /// <summary>
         /// Determine if item has data
         /// </summary>
