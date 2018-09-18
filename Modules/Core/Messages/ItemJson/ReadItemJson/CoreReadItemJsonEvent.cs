@@ -1,13 +1,13 @@
 ﻿using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Messages.Events;
-using BeforeOurTime.Models.Modules.Core.Messages.ReadItemJson;
+using BeforeOurTime.Models.Modules.Core.Messages.ItemJson;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.Core.Messages.ReadItemJson
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemJson.ReadItemJson
 {
     /// <summary>
     /// Item JSON has been read

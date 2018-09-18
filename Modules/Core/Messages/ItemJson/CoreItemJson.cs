@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.Core.Messages.ReadItemJson
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemJson
 {
     /// <summary>
     /// A unique item identifier and it's corrisponding JSON encoding

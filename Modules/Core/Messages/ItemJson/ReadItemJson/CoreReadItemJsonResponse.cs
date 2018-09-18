@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.Core.Messages.ReadItemJson
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemJson.ReadItemJson
 {
     public class CoreReadItemJsonResponse : Response, IResponse
     {
