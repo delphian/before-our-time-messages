@@ -8,7 +8,7 @@ using System.Text;
 
 namespace BeforeOurTime.Models.Messages.CRUD.Items.CreateItem
 {
-    public class CreateItemRequest : Request, IRequest
+    public class ReadItemJsonRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
@@ -23,7 +23,7 @@ namespace BeforeOurTime.Models.Messages.CRUD.Items.CreateItem
         /// <summary>
         /// Constructor
         /// </summary>
-        public CreateItemRequest()
+        public ReadItemJsonRequest()
         {
             this.MessageId = _Id;
             this.MessageName = "Create Item Request";

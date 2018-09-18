@@ -25,7 +25,7 @@ namespace BeforeOurTime.Models.Messages.Responses
         /// </summary>
         /// <returns></returns>
         [JsonProperty(PropertyName = "_responseSuccess", Order = 110)]
-        public bool _responseSuccess { set; get; }
+        public bool _responseSuccess { set; get; } = false;
         /// <summary>
         /// Message explaining success or failure
         /// </summary>
