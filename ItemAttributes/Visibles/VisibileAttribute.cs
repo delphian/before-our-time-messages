@@ -1,4 +1,4 @@
-﻿using BeforeOurTime.Models.ItemProperties.Visible;
+﻿using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using BeforeOurTime.Models.Primitives.Images;
 using Newtonsoft.Json;
 using System;

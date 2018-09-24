@@ -1,6 +1,4 @@
-﻿using BeforeOurTime.Models.ItemAttributes;
-using BeforeOurTime.Models.ItemAttributes.Exits;
-using BeforeOurTime.Models.ItemAttributes.Locations;
+﻿using BeforeOurTime.Models.Modules.Core.Models.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,11 +13,11 @@ namespace BeforeOurTime.Models.ItemAttributes.Exits
         /// <summary>
         /// Read all exit attributes that target the same destination
         /// </summary>
-        /// <param name="locationAttribute">Location that is the destination</param>
+        /// <param name="locationData">Location that is the destination</param>
         /// <param name="options">Options to customize how data is transacted from datastore</param>
         /// <returns></returns>
         List<ExitAttribute> ReadWithDestination(
-            LocationAttribute locationAttribute,
+            LocationData locationData,
             TransactionOptions options = null);
     }
 }

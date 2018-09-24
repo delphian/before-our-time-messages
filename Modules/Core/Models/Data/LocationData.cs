@@ -1,15 +1,15 @@
-﻿using BeforeOurTime.Models.ItemProperties.Visible;
+﻿using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.ItemAttributes.Locations
+namespace BeforeOurTime.Models.Modules.Core.Models.Data
 {
     /// <summary>
     /// A physical, common area of influence
     /// </summary>
-    public class LocationAttribute : ItemAttribute, IItemAttribute
+    public class LocationData : ItemData, IItemData
     {
         /// <summary>
         /// Short description of location
@@ -24,9 +24,9 @@ namespace BeforeOurTime.Models.ItemAttributes.Locations
         /// <summary>
         /// Constructor
         /// </summary>
-        public LocationAttribute()
+        public LocationData()
         {
-            AttributeType = this.GetType().ToString();
+            DataType = this.GetType().ToString();
         }
         /// <summary>
         /// Populate an item property value
@@ -44,16 +44,6 @@ namespace BeforeOurTime.Models.ItemAttributes.Locations
                 ((VisibleProperty)previousValue).Description = Description;
             }
             return (T)previousValue;
-        }
-        /// <summary>
-        /// Copy all source properties into our properties
-        /// </summary>
-        /// <param name="source"></param>
-        public override void Copy(object source)
-        {
-            var locationAttribute = (LocationAttribute)source;
-            Name = locationAttribute.Name;
-            Description = locationAttribute.Description;
         }
     }
 }

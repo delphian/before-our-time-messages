@@ -1,6 +1,6 @@
-﻿using BeforeOurTime.Models.ItemAttributes.Locations;
-using BeforeOurTime.Models.ItemProperties.Exit;
-using BeforeOurTime.Models.ItemProperties.Visible;
+﻿using BeforeOurTime.Models.ItemProperties.Exit;
+using BeforeOurTime.Models.Modules.Core.Models.Data;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -29,7 +29,7 @@ namespace BeforeOurTime.Models.ItemAttributes.Exits
         [JsonProperty(PropertyName = "destinationLocationId", Order = 30)]
         public Guid DestinationLocationId { set; get; }
         [JsonIgnore]
-        public virtual LocationAttribute DestinationLocation { set; get; }
+        public virtual LocationData DestinationLocation { set; get; }
         /// <summary>
         /// Time in seconds journey will consume
         /// </summary>

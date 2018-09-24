@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BeforeOurTime.Business.Models;
+using BeforeOurTime.Models.Modules.Core.Models.Data;
 
 namespace BeforeOurTime.Models.Managers
 {
@@ -29,6 +29,23 @@ namespace BeforeOurTime.Models.Managers
         {
             ItemRepo = itemRepo;
             CrudDataRepository = crudDataRepository;
+        }
+        /// <summary>
+        /// Get all repositories declared by manager
+        /// </summary>
+        /// <returns></returns>
+        public ICrudDataRepository GetRepository()
+        {
+            return (ICrudDataRepository)CrudDataRepository;
+        }
+        /// <summary>
+        /// Get repository as interface
+        /// </summary>
+        /// <typeparam name="T2"></typeparam>
+        /// <returns></returns>
+        public T2 GetRepository<T2>() where T2 : IDataRepository
+        {
+            return (T2)CrudDataRepository;
         }
         /// <summary>
         /// Create multiple attributes
@@ -185,6 +202,19 @@ namespace BeforeOurTime.Models.Managers
         public bool IsManaging(Type attributeType)
         {
             return attributeType == typeof(T);
+        }
+        /// <summary>
+        /// Determine if an item has attributes that may be managed
+        /// </summary>
+        /// <param name="item">Item that may posses attributes</param>
+        public bool IsManaging(Item item)
+        {
+            var managed = false;
+            if (item.GetData<T>() != null)
+            {
+                managed = true;
+            }
+            return managed;
         }
         /// <summary>
         /// Attach new attributes to an existing item

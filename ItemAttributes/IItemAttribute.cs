@@ -4,6 +4,7 @@ using BeforeOurTime.Models.Primitives.Images;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 
 namespace BeforeOurTime.Models.ItemAttributes
 {

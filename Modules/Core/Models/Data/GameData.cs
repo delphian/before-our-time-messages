@@ -1,7 +1,5 @@
-﻿using BeforeOurTime.Business.Models;
-using BeforeOurTime.Models.ItemProperties.Game;
-using BeforeOurTime.Models.ItemProperties.Visible;
-using BeforeOurTime.Models.Items;
+﻿using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

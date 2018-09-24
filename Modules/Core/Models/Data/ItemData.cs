@@ -8,8 +8,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using BeforeOurTime.Models;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 
-namespace BeforeOurTime.Models.Items
+namespace BeforeOurTime.Models.Modules.Core.Models.Data
 {
     /// <summary>
     /// Additional information wrapping, but based on an item's type

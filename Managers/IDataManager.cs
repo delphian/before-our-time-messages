@@ -1,5 +1,6 @@
 ﻿using BeforeOurTime.Models;
 using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Modules.Core.Models.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,11 +28,23 @@ namespace BeforeOurTime.Models.Managers
         /// <param name="attributeType"></param>
         /// <returns></returns>
         bool IsManaging(Type attributeType);
+        /// <summary>
+        /// Get all repositories declared by manager
+        /// </summary>
+        /// <returns></returns>
+        ICrudDataRepository GetRepository();
+        /// <summary>
+        /// Get repository as interface
+        /// </summary>
+        /// <typeparam name="T2"></typeparam>
+        /// <returns></returns>
+        TRepo GetRepository<TRepo>() where TRepo : IDataRepository;
+
     }
     /// <summary>
     /// Manage details of an item's extended data
     /// </summary>
-    public interface IDataManager<T> : ICrudDataRepository<T> where T : ItemData
+    public interface IDataManager<T> : IDataManager, ICrudDataRepository<T> where T : ItemData
     {
         /// <summary>
         /// Create many models with base item

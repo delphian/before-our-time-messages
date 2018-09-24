@@ -2,7 +2,6 @@
 using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.ItemAttributes;
 using BeforeOurTime.Models.ItemAttributes.Characters;
-using BeforeOurTime.Models.ItemAttributes.Locations;
 using BeforeOurTime.Models.ItemAttributes.Physicals;
 using BeforeOurTime.Models.ItemAttributes.Players;
 using BeforeOurTime.Models.Items.Players;

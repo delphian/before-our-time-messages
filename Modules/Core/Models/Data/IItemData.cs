@@ -4,8 +4,9 @@ using BeforeOurTime.Models.Primitives.Images;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 
-namespace BeforeOurTime.Business.Models
+namespace BeforeOurTime.Models.Modules.Core.Models.Data
 {
     /// <summary>
     /// Additional information wrapping, but based on an item's type

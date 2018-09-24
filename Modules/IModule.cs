@@ -1,6 +1,7 @@
 ﻿using BeforeOurTime.Business.Apis;
 using BeforeOurTime.Business.Apis.Terminals;
 using BeforeOurTime.Models.Apis;
+using BeforeOurTime.Models.Managers;
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Terminals;
@@ -17,6 +18,17 @@ namespace BeforeOurTime.Models.Modules
         /// </summary>
         /// <returns></returns>
         List<ICrudDataRepository> GetRepositories();
+        /// <summary>
+        /// Get item managers declared by the module
+        /// </summary>
+        /// <returns></returns>
+        List<IDataManager> GetManagers();
+        /// <summary>
+        /// Get item manager of specified type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        T GetManager<T>();
         /// <summary>
         /// Get message identifiers of messages handled by module
         /// </summary>

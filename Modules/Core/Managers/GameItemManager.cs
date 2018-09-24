@@ -11,20 +11,34 @@ using BeforeOurTime.Models.Managers;
 
 namespace BeforeOurTime.Models.Modules.Core.Managers
 {
-    public class GameDataManager : DataManager<GameData>, IGameDataManager
+    public class GameItemManager : DataManager<GameData>, IGameItemManager
     {
         private IGameDataRepo GameDataRepo { set; get; }
-        private IItemManager ItemManager { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public GameDataManager(
+        public GameItemManager(
             IItemRepo itemRepo,
-            IGameDataRepo gameDataRepo,
-            IItemManager itemManager) : base(itemRepo, gameDataRepo)
+            IGameDataRepo gameDataRepo) : base(itemRepo, gameDataRepo)
         {
             GameDataRepo = gameDataRepo;
-            ItemManager = itemManager;
+        }
+        /// <summary>
+        /// Get all repositories declared by manager
+        /// </summary>
+        /// <returns></returns>
+        public ICrudDataRepository GetRepository()
+        {
+            return GameDataRepo;
+        }
+        /// <summary>
+        /// Get repository as interface
+        /// </summary>
+        /// <typeparam name="TRepo"></typeparam>
+        /// <returns></returns>
+        public TRepo GetRepository<TRepo>() where TRepo : IDataRepository
+        {
+            return (TRepo)GameDataRepo;
         }
         /// <summary>
         /// Determine if an item has attributes that may be managed

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace BeforeOurTime.Models.ItemProperties
+namespace BeforeOurTime.Models.Modules.Core.Models.Properties
 {
     /// <summary>
     /// Collections of related information used as item properties

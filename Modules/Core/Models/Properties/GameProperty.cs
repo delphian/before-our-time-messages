@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.ItemProperties.Game
+namespace BeforeOurTime.Models.Modules.Core.Models.Properties
 {
     /// <summary>
     /// Game wide definition and configurations

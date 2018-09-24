@@ -13,7 +13,7 @@ namespace BeforeOurTime.Models.Modules.Core.Dbs
     public interface IGameDataRepo : ICrudDataRepository, ICrudDataRepository<GameData>
     {
         /// <summary>
-        /// Read associated game attributes of item
+        /// Read associated game data of item
         /// </summary>
         /// <param name="item">Item that may have associated attributes</param>
         /// <param name="options">Options to customize how data is transacted from datastore</param>

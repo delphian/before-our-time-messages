@@ -1,9 +1,9 @@
 ﻿using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.Items.Characters;
-using BeforeOurTime.Models.Items.Locations;
 using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Messages.Responses.List;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

@@ -1,10 +1,11 @@
-﻿using BeforeOurTime.Models.ItemProperties.Visible;
+﻿using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Locations
+namespace BeforeOurTime.Models.Modules.Core.Models.Items
 {
     /// <summary>
     /// A localized area

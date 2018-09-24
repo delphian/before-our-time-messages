@@ -1,5 +1,5 @@
 ﻿using BeforeOurTime.Models.ItemProperties.Exit;
-using BeforeOurTime.Models.ItemProperties.Visible;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

@@ -1,11 +1,11 @@
-﻿using BeforeOurTime.Models.ItemProperties.Game;
-using BeforeOurTime.Models.ItemProperties.Visible;
+﻿using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Games
+namespace BeforeOurTime.Models.Modules.Core.Models.Items
 {
     /// <summary>
     /// Game wide definition and configurations

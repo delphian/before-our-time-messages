@@ -6,7 +6,7 @@ using BeforeOurTime.Models.Modules.Core.Models.Data;
 
 namespace BeforeOurTime.Models.Modules.Core.Managers
 {
-    public interface IGameDataManager : IDataManager, IDataManager<GameData>
+    public interface IGameItemManager : IDataManager, IDataManager<GameData>
     {
         /// <summary>
         /// Update games's default location
