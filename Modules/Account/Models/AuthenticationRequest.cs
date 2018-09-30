@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Accounts.Authentication
+namespace BeforeOurTime.Models.Modules.Account.Models
 {
     /// <summary>
     /// User credentials that may be used for an authentication request

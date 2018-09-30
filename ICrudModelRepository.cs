@@ -8,14 +8,14 @@ namespace BeforeOurTime.Models
     /// <summary>
     /// CRUD Data store operations
     /// </summary>
-    public interface ICrudDataRepository
+    public interface ICrudModelRepository : IModelRepository
     {
     }
     /// <summary>
     /// CRUD Data store operations for a specified data type
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface ICrudDataRepository<T> : IDataRepository where T : Model
+    public interface ICrudModelRepository<T> : ICrudModelRepository where T : Model
     {
         /// <summary>
         /// Create multiple models

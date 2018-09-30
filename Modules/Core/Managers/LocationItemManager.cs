@@ -1,18 +1,16 @@
-﻿using BeforeOurTime.Business.Apis.Items.Attributes.Exits;
-using BeforeOurTime.Models.Items;
+﻿using BeforeOurTime.Models.Items;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using BeforeOurTime.Models.ItemAttributes.Exits;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
-using BeforeOurTime.Models.Managers;
 using BeforeOurTime.Models.Modules.Core.Dbs;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
+using System.Linq;
 
 namespace BeforeOurTime.Models.Modules.Core.Managers
 {
-    public class LocationItemManager : DataManager<LocationData>, ILocationItemManager
+    public class LocationItemManager : ItemModelManager<LocationItem>, ILocationItemManager
     {
         private ILocationDataRepo LocationDataRepo { set; get; }
         /// <summary>
@@ -20,9 +18,26 @@ namespace BeforeOurTime.Models.Modules.Core.Managers
         /// </summary>
         public LocationItemManager(
             IItemRepo itemRepo,
-            ILocationDataRepo locationDataRepo) : base(itemRepo, locationDataRepo)
+            ILocationDataRepo locationDataRepo) : base(itemRepo)
         {
             LocationDataRepo = locationDataRepo;
+        }
+        /// <summary>
+        /// Get all repositories declared by manager
+        /// </summary>
+        /// <returns></returns>
+        public List<ICrudModelRepository> GetRepositories()
+        {
+            return new List<ICrudModelRepository>() { LocationDataRepo };
+        }
+        /// <summary>
+        /// Get repository as interface
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public T GetRepository<T>() where T : ICrudModelRepository
+        {
+            return GetRepositories().Where(x => x is T).Select(x => (T)x).FirstOrDefault();
         }
         /// <summary>
         /// Create an empty new location and connecting exits from a provided location
@@ -55,30 +70,6 @@ namespace BeforeOurTime.Models.Modules.Core.Managers
 //            ExitAttributeManager.Create(froExitAttribute, locationItem.Id);
 //            return locationItem;
 return null;
-        }
-        /// <summary>
-        /// Read item's detailed location
-        /// </summary>
-        /// <remarks>
-        /// If item itself has no location detail then item's parents will be 
-        /// traversed until one is found
-        /// </remarks>
-        /// <param name="item">Item that has attached detail location data</param>
-        /// <param name="options">Options to customize how data is transacted from datastore</param>
-        /// <returns>The Item's detailed location data. Null if none found</returns>
-        new public LocationData Read(Item item, TransactionOptions options = null)
-        {
-            LocationData location = null;
-            Item traverseItem = item;
-            while (traverseItem.ParentId != null && !IsManaging(traverseItem))
-            {
-                traverseItem = ItemRepo.Read(traverseItem.ParentId.Value, options);
-            }
-            if (IsManaging(traverseItem))
-            {
-                location = traverseItem.GetData<LocationData>();
-            }
-            return location;
         }
     }
 }

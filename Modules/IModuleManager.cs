@@ -1,7 +1,4 @@
-﻿using BeforeOurTime.Business.Apis;
-using BeforeOurTime.Business.Apis.Terminals;
-using BeforeOurTime.Models.Apis;
-using BeforeOurTime.Models.Managers;
+﻿using BeforeOurTime.Models.Apis;
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Terminals;
@@ -27,13 +24,13 @@ namespace BeforeOurTime.Models.Modules
         /// </summary>
         /// <typeparam name="T">Interface that repository must implement</typeparam>
         /// <returns></returns>
-        T GetRepository<T>() where T : ICrudDataRepository;
+        T GetRepository<T>() where T : ICrudModelRepository;
         /// <summary>
         /// Get item manager that implements interface
         /// </summary>
         /// <typeparam name="T">Interface that item manager must implement</typeparam>
         /// <returns></returns>
-        T GetManager<T>() where T : IDataManager;
+        T GetManager<T>() where T : IModelManager;
         /// <summary>
         /// Get all modules that have registered handle a message
         /// </summary>

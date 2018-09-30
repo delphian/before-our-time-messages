@@ -4,14 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BeforeOurTime.Business.Apis.Items;
 using BeforeOurTime.Models.Modules.Core.Dbs;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
-using BeforeOurTime.Models.Managers;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 
 namespace BeforeOurTime.Models.Modules.Core.Managers
 {
-    public class GameItemManager : DataManager<GameData>, IGameItemManager
+    public class GameItemManager : ItemModelManager<GameItem>, IGameItemManager
     {
         private IGameDataRepo GameDataRepo { set; get; }
         /// <summary>
@@ -19,39 +18,9 @@ namespace BeforeOurTime.Models.Modules.Core.Managers
         /// </summary>
         public GameItemManager(
             IItemRepo itemRepo,
-            IGameDataRepo gameDataRepo) : base(itemRepo, gameDataRepo)
+            IGameDataRepo gameDataRepo) : base(itemRepo)
         {
             GameDataRepo = gameDataRepo;
-        }
-        /// <summary>
-        /// Get all repositories declared by manager
-        /// </summary>
-        /// <returns></returns>
-        public ICrudDataRepository GetRepository()
-        {
-            return GameDataRepo;
-        }
-        /// <summary>
-        /// Get repository as interface
-        /// </summary>
-        /// <typeparam name="TRepo"></typeparam>
-        /// <returns></returns>
-        public TRepo GetRepository<TRepo>() where TRepo : IDataRepository
-        {
-            return (TRepo)GameDataRepo;
-        }
-        /// <summary>
-        /// Determine if an item has attributes that may be managed
-        /// </summary>
-        /// <param name="item">Item that may posses attributes</param>
-        public bool IsManaging(Item item)
-        {
-            var managed = false;
-            if (GameDataRepo.Read(item) != null)
-            {
-                managed = true;
-            }
-            return managed;
         }
         /// <summary>
         /// Update games's default location
@@ -61,9 +30,26 @@ namespace BeforeOurTime.Models.Modules.Core.Managers
         /// <returns></returns>
         public GameData UpdateDefaultLocation(Guid id, Guid locationId)
         {
-            var gameAttribute = Read(id);
-            gameAttribute.DefaultLocationId = locationId;
-            return Update(gameAttribute);
+            var gameData = GameDataRepo.Read(id);
+            gameData.DefaultLocationId = locationId;
+            return GameDataRepo.Update(gameData);
+        }
+        /// <summary>
+        /// Get all repositories declared by manager
+        /// </summary>
+        /// <returns></returns>
+        public List<ICrudModelRepository> GetRepositories()
+        {
+            return new List<ICrudModelRepository>() { GameDataRepo };
+        }
+        /// <summary>
+        /// Get repository as interface
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public T GetRepository<T>() where T : ICrudModelRepository
+        {
+            return GetRepositories().Where(x => x is T).Select(x => (T)x).FirstOrDefault();
         }
     }
 }

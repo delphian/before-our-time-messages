@@ -10,7 +10,7 @@ namespace BeforeOurTime.Models.Modules.Core.Dbs
     /// <summary>
     /// Central data repository for all game items
     /// </summary>
-    public interface IGameDataRepo : ICrudDataRepository, ICrudDataRepository<GameData>
+    public interface IGameDataRepo : ICrudModelRepository<GameData>
     {
         /// <summary>
         /// Read associated game data of item

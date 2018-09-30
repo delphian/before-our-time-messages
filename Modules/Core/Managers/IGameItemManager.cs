@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using BeforeOurTime.Models.Managers;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 
 namespace BeforeOurTime.Models.Modules.Core.Managers
 {
-    public interface IGameItemManager : IDataManager, IDataManager<GameData>
+    public interface IGameItemManager : IItemModelManager
     {
         /// <summary>
         /// Update games's default location

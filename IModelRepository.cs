@@ -7,7 +7,7 @@ namespace BeforeOurTime.Models
     /// <summary>
     /// Data store operations
     /// </summary>
-    public interface IDataRepository
+    public interface IModelRepository
     {
     }
 }

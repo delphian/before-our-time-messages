@@ -1,5 +1,4 @@
-﻿using BeforeOurTime.Business.Apis.Accounts;
-using BeforeOurTime.Business.Apis.Items;
+﻿using BeforeOurTime.Business.Apis.Items;
 using BeforeOurTime.Business.Apis.Items.Attributes;
 using BeforeOurTime.Business.Apis.Messages;
 using BeforeOurTime.Business.Apis.Terminals;
@@ -24,7 +23,6 @@ namespace BeforeOurTime.Models.Apis
         ILogger GetLogger();
         IConfiguration GetConfiguration();
         IMessageManager GetMessageManager();
-        IAccountManager GetAccountManager();
         IItemManager GetItemManager();
         ITerminalManager GetTerminalManager();
         IModuleManager GetModuleManager();

@@ -1,7 +1,4 @@
-﻿using BeforeOurTime.Business.Apis;
-using BeforeOurTime.Business.Apis.Terminals;
-using BeforeOurTime.Models.Apis;
-using BeforeOurTime.Models.Managers;
+﻿using BeforeOurTime.Models.Apis;
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Terminals;
@@ -17,14 +14,20 @@ namespace BeforeOurTime.Models.Modules
         /// Get repositories declared by the module
         /// </summary>
         /// <returns></returns>
-        List<ICrudDataRepository> GetRepositories();
+        List<ICrudModelRepository> GetRepositories();
         /// <summary>
-        /// Get item managers declared by the module
+        /// Get repository of specified type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        T GetRepository<T>() where T : ICrudModelRepository;
+        /// <summary>
+        /// Get managers declared by the module
         /// </summary>
         /// <returns></returns>
-        List<IDataManager> GetManagers();
+        List<IModelManager> GetManagers();
         /// <summary>
-        /// Get item manager of specified type
+        /// Get manager of specified type
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
@@ -46,6 +49,6 @@ namespace BeforeOurTime.Models.Modules
         /// Initialize module
         /// </summary>
         /// <param name="repositories"></param>
-        void Initialize(List<ICrudDataRepository> repositories);
+        void Initialize(List<ICrudModelRepository> repositories);
     }
 }
