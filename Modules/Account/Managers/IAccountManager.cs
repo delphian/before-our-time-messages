@@ -1,4 +1,8 @@
-﻿using BeforeOurTime.Models.Modules.Account.Models.Data;
+﻿using BeforeOurTime.Models.Apis;
+using BeforeOurTime.Models.Messages;
+using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Modules.Account.Models.Data;
+using BeforeOurTime.Models.Terminals;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,5 +24,13 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <param name="password"></param>
         /// <returns>User account if authenticated, otherwise null</returns>
         AccountData Authenticate(string name, string password);
+        /// <summary>
+        /// Handle a message
+        /// </summary>
+        /// <param name="api"></param>
+        /// <param name="message"></param>
+        /// <param name="terminal"></param>
+        /// <param name="response"></param>
+        IResponse HandleCreateAccountRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
     }
 }

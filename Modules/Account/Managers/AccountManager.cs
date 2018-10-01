@@ -6,6 +6,13 @@ using System.Text;
 using BeforeOurTime.Models.Modules.Account.Models.Data;
 using BeforeOurTime.Models.Modules.Account.Dbs;
 using BeforeOurTime.Models.Modules.Account.Models;
+using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Messages;
+using BeforeOurTime.Models.Apis;
+using BeforeOurTime.Models.Terminals;
+using BeforeOurTime.Models.Messages.Requests.Create;
+using BeforeOurTime.Models.Messages.Responses.Create;
+using BeforeOurTime.Models.Messages.Events.Created;
 
 namespace BeforeOurTime.Models.Modules.Account.Managers
 {
@@ -70,6 +77,31 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
             };
             var account = AccountDataRepo.Read(authenRequest);
             return account;
+        }
+        /// <summary>
+        /// Handle a message
+        /// </summary>
+        /// <param name="api"></param>
+        /// <param name="message"></param>
+        /// <param name="terminal"></param>
+        /// <param name="response"></param>
+        public IResponse HandleCreateAccountRequest(IMessage message, IApi api, ITerminal terminal, IResponse response)
+        {
+            var request = message.GetMessageAsType<CreateAccountRequest>();
+            var account = Create(
+                request.Email,
+                request.Password);
+            var createAccountResponse = new CreateAccountResponse()
+            {
+                _requestInstanceId = request.GetRequestInstanceId(),
+                _responseSuccess = true,
+                CreatedAccountEvent = new CreatedAccountEvent()
+                {
+                    AccountId = account.Id
+                }
+            };
+            response = createAccountResponse;
+            return response;
         }
     }
 }
