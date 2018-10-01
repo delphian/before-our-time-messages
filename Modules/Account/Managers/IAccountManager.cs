@@ -32,5 +32,21 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <param name="terminal"></param>
         /// <param name="response"></param>
         IResponse HandleCreateAccountRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        /// <summary>
+        /// Handle a message
+        /// </summary>
+        /// <param name="api"></param>
+        /// <param name="message"></param>
+        /// <param name="terminal"></param>
+        /// <param name="response"></param>
+        IResponse HandleLoginAccountRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        /// <summary>
+        /// Handle a message
+        /// </summary>
+        /// <param name="api"></param>
+        /// <param name="message"></param>
+        /// <param name="terminal"></param>
+        /// <param name="response"></param>
+        IResponse HandleLogoutAccountRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
     }
 }

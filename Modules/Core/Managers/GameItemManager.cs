@@ -7,19 +7,27 @@ using System.Text;
 using BeforeOurTime.Models.Modules.Core.Dbs;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
+using Microsoft.Extensions.Logging;
+using BeforeOurTime.Models.Logs;
 
 namespace BeforeOurTime.Models.Modules.Core.Managers
 {
     public class GameItemManager : ItemModelManager<GameItem>, IGameItemManager
     {
+        /// <summary>
+        /// Centralized log messages
+        /// </summary>
+        private IBotLogger Logger { set; get; }
         private IGameDataRepo GameDataRepo { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
         public GameItemManager(
+            IBotLogger logger,
             IItemRepo itemRepo,
             IGameDataRepo gameDataRepo) : base(itemRepo)
         {
+            Logger = logger;
             GameDataRepo = gameDataRepo;
         }
         /// <summary>

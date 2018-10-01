@@ -7,19 +7,26 @@ using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Dbs;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace BeforeOurTime.Models.Modules.Core.Managers
 {
     public class LocationItemManager : ItemModelManager<LocationItem>, ILocationItemManager
     {
+        /// <summary>
+        /// Centralized log messages
+        /// </summary>
+        private ILogger Logger { set; get; }
         private ILocationDataRepo LocationDataRepo { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
         public LocationItemManager(
+            ILogger logger,
             IItemRepo itemRepo,
             ILocationDataRepo locationDataRepo) : base(itemRepo)
         {
+            Logger = logger;
             LocationDataRepo = locationDataRepo;
         }
         /// <summary>
