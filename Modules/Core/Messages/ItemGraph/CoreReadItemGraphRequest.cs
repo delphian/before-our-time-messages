@@ -6,28 +6,29 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.CRUD.Items.DeleteItem
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemGraph
 {
-    public class DeleteItemRequest : Request, IRequest
+    public class CoreReadItemGraphRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("0bebb17e-1742-4fe4-a3b9-61ec8c6c6771");
+        public static Guid _Id = new Guid("34b0dddd-372a-4b09-b6bf-a0ff906a2940");
         /// <summary>
-        /// List of unique item identifiers of items to delete
+        /// Unique item identifier to begin graph at
         /// </summary>
         [JsonConverter(typeof(GuidJsonConverter))]
-        public List<Guid> ItemIds { set; get; }
+        [JsonProperty(PropertyName = "itemId", Order = 100)]
+        public Guid? ItemId { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public DeleteItemRequest()
+        public CoreReadItemGraphRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "Delete Item Request";
+            this.MessageName = "Core Read Item Graph Request";
         }
     }
 }

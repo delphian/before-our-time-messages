@@ -6,29 +6,27 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.CRUD.Items.ReadItemGraph
+namespace BeforeOurTime.ModelsModels.Modules.Core.Messages.ItemCrud.CreateItem
 {
-    public class ReadItemGraphRequest : Request, IRequest
+    public class CoreCreateItemCrudRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("34b0dddd-372a-4b09-b6bf-a0ff906a2940");
+        public static Guid _Id = new Guid("12044a6f-3b37-4885-8fbc-b1cfbc1c9b00");
         /// <summary>
-        /// Unique item identifier to begin graph at
+        /// Item to create
         /// </summary>
-        [JsonConverter(typeof(GuidJsonConverter))]
-        [JsonProperty(PropertyName = "itemId", Order = 100)]
-        public Guid? ItemId { set; get; }
+        public Item Item { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public ReadItemGraphRequest()
+        public CoreCreateItemCrudRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "Read Item Graph Request";
+            this.MessageName = "Core Create Item Crud Request";
         }
     }
 }

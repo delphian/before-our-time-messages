@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.CRUD.Items.ReadItemGraph
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemGraph
 {
     /// <summary>
     /// Item with reduced properties tailored toward presenting an item graph

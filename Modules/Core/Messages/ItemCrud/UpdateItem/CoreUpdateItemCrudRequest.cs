@@ -6,27 +6,31 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.CRUD.Items.CreateItem
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemCrud.UpdateItem
 {
-    public class ReadItemJsonRequest : Request, IRequest
+    /// <summary>
+    /// Update one or more items
+    /// </summary>
+    public class CoreUpdateItemCrudRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("12044a6f-3b37-4885-8fbc-b1cfbc1c9b00");
+        public static Guid _Id = new Guid("26127ca1-5604-40a0-b93e-4b424aa6ca63");
         /// <summary>
-        /// Item to create
+        /// Item to update
         /// </summary>
-        public Item Item { set; get; }
+        [JsonProperty(PropertyName = "items", Order = 1100)]
+        public List<Item> Items { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public ReadItemJsonRequest()
+        public CoreUpdateItemCrudRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "Create Item Request";
+            this.MessageName = "Core Update Item Crud Request";
         }
     }
 }

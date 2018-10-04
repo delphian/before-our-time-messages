@@ -1,7 +1,6 @@
 ﻿using BeforeOurTime.Models.Json;
-using BeforeOurTime.Models.Messages.CRUD.Items.DeleteItem;
-using BeforeOurTime.Models.Messages.Events.Created;
 using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Modules.Core.Messages.ItemCrud.DeleteItem;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -21,7 +20,7 @@ namespace BeforeOurTime.Models.Messages.Locations.DeleteLocation
         /// Event message for item creation
         /// </summary>
         [JsonProperty(PropertyName = "deleteItemEvents", Order = 1000)]
-        public DeleteItemEvent DeleteItemEvent { set; get; }
+        public CoreDeleteItemCrudEvent DeleteItemEvent { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>

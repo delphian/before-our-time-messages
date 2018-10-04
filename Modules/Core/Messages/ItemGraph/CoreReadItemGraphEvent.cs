@@ -6,31 +6,31 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.CRUD.Items.ReadItem
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemGraph
 {
     /// <summary>
-    /// An item has been read with CRUD operations
+    /// An item graph has been read
     /// </summary>
-    public class ReadItemEvent : Event, IEvent
+    public class CoreReadItemGraphEvent : Event, IEvent
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("3fdc8029-e67f-4d6c-819e-1adc4ef91b47");
+        public static Guid _Id = new Guid("f4e131af-3a00-4536-8a71-ff60c558c0b9");
         /// <summary>
-        /// List of item that have been read
+        /// Beginning item of graph
         /// </summary>
-        [JsonProperty(PropertyName = "items", Order = 1100)]
-        public List<Item> Items { set; get; }
+        [JsonProperty(PropertyName = "itemGraph", Order = 1000)]
+        public ItemGraph ItemGraph { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public ReadItemEvent()
+        public CoreReadItemGraphEvent()
         {
             this.MessageId = _Id;
-            this.MessageName = "Items have been read via CRUD";
+            this.MessageName = "Item Graph Has Been Read";
         }
     }
 }

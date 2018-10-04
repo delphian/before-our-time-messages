@@ -6,28 +6,28 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.CRUD.Items.ReadItem
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemCrud.UpdateItem
 {
-    public class ReadItemResponse : Response, IResponse
+    public class CoreUpdateItemCrudResponse : Response, IResponse
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("14639565-6fc9-4147-91f2-bfceb36215f6");
+        public static Guid _Id = new Guid("11899b25-3dae-4159-95ed-e63bf65802ac");
         /// <summary>
-        /// Event message for item read
+        /// Event message for item update
         /// </summary>
-        [JsonProperty(PropertyName = "readItemEvent", Order = 1000)]
-        public ReadItemEvent ReadItemEvent { set; get; }
+        [JsonProperty(PropertyName = "coreUpdateItemCrudEvent", Order = 1000)]
+        public CoreUpdateItemCrudEvent CoreUpdateItemCrudEvent { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public ReadItemResponse()
+        public CoreUpdateItemCrudResponse()
         {
             this.MessageId = _Id;
-            this.MessageName = "Read item response";
+            this.MessageName = "Core Update Item Crud Response";
         }
     }
 }

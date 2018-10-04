@@ -6,28 +6,28 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.CRUD.Items.UpdateItem
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemCrud.DeleteItem
 {
-    public class UpdateItemResponse : Response, IResponse
+    public class CoreDeleteItemCrudResponse : Response, IResponse
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("11899b25-3dae-4159-95ed-e63bf65802ac");
+        public static Guid _Id = new Guid("c60abd98-bc9a-4137-854e-95455ba5af34");
         /// <summary>
-        /// Event message for item update
+        /// Event message for item creation
         /// </summary>
-        [JsonProperty(PropertyName = "updateItemEvent", Order = 1000)]
-        public UpdateItemEvent UpdateItemEvent { set; get; }
+        [JsonProperty(PropertyName = "coreDeleteItemCrudEvent", Order = 1000)]
+        public CoreDeleteItemCrudEvent CoreDeleteItemCrudEvent { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public UpdateItemResponse()
+        public CoreDeleteItemCrudResponse()
         {
             this.MessageId = _Id;
-            this.MessageName = "Update Item Response";
+            this.MessageName = "Core Delete Item Crud Response";
         }
     }
 }

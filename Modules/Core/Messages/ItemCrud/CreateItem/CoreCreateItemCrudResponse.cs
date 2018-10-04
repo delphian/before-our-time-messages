@@ -6,9 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.CRUD.Items.CreateItem
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemCrud.CreateItem
 {
-    public class CreateItemResponse : Response, IResponse
+    public class CoreCreateItemCrudResponse : Response, IResponse
     {
         /// <summary>
         /// Our unique message identifier
@@ -19,16 +19,16 @@ namespace BeforeOurTime.Models.Messages.CRUD.Items.CreateItem
         /// <summary>
         /// Event message for item creation
         /// </summary>
-        [JsonProperty(PropertyName = "createItemEvent", Order = 1000)]
-        public CreateItemEvent CreateItemEvent { set; get; }
+        [JsonProperty(PropertyName = "coreCreateItemCrudEvent", Order = 1000)]
+        public CoreCreateItemCrudEvent CoreCreateItemCrudEvent { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="requestInstanceId">Message request instance identifier</param>
-        public CreateItemResponse()
+        public CoreCreateItemCrudResponse()
         {
             this.MessageId = _Id;
-            this.MessageName = "Create item response";
+            this.MessageName = "Core Create Item Crud Response";
         }
     }
 }

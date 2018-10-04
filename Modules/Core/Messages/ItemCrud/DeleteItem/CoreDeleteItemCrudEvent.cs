@@ -6,31 +6,31 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.CRUD.Items.ReadItemGraph
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemCrud.DeleteItem
 {
     /// <summary>
-    /// An item graph has been read
+    /// An item has been deleted with CRUD operations
     /// </summary>
-    public class ReadItemGraphEvent : Event, IEvent
+    public class CoreDeleteItemCrudEvent : Event, IEvent
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("f4e131af-3a00-4536-8a71-ff60c558c0b9");
+        public static Guid _Id = new Guid("048a5d77-ad53-48e0-92ba-dfb99644c586");
         /// <summary>
-        /// Beginning item of graph
+        /// List of item that have been deleted
         /// </summary>
-        [JsonProperty(PropertyName = "itemGraph", Order = 1000)]
-        public ItemGraph ItemGraph { set; get; }
+        [JsonProperty(PropertyName = "items", Order = 1100)]
+        public List<Item> Items { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public ReadItemGraphEvent()
+        public CoreDeleteItemCrudEvent()
         {
             this.MessageId = _Id;
-            this.MessageName = "Item Graph Has Been Read";
+            this.MessageName = "Item has been deleted via CRUD";
         }
     }
 }

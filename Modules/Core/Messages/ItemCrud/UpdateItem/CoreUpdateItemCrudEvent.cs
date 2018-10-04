@@ -1,36 +1,36 @@
 ﻿using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.Json;
-using BeforeOurTime.Models.Messages.Requests;
+using BeforeOurTime.Models.Messages.Events;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.CRUD.Items.UpdateItem
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemCrud.UpdateItem
 {
     /// <summary>
-    /// Update one or more items
+    /// An item has been updated via CRUD operations
     /// </summary>
-    public class UpdateItemRequest : Request, IRequest
+    public class CoreUpdateItemCrudEvent : Event, IEvent
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("26127ca1-5604-40a0-b93e-4b424aa6ca63");
+        public static Guid _Id = new Guid("44553e6b-b6ac-4bd8-9c5e-12311acfd5b9");
         /// <summary>
-        /// Item to update
+        /// Item that has been updated
         /// </summary>
         [JsonProperty(PropertyName = "items", Order = 1100)]
         public List<Item> Items { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public UpdateItemRequest()
+        public CoreUpdateItemCrudEvent()
         {
             this.MessageId = _Id;
-            this.MessageName = "Update Item Request";
+            this.MessageName = "Item Has Been Updated via CRUD";
         }
     }
 }
