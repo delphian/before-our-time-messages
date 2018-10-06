@@ -32,12 +32,31 @@ namespace BeforeOurTime.Models.Messages.Responses
         [JsonProperty(PropertyName = "_responseMessage", Order = 120)]
         public string _responseMessage { set; get; }
         /// <summary>
+        /// Set the unique message request identifier
+        /// </summary>
+        /// <returns></returns>
+        public IResponse SetRequestInstanceId(Guid value)
+        {
+            _requestInstanceId = value;
+            return this;
+        }
+        /// <summary>
         /// Get the unique message request identifier
         /// </summary>
         /// <returns></returns>
         public Guid GetRequestInstanceId()
         {
             return _requestInstanceId;
+        }
+        /// <summary>
+        /// Set the success property based on success of request
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public IResponse SetSuccess(bool value)
+        {
+            _responseSuccess = value;
+            return this;
         }
         /// <summary>
         /// The request that initiated this response was a success
