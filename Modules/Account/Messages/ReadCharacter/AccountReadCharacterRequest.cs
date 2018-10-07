@@ -27,7 +27,7 @@ namespace BeforeOurTime.Models.Modules.Account.Messages.ReadCharacter
         public AccountReadCharacterRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "Account Create Character Request";
+            this.MessageName = "Account Read Character Request";
         }
     }
 }
