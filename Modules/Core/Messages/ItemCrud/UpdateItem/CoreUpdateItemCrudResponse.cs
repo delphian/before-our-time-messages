@@ -1,5 +1,4 @@
 ﻿using BeforeOurTime.Models.Json;
-using BeforeOurTime.Models.Messages.Events.Created;
 using BeforeOurTime.Models.Messages.Responses;
 using Newtonsoft.Json;
 using System;

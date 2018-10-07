@@ -1,5 +1,4 @@
 ﻿using BeforeOurTime.Models.Items;
-using BeforeOurTime.Models.Items.Characters;
 using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Messages.Responses.List;

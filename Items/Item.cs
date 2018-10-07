@@ -54,6 +54,12 @@ namespace BeforeOurTime.Models.Items
         [JsonIgnore]
         public List<Item> Children { set; get; }
         /// <summary>
+        /// If set, the terminal identifier which is in control of the item
+        /// </summary>
+        [JsonProperty(PropertyName = "terminalId", Order = 50)]
+        [JsonConverter(typeof(GuidJsonConverter))]
+        public Guid? TerminalId { set; get; }
+        /// <summary>
         /// Additional optional properties provided by attribute managers
         /// </summary>
         [JsonProperty(PropertyName = "attributes", Order = 10000)]

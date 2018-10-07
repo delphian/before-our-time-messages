@@ -1,8 +1,8 @@
 ﻿using BeforeOurTime.Business.Apis.Terminals;
-using BeforeOurTime.Models.Items.Characters;
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Requests;
 using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using System;
 using System.Collections.Generic;
 using System.Text;
