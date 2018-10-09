@@ -1,12 +1,13 @@
 ﻿using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Messages.Requests;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Requests.List
+namespace BeforeOurTime.Models.Modules.Account.Messages.Location.ReadLocationSummary
 {
-    public class ListLocationRequest : Request, IRequest
+    public class CoreReadLocationSummaryRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
@@ -17,10 +18,10 @@ namespace BeforeOurTime.Models.Messages.Requests.List
         /// <summary>
         /// Constructor
         /// </summary>
-        public ListLocationRequest()
+        public CoreReadLocationSummaryRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "Look Request";
+            this.MessageName = "Core Read Location Summary Request";
         }
     }
 }

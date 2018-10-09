@@ -1,4 +1,5 @@
 ﻿using BeforeOurTime.Models.Apis;
+using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Modules.Account.Models.Data;
@@ -14,6 +15,13 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <summary>
         /// Create a new account character
         /// </summary>
+        /// <param name="accountId">Unique account identifer to create character for</param>
+        /// <param name="name">Name of character</param>
+        /// <returns></returns>
+        Item Create(Guid accountId, string name);
+        /// <summary>
+        /// Create a new account character based on an existing item
+        /// </summary>
         /// <param name="accountId">Unique identifier of account</param>
         /// <param name="password">Unique identifier of item to register as account character</param>
         AccountCharacterData Create(Guid accountId, Guid characterItemId);
@@ -22,7 +30,7 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// </summary>
         /// <param name="accountId">Unique account identifier</param>
         /// <returns></returns>
-        List<AccountCharacterData> ReadByAccound(Guid accountId);
+        List<AccountCharacterData> ReadByAccount(Guid accountId);
         /// <summary>
         /// Handle a message
         /// </summary>

@@ -15,17 +15,6 @@ namespace BeforeOurTime.Models
     /// </summary>
     public abstract class ItemModelManager<T> : ModelManager<T> where T : Item
     {
-        protected IItemRepo ItemRepo { set; get; }
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="itemRepo"></param>
-        /// <param name="crudModelRepository"></param>
-        public ItemModelManager(
-            IItemRepo itemRepo)
-        {
-            ItemRepo = itemRepo;
-        }
         /// <summary>
         /// Determine if an item has attributes that may be managed
         /// </summary>

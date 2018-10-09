@@ -1,7 +1,10 @@
 ﻿using BeforeOurTime.Models.Apis;
+using BeforeOurTime.Models.Items;
+using BeforeOurTime.Models.Logs;
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Terminals;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -45,5 +48,20 @@ namespace BeforeOurTime.Models.Modules
         /// <param name="terminal"></param>
         /// <param name="response"></param>
         IResponse HandleMessage(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        /// <summary>
+        /// Get configuration
+        /// </summary>
+        /// <returns></returns>
+        IConfiguration GetConfiguration();
+        /// <summary>
+        /// Get logger
+        /// </summary>
+        /// <returns></returns>
+        IBotLogger GetLogger();
+        /// <summary>
+        /// Get item repository
+        /// </summary>
+        /// <returns></returns>
+        IItemRepo GetItemRepo();
     }
 }

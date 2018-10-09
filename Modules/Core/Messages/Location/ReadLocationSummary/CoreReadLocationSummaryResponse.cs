@@ -8,12 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Locations.ReadLocationSummary
+namespace BeforeOurTime.Models.Modules.Core.Messages.Location.ReadLocationSummary
 {
     /// <summary>
     /// Describe a location and enumerate essential properties
     /// </summary>
-    public class ReadLocationSummaryResponse : Response, IResponse
+    public class CoreReadLocationSummaryResponse : Response, IResponse
     {
         /// <summary>
         /// Our unique message identifier
@@ -54,10 +54,10 @@ namespace BeforeOurTime.Models.Messages.Locations.ReadLocationSummary
         /// <summary>
         /// Constructor
         /// </summary>
-        public ReadLocationSummaryResponse()
+        public CoreReadLocationSummaryResponse()
         {
             this.MessageId = _Id;
-            this.MessageName = "Read Location Summary Response";
+            this.MessageName = "Core Read Location Summary Response";
         }
     }
 }
