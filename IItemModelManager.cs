@@ -10,6 +10,12 @@ namespace BeforeOurTime.Models
     public interface IItemModelManager : IModelManager
     {
         /// <summary>
+        /// Report if manager is in charge of an item
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        bool IsManaging(Item item);
+        /// <summary>
         /// Append attribute to base item when it is loaded
         /// </summary>
         /// <param name="item">Base item just read from datastore</param>

@@ -35,6 +35,12 @@ namespace BeforeOurTime.Models.Modules
         /// <returns></returns>
         T GetManager<T>() where T : IModelManager;
         /// <summary>
+        /// Get item managers for an item
+        /// </summary>
+        /// <param name="item">Item to discover manager of</param>
+        /// <returns></returns>
+        IItemModelManager GetManager(Item item);
+        /// <summary>
         /// Get all modules that have registered handle a message
         /// </summary>
         /// <param name="messageId">Unique message identifier</param>

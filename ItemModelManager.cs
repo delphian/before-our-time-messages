@@ -16,10 +16,10 @@ namespace BeforeOurTime.Models
     public abstract class ItemModelManager<T> : ModelManager<T> where T : Item
     {
         /// <summary>
-        /// Determine if an item has attributes that may be managed
+        /// Determine if an item has dat that may be managed
         /// </summary>
-        /// <param name="item">Item that may posses attributes</param>
-        public bool IsManaging(T item)
+        /// <param name="item">Item that may have managable data</param>
+        public bool IsManaging(Item item)
         {
             return item is T;
         }
