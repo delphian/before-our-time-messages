@@ -24,9 +24,9 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
                 var value = _visible;
                 if (value == null)
                 {
-                    Attributes?.ForEach((attribute) =>
+                    Data?.ForEach((data) =>
                     {
-                        value = attribute.GetProperty<VisibleProperty>("Visible", value);
+                        value = data.GetProperty<VisibleProperty>("Visible", value);
                     });
                     _visible = value;
                 }

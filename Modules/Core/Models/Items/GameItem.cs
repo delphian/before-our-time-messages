@@ -24,10 +24,6 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
                 var value = _visible;
                 if (value == null)
                 {
-                    Attributes?.ForEach((attribute) =>
-                    {
-                        value = attribute.GetProperty<VisibleProperty>("Visible", value);
-                    });
                     Data?.ForEach((data) =>
                     {
                         value = data.GetProperty<VisibleProperty>("Visible", value);
@@ -50,10 +46,6 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
                 var value = _game;
                 if (value == null)
                 {
-                    Attributes?.ForEach((attribute) =>
-                    {
-                        value = attribute.GetProperty<GameProperty>("Game", value);
-                    });
                     Data?.ForEach((data) =>
                     {
                         value = data.GetProperty<GameProperty>("Game", value);
