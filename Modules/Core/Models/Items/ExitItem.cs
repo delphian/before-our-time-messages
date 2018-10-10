@@ -1,11 +1,12 @@
-﻿using BeforeOurTime.Models.ItemProperties.Exit;
+﻿using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
+using BeforeOurTime.Models.Modules.Core.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items.Exits
+namespace BeforeOurTime.Models.Modules.Core.Models.Items
 {
     /// <summary>
     /// A one way path from one item to another

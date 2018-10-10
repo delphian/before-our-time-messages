@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.ItemProperties.Exit
+namespace BeforeOurTime.Models.Modules.Core.Properties
 {
     /// <summary>
     /// Movement between locations

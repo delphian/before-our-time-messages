@@ -1,11 +1,7 @@
-﻿using BeforeOurTime.Models.Items;
-using BeforeOurTime.Models.ItemProperties;
-using BeforeOurTime.Models.Json;
-using BeforeOurTime.Models.Primitives.Images;
+﻿using BeforeOurTime.Models.Json;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using BeforeOurTime.Models;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;

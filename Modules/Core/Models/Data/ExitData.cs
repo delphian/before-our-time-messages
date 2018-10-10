@@ -1,17 +1,18 @@
-﻿using BeforeOurTime.Models.ItemProperties.Exit;
+﻿using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
+using BeforeOurTime.Models.Modules.Core.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.ItemAttributes.Exits
+namespace BeforeOurTime.Models.Modules.Core.Models.Data
 {
     /// <summary>
     /// A one way path from the exit's current location to a specified and static one
     /// </summary>
-    public class ExitAttribute : ItemAttribute, IItemAttribute
+    public class ExitData : ItemData, IItemData
     {
         /// <summary>
         /// Short description of exit
@@ -27,9 +28,8 @@ namespace BeforeOurTime.Models.ItemAttributes.Exits
         /// Destination location
         /// </summary>
         [JsonProperty(PropertyName = "destinationLocationId", Order = 30)]
+        [JsonConverter(typeof(GuidJsonConverter))]
         public Guid DestinationLocationId { set; get; }
-        [JsonIgnore]
-        public virtual LocationData DestinationLocation { set; get; }
         /// <summary>
         /// Time in seconds journey will consume
         /// </summary>
@@ -43,9 +43,9 @@ namespace BeforeOurTime.Models.ItemAttributes.Exits
         /// <summary>
         /// Constructor
         /// </summary>
-        public ExitAttribute()
+        public ExitData()
         {
-            AttributeType = this.GetType().ToString();
+            DataType = this.GetType().ToString();
         }
         /// <summary>
         /// Populate an item property value
@@ -68,17 +68,6 @@ namespace BeforeOurTime.Models.ItemAttributes.Exits
                 ((ExitProperty)previousValue).DestinationId = DestinationLocationId.ToString();
             }
             return (T)previousValue;
-        }
-        /// <summary>
-        /// Copy all source properties into our properties
-        /// </summary>
-        /// <param name="source"></param>
-        public override void Copy(object source)
-        {
-            var exitAttribute = (ExitAttribute)source;
-            Name = exitAttribute.Name;
-            Description = exitAttribute.Description;
-            DestinationLocationId = exitAttribute.DestinationLocationId;
         }
     }
 }

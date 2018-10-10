@@ -1,6 +1,4 @@
 ﻿using BeforeOurTime.Models.Items;
-using BeforeOurTime.Models.ItemProperties;
-using BeforeOurTime.Models.Primitives.Images;
 using System;
 using System.Collections.Generic;
 using System.Text;
