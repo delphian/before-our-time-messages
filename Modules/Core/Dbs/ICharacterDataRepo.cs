@@ -9,7 +9,7 @@ namespace BeforeOurTime.Models.Modules.Core.Dbs
     /// <summary>
     /// Central data repository for all character items
     /// </summary>
-    public interface ICharacterDataRepo : ICrudModelRepository, ICrudModelRepository<CharacterData>
+    public interface ICharacterDataRepo : ICrudItemModelRepository<CharacterData>
     {
         /// <summary>
         /// Read associated character data of item

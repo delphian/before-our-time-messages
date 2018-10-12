@@ -9,7 +9,7 @@ namespace BeforeOurTime.Models.Modules.Core.Dbs
     /// <summary>
     /// Central data repository for all location items
     /// </summary>
-    public interface ILocationDataRepo : ICrudModelRepository, ICrudModelRepository<LocationData>
+    public interface ILocationDataRepo : ICrudItemModelRepository<LocationData>
     {
         /// <summary>
         /// Read associated location data of item

@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Locations.CreateLocation
+namespace BeforeOurTime.Models.Modules.Account.Messages.Location.CreateLocation
 {
     /// <summary>
     /// An location item has been created

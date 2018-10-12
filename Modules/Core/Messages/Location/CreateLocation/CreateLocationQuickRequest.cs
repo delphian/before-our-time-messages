@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Locations.Locations.CreateLocation
+namespace BeforeOurTime.Models.Modules.Account.Messages.Location.CreateLocation
 {
     public class CreateLocationQuickRequest : Request, IRequest
     {

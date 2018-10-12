@@ -10,7 +10,7 @@ namespace BeforeOurTime.Models.Modules.Core.Dbs
     /// <summary>
     /// Central data repository for all exit items
     /// </summary>
-    public interface IExitDataRepo : ICrudModelRepository<ExitData>
+    public interface IExitDataRepo : ICrudItemModelRepository<ExitData>
     {
         /// <summary>
         /// Read all exit data that target the same destination

@@ -41,6 +41,12 @@ namespace BeforeOurTime.Models.Modules
         /// <returns></returns>
         IItemModelManager GetManager(Item item);
         /// <summary>
+        /// Get all managers for an item property
+        /// </summary>
+        /// <param name="propertyType">Property type that might be managable</param>
+        /// <returns></returns>
+        List<IItemModelManager> GetManagersOfProperty(Type propertyType);
+        /// <summary>
         /// Get all modules that have registered handle a message
         /// </summary>
         /// <param name="messageId">Unique message identifier</param>
