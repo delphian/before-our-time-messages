@@ -41,6 +41,18 @@ namespace BeforeOurTime.Models.Modules
         /// <returns></returns>
         IItemModelManager GetManager(Item item);
         /// <summary>
+        /// Get all managers for an item type
+        /// </summary>
+        /// <param name="dataType">Item type that might be managable</param>
+        /// <returns></returns>
+        List<IItemModelManager> GetManagers(Type itemType);
+        /// <summary>
+        /// Get all managers for an item data type
+        /// </summary>
+        /// <param name="dataType">Item data type that might be managable</param>
+        /// <returns></returns>
+        List<IItemModelManager> GetManagersOfData(Type dataType);
+        /// <summary>
         /// Get all managers for an item property
         /// </summary>
         /// <param name="propertyType">Property type that might be managable</param>

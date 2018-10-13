@@ -1,5 +1,4 @@
 ﻿using BeforeOurTime.Models.Exceptions;
-using BeforeOurTime.Models.ItemAttributes;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;

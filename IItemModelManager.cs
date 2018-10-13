@@ -1,6 +1,5 @@
 ﻿using BeforeOurTime.Models;
 using BeforeOurTime.Models.Items;
-using BeforeOurTime.Models.Modules.Core.Models.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,6 +19,11 @@ namespace BeforeOurTime.Models
         /// </summary>
         /// <param name="propertyType">Property type that might be managable</param>
         bool IsManagingProperty(Type propertyType);
+        /// <summary>
+        /// Determine if item data type is managable
+        /// </summary>
+        /// <param name="propertyData">Item data type that might be managable</param>
+        bool IsManagingData(Type dataType);
         /// <summary>
         /// Get all unique item identifiers of managed items
         /// </summary>
