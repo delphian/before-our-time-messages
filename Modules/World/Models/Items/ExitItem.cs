@@ -23,11 +23,11 @@ namespace BeforeOurTime.Models.Modules.World.Models.Items
             get
             {
                 var value = _visible;
-                if (value != null)
+                if (value == null)
                 {
-                    Attributes?.ForEach((attribute) =>
+                    Data?.ForEach((data) =>
                     {
-                        value = attribute.GetProperty<VisibleProperty>("Visible", value);
+                        value = data.GetProperty<VisibleProperty>("Visible", value);
                     });
                     _visible = value;
                 }
@@ -47,9 +47,9 @@ namespace BeforeOurTime.Models.Modules.World.Models.Items
                 var value = _exit;
                 if (value == null)
                 {
-                    Attributes?.ForEach((attribute) =>
+                    Data?.ForEach((data) =>
                     {
-                        value = attribute.GetProperty<ExitProperty>("Exit", value);
+                        value = data.GetProperty<ExitProperty>("Exit", value);
                     });
                     _exit = value;
                 }

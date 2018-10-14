@@ -57,7 +57,7 @@ namespace BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocationSumma
         public WorldReadLocationSummaryResponse()
         {
             this.MessageId = _Id;
-            this.MessageName = "Core Read Location Summary Response";
+            this.MessageName = "World Read Location Summary Response";
         }
     }
 }
