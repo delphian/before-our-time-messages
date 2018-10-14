@@ -25,5 +25,13 @@ namespace BeforeOurTime.Models.Modules.World.Managers
         /// <param name="terminal"></param>
         /// <param name="response"></param>
         IResponse HandleReadLocationSummaryRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        /// <summary>
+        /// Create location
+        /// </summary>
+        /// <param name="api"></param>
+        /// <param name="terminal"></param>
+        /// <param name="request"></param>
+        /// <param name="response"></param>
+        IResponse HandleCreateLocationQuickRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
     }
 }

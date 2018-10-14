@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.Core
+namespace BeforeOurTime.Models.Modules.World
 {
     public interface IWorldModule : IModule
     {
