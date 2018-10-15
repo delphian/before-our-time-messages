@@ -6,7 +6,7 @@ using System.Text;
 namespace BeforeOurTime.Models.Modules.Core.Models.Properties
 {
     /// <summary>
-    /// Item may be used by another item (or terminal)
+    /// List of commands an item may respond to
     /// </summary>
     /// <remarks>
     /// Item manager is responsible for executing the use

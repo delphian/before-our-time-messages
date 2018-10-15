@@ -14,7 +14,7 @@ namespace BeforeOurTime.Models.Modules.Core.Messages.UseItem
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("");
+        public static Guid _Id = new Guid("68dd785e-908e-4057-b841-45430bb32cb2");
         /// <summary>
         /// Event message for item graph read
         /// </summary>

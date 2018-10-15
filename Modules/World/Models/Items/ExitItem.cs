@@ -58,6 +58,27 @@ namespace BeforeOurTime.Models.Modules.World.Models.Items
         }
         private ExitProperty _exit { set; get; }
         /// <summary>
+        /// List of commands an item may respond to
+        /// </summary>
+        public UseProperty Uses
+        {
+            set { _uses = value; NotifyPropertyChanged("Uses"); }
+            get
+            {
+                var value = _uses;
+                if (value == null)
+                {
+                    Data?.ForEach((data) =>
+                    {
+                        value = data.GetProperty<UseProperty>("Uses", value);
+                    });
+                    _uses = value;
+                }
+                return value;
+            }
+        }
+        private UseProperty _uses { set; get; }
+        /// <summary>
         /// Constructor
         /// </summary>
         public ExitItem()

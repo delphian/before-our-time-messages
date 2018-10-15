@@ -67,6 +67,18 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
                 previousValue = previousValue ?? new ExitProperty();
                 ((ExitProperty)previousValue).DestinationId = DestinationLocationId.ToString();
             }
+            if (typeof(T) == typeof(UseProperty))
+            {
+                previousValue = previousValue ?? new UseProperty();
+                ((UseProperty)previousValue).Uses = new List<Use>()
+                {
+                    new Use()
+                    {
+                        Id = new Guid("c558c1f9-7d01-45f3-bc35-dcab52b5a37c"),
+                        Name = "Go"
+                    }
+                };
+            }
             return (T)previousValue;
         }
     }

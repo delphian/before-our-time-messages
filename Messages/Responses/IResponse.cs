@@ -29,6 +29,12 @@ namespace BeforeOurTime.Models.Messages.Responses
         /// <returns></returns>
         IResponse SetSuccess(bool value);
         /// <summary>
+        /// Set the meta message
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        IResponse SetMessage(string message);
+        /// <summary>
         /// The request that initiated this response was a success
         /// </summary>
         /// <returns></returns>
