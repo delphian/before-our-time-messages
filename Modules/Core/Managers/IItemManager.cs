@@ -1,10 +1,9 @@
-﻿using BeforeOurTime.Models;
-using BeforeOurTime.Models.Modules.Core.Models.Items;
+﻿using BeforeOurTime.Models.Modules.Core.Models.Items;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Business.Apis.Items
+namespace BeforeOurTime.Models.Modules.Core.Managers
 {
     /// <summary>
     /// Manages security, environment messages, CRUD, and run time considerations for items

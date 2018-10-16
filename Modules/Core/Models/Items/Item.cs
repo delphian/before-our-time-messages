@@ -1,5 +1,4 @@
-﻿using BeforeOurTime.Models.ItemAttributes;
-using BeforeOurTime.Models.Json;
+﻿using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using Newtonsoft.Json;
@@ -60,17 +59,6 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         /// <summary>
         /// Additional optional properties provided by attribute managers
         /// </summary>
-        [JsonProperty(PropertyName = "attributes", Order = 10000)]
-        [JsonConverter(typeof(ItemAttributeJsonConverter))]
-        public List<ItemAttribute> Attributes
-        {
-            set { _attributes = value; NotifyPropertyChanged("Attributes"); }
-            get { return _attributes; }
-        }
-        private List<ItemAttribute> _attributes { set; get; } = new List<ItemAttribute>();
-        /// <summary>
-        /// Additional optional properties provided by attribute managers
-        /// </summary>
         [JsonProperty(PropertyName = "data", Order = 11000)]
         [JsonConverter(typeof(ItemDataJsonConverter))]
         public List<IItemData> Data
@@ -94,47 +82,6 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         public bool HasData<T>()
         {
             return HasData(typeof(T));
-        }
-        /// <summary>
-        /// Determine if item has attribute
-        /// </summary>
-        /// <returns></returns>
-        public bool HasAttribute(Type attributeType)
-        {
-            return Attributes.Any(x => x.GetType() == attributeType);
-        }
-        /// <summary>
-        /// Determin if item has attribute
-        /// </summary>
-        /// <returns></returns>
-        public bool HasAttribute<T>()
-        {
-            return HasAttribute(typeof(T));
-        }
-        /// <summary>
-        /// Get an attribute from the item
-        /// </summary>
-        /// <example>
-        /// var location = (AttributeLocation)item.GetAttribute(typeof(AttributeLocation));
-        /// </example>
-        /// <param name="attributeType"></param>
-        /// <returns></returns>
-        public object GetAttribute(Type attributeType)
-        {
-            var attribute = Attributes.Where(x => x.GetType() == attributeType).FirstOrDefault();
-            return Convert.ChangeType(attribute, attributeType);
-        }
-        /// <summary>
-        /// Get an attribute from the item
-        /// </summary>
-        /// <example>
-        /// var location = item.GetAttribute<AttributeLocation>();
-        /// </example>
-        /// <param name="attributeType"></param>
-        /// <returns></returns>
-        public T GetAttribute<T>()
-        {
-            return (T)GetAttribute(typeof(T));
         }
         /// <summary>
         /// Get data from the item
@@ -165,7 +112,6 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
             var derrivedItem = new T
             {
                 Data = Data,
-                Attributes = Attributes,
                 Children = Children,
                 ChildrenIds = ChildrenIds,
                 Id = Id,
@@ -187,10 +133,6 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
             if (value == null)
             {
                 // If we are running on the superclass then get values directly from data
-                Attributes?.ForEach((attribute) =>
-                {
-                    value = attribute.GetProperty<T>(propertyName, value);
-                });
                 Data?.ForEach((data) =>
                 {
                     value = data.GetProperty<T>(propertyName, value);

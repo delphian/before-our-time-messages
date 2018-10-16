@@ -1,10 +1,8 @@
-﻿using BeforeOurTime.Business.Apis.Items;
-using BeforeOurTime.Business.Apis.Items.Attributes;
-using BeforeOurTime.Business.Apis.Messages;
+﻿using BeforeOurTime.Business.Apis.Messages;
 using BeforeOurTime.Business.Apis.Terminals;
 using BeforeOurTime.Models.Logs;
 using BeforeOurTime.Models.Modules;
-using BeforeOurTime.Models.Modules.Core.Models.Items;
+using BeforeOurTime.Models.Modules.Core.Managers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -27,24 +25,6 @@ namespace BeforeOurTime.Models.Apis
         IItemManager GetItemManager();
         ITerminalManager GetTerminalManager();
         IModuleManager GetModuleManager();
-        /// <summary>
-        /// Get item detail manager based on detail manager type
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        T GetAttributeManager<T>() where T : IAttributeManager;
-        /// <summary>
-        /// Get item attribute manager based on class name of attribute type
-        /// </summary>
-        /// <param name="attributeTypeName"></param>
-        /// <returns></returns>
-        IAttributeManager GetAttributeManagerOfType(string attributeTypeName);
-        /// <summary>
-        /// Get all attribute managers for an item
-        /// </summary>
-        /// <param name="item">Item to determine managers for</param>
-        /// <returns></returns>
-        List<IAttributeManager> GetAttributeManagers(Item item);
         /// <summary>
         /// (awaitable) Execute all item scripts that desire a regular periodic event
         /// </summary>
