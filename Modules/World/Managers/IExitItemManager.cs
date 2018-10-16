@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using BeforeOurTime.Models.Apis;
-using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Terminals;
 
 namespace BeforeOurTime.Models.Modules.World.Managers

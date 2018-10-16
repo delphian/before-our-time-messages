@@ -1,9 +1,9 @@
 ﻿using BeforeOurTime.Models;
-using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.ItemAttributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 
 namespace BeforeOurTime.Business.Apis.Items.Attributes
 {

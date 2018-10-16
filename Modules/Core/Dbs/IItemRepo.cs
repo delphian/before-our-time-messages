@@ -1,11 +1,9 @@
-﻿using BeforeOurTime.Models;
-using BeforeOurTime.Models.Items;
-using BeforeOurTime.Models.Scripts.Delegates;
+﻿using BeforeOurTime.Models.Modules.Core.Models.Items;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items
+namespace BeforeOurTime.Models.Modules.Core.Dbs
 {
     /// <summary>
     /// Delegate definition required of attribute repositories to perform action after item is created
@@ -26,7 +24,7 @@ namespace BeforeOurTime.Models.Items
     /// <summary>
     /// Datastore operations for Items
     /// </summary>
-    public interface IItemRepo : IRepository<Item>
+    public interface IItemRepo : ICrudModelRepository<Item>
     {
         /// <summary>
         /// Item attribute repositories may attach to this event to perform action after item is created

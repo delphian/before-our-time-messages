@@ -17,9 +17,7 @@
 
   <ItemGroup>
     <Folder Include="Messages\Locations\UpdateLocation\" />
-    <Folder Include="Modules\Core\Dbs\" />
     <Folder Include="Modules\Core\Managers\" />
-    <Folder Include="Modules\Core\Models\Items\" />
   </ItemGroup>
 
   <ItemGroup>

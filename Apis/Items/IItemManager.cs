@@ -1,6 +1,5 @@
 ﻿using BeforeOurTime.Models;
-using BeforeOurTime.Models.Items;
-using BeforeOurTime.Models.Scripts.Delegates;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +9,7 @@ namespace BeforeOurTime.Business.Apis.Items
     /// <summary>
     /// Manages security, environment messages, CRUD, and run time considerations for items
     /// </summary>
-    public interface IItemManager
+    public interface IItemManager : IModelManager
     {
         /// <summary>
         /// Create a new item

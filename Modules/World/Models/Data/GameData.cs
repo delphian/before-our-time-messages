@@ -1,5 +1,4 @@
-﻿using BeforeOurTime.Models.Items;
-using BeforeOurTime.Models.Modules.Core.Models.Data;
+﻿using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using BeforeOurTime.Models.Modules.World.Models.Properties;
 using Newtonsoft.Json;

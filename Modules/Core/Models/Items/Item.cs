@@ -9,7 +9,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items
+namespace BeforeOurTime.Models.Modules.Core.Models.Items
 {
     /// <summary>
     /// Core functionality and interface properties common to all items

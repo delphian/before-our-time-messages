@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Items
+namespace BeforeOurTime.Models.Modules.Core.Models.Items
 {
     /// <summary>
     /// Each item must have a primary purpose

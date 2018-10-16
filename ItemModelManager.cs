@@ -1,12 +1,8 @@
-﻿using BeforeOurTime.Business.Apis.Items.Attributes;
-using BeforeOurTime.Models;
-using BeforeOurTime.Models.Items;
-using BeforeOurTime.Models.ItemAttributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BeforeOurTime.Models.Modules.Core.Models.Data;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 
 namespace BeforeOurTime.Models
 {

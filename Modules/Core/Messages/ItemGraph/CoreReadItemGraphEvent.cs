@@ -1,5 +1,4 @@
-﻿using BeforeOurTime.Models.Items;
-using BeforeOurTime.Models.Json;
+﻿using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Messages.Events;
 using Newtonsoft.Json;
 using System;

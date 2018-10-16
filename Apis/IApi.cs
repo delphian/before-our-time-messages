@@ -2,9 +2,9 @@
 using BeforeOurTime.Business.Apis.Items.Attributes;
 using BeforeOurTime.Business.Apis.Messages;
 using BeforeOurTime.Business.Apis.Terminals;
-using BeforeOurTime.Models.Items;
 using BeforeOurTime.Models.Logs;
 using BeforeOurTime.Models.Modules;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
