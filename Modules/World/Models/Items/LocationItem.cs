@@ -39,7 +39,7 @@ namespace BeforeOurTime.Models.Modules.World.Models.Items
         /// </summary>
         public LocationItem()
         {
-            Type = ItemType.Character;
+            Type = ItemType.Location;
         }
     }
 }
