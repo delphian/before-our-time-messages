@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Locations.Locations.DeleteLocation
+namespace BeforeOurTime.Models.Modules.World.Messages.Location.DeleteLocation
 {
-    public class DeleteLocationRequest : Request, IRequest
+    public class WorldDeleteLocationRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
@@ -24,10 +24,10 @@ namespace BeforeOurTime.Models.Messages.Locations.Locations.DeleteLocation
         /// <summary>
         /// Constructor
         /// </summary>
-        public DeleteLocationRequest()
+        public WorldDeleteLocationRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "Delete Location Request";
+            this.MessageName = "World Delete Location Request";
         }
     }
 }
