@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Locations.ReadLocation
+namespace BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocation
 {
     /// <summary>
     /// An location item has been created
     /// </summary>
-    public class ReadLocationEvent : Event, IEvent
+    public class WorldReadLocationEvent : Event, IEvent
     {
         /// <summary>
         /// Our unique message identifier
@@ -32,10 +32,10 @@ namespace BeforeOurTime.Models.Messages.Locations.ReadLocation
         /// <summary>
         /// Constructor
         /// </summary>
-        public ReadLocationEvent()
+        public WorldReadLocationEvent()
         {
             this.MessageId = _Id;
-            this.MessageName = "Location Item Has Been Created";
+            this.MessageName = "World Location Item Has Been Created";
         }
     }
 }

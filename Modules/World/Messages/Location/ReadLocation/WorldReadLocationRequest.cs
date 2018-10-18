@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Locations.Locations.ReadLocation
+namespace BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocation
 {
-    public class ReadLocationRequest : Request, IRequest
+    public class WorldReadLocationRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
@@ -24,10 +24,10 @@ namespace BeforeOurTime.Models.Messages.Locations.Locations.ReadLocation
         /// <summary>
         /// Constructor
         /// </summary>
-        public ReadLocationRequest()
+        public WorldReadLocationRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "Read Location Request";
+            this.MessageName = "World Read Location Request";
         }
     }
 }
