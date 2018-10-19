@@ -53,7 +53,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         /// <summary>
         /// If set, the terminal identifier which is in control of the item
         /// </summary>
-        [JsonProperty(PropertyName = "terminalId", Order = 50)]
+        [JsonProperty(PropertyName = "terminalId", Order = 70)]
         [JsonConverter(typeof(GuidJsonConverter))]
         public Guid? TerminalId { set; get; }
         /// <summary>
