@@ -15,8 +15,7 @@ namespace BeforeOurTime.Models.Modules.World.Dbs
         /// Read associated game data of item
         /// </summary>
         /// <param name="item">Item that may have associated attributes</param>
-        /// <param name="options">Options to customize how data is transacted from datastore</param>
         /// <returns></returns>
-        GameData Read(Item item, TransactionOptions options = null);
+        GameData Read(Item item);
     }
 }

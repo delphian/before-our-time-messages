@@ -6,21 +6,25 @@ using System.Text;
 namespace BeforeOurTime.Models.Modules.Core.Dbs
 {
     /// <summary>
-    /// Delegate definition required of attribute repositories to perform action after item is created
+    /// Delegate definition required of attribute repositories to perform 
+    /// action after item is created
     /// </summary>
-    public delegate void onItemCreate(Item item, TransactionOptions options = null);
+    public delegate void onItemCreate(Item item);
     /// <summary>
-    /// Delegate definition required of attribute repositories to perform action before item is returned
+    /// Delegate definition required of attribute repositories to perform 
+    /// action before item is returned
     /// </summary>
-    public delegate void onItemRead(Item item, TransactionOptions options = null);
+    public delegate void onItemRead(Item item);
     /// <summary>
-    /// Delegate definition required of attribute repositories to perform action before item is updated
+    /// Delegate definition required of attribute repositories to perform 
+    /// action before item is updated
     /// </summary>
-    public delegate void onItemUpdate(Item item, TransactionOptions options = null);
+    public delegate void onItemUpdate(Item item);
     /// <summary>
-    /// Delegate definition required of attribute repositories to perform action before item is deleted
+    /// Delegate definition required of attribute repositories to perform 
+    /// action before item is deleted
     /// </summary>
-    public delegate void onItemDelete(Item item, TransactionOptions options = null);
+    public delegate void onItemDelete(Item item);
     /// <summary>
     /// Datastore operations for Items
     /// </summary>

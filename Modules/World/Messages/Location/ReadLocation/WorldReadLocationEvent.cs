@@ -35,7 +35,7 @@ namespace BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocation
         public WorldReadLocationEvent()
         {
             this.MessageId = _Id;
-            this.MessageName = "World Location Item Has Been Created";
+            this.MessageName = "World Location Item Has Been Read";
         }
     }
 }

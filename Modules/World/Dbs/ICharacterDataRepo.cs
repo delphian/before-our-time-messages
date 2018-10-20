@@ -15,8 +15,7 @@ namespace BeforeOurTime.Models.Modules.World.Dbs
         /// Read associated character data of item
         /// </summary>
         /// <param name="item">Item that may have associated data</param>
-        /// <param name="options">Options to customize how data is transacted from datastore</param>
         /// <returns></returns>
-        CharacterData Read(Item item, TransactionOptions options = null);
+        CharacterData Read(Item item);
     }
 }

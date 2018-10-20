@@ -19,16 +19,14 @@ namespace BeforeOurTime.Models.Modules.Core.Managers
         /// Read single model of a type derived from Item
         /// </summary>
         /// <param name="itemIds">Unique item identifier</param>
-        /// <param name="options">Options to customize how data is transacted from datastore</param>
         /// <returns></returns>
-        Item Read(Guid itemId, TransactionOptions options = null);
+        Item Read(Guid itemId);
         /// <summary>
         /// Read multiple models of a type derived from Item
         /// </summary>
         /// <param name="itemIds">List of unique item identifiers</param>
-        /// <param name="options">Options to customize how data is transacted from datastore</param>
         /// <returns></returns>
-        List<Item> Read(List<Guid> itemIds, TransactionOptions options = null);
+        List<Item> Read(List<Guid> itemIds);
         /// <summary>
         /// Read all models of a type derived from Item, or specify an offset and limit
         /// </summary>
@@ -38,9 +36,8 @@ namespace BeforeOurTime.Models.Modules.Core.Managers
         /// </remarks>
         /// <param name="offset">Number of model records to skip</param>
         /// <param name="limit">Maximum number of model records to return</param>
-        /// <param name="options">Options to customize how data is transacted from datastore</param>
         /// <returns></returns>
-        List<Item> Read(int? offset = null, int? limit = null, TransactionOptions options = null);
+        List<Item> Read(int? offset = null, int? limit = null);
         /// <summary>
         /// Get the item identifiers of all item's children
         /// </summary>
