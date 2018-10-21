@@ -16,7 +16,8 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// </summary>
         /// <param name="name">Login name</param>
         /// <param name="password">Login password</param>
-        AccountData Create(string name, string password);
+        /// <param name="temporary">Account is temporary for trial purposes</param>
+        AccountData Create(string name, string password, bool temporary = false);
         /// <summary>
         /// Authenticate a user name and password
         /// </summary>

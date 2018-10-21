@@ -21,6 +21,11 @@ namespace BeforeOurTime.Models.Modules.Account.Messages.CreateCharacter
         [JsonProperty(PropertyName = "name", Order = 1000)]
         public string Name { set; get; }
         /// <summary>
+        /// Character is temporary
+        /// </summary>
+        [JsonProperty(PropertyName = "temporary", Order = 1100)]
+        public bool Temporary { set; get; }
+        /// <summary>
         /// Constructor
         /// </summary>
         public AccountCreateCharacterRequest()

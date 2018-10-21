@@ -26,6 +26,11 @@ namespace BeforeOurTime.Models.Modules.Account.Messages.CreateAccount
         [JsonProperty(PropertyName = "password", Order = 1100)]
         public string Password { set; get; }
         /// <summary>
+        /// Account is temporary
+        /// </summary>
+        [JsonProperty(PropertyName = "temporary", Order = 1200)]
+        public bool Temporary { set; get; }
+        /// <summary>
         /// Constructor
         /// </summary>
         public AccountCreateAccountRequest()

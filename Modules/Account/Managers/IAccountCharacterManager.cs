@@ -17,8 +17,9 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// </summary>
         /// <param name="accountId">Unique account identifer to create character for</param>
         /// <param name="name">Name of character</param>
+        /// <param name="temporary">Character is for trial purpose only</param>
         /// <returns></returns>
-        Item Create(Guid accountId, string name);
+        Item Create(Guid accountId, string name, bool temporary = false);
         /// <summary>
         /// Create a new account character based on an existing item
         /// </summary>

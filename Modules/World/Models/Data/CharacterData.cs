@@ -13,6 +13,14 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
     public class CharacterData : ItemData, IItemData
     {
         /// <summary>
+        /// Character was auto generated for guest and still in temporary state
+        /// </summary>
+        /// <remarks>
+        /// Any temporary character is subject to deletion
+        /// </remarks>
+        [JsonProperty(PropertyName = "temporary", Order = 20)]
+        public bool Temporary { set; get; }
+        /// <summary>
         /// Short description of character
         /// </summary>
         [JsonProperty(PropertyName = "name", Order = 30)]
