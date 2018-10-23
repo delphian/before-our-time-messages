@@ -21,9 +21,8 @@ namespace BeforeOurTime.Models.Modules.Account.Messages.LoginAccount
         /// <summary>
         /// Unique account identifier
         /// </summary>
-        [JsonProperty(PropertyName = "accountId", Order = 1000)]
-        [JsonConverter(typeof(GuidJsonConverter))]
-        public Guid? AccountId { set; get; }
+        [JsonProperty(PropertyName = "account", Order = 1000)]
+        public BeforeOurTime.Models.Modules.Account.Models.Account Account { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>

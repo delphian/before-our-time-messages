@@ -19,11 +19,10 @@ namespace BeforeOurTime.Models.Modules.Account.Messages.CreateAccount
         [JsonConverter(typeof(GuidJsonConverter))]
         public static Guid _Id = new Guid("f02c0be3-c491-4c9e-baa5-c59fbf9f0526");
         /// <summary>
-        /// Unique account identifier
+        /// Account that was just created
         /// </summary>
-        [JsonConverter(typeof(GuidJsonConverter))]
-        [JsonProperty(PropertyName = "accountId", Order = 1000)]
-        public Guid AccountId { set; get; }
+        [JsonProperty(PropertyName = "account", Order = 1000)]
+        public BeforeOurTime.Models.Modules.Account.Models.Account Account { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
