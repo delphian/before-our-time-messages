@@ -35,18 +35,26 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <summary>
         /// Handle a message
         /// </summary>
-        /// <param name="api"></param>
         /// <param name="message"></param>
-        /// <param name="terminal"></param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="terminal">Terminal that initiated request</param>
         /// <param name="response"></param>
-        IResponse HandleReadCharacterRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        IResponse HandleReadCharacterRequest(
+            IMessage message,
+            IModuleManager mm,
+            ITerminal terminal,
+            IResponse response);
         /// <summary>
         /// Handle a message
         /// </summary>
-        /// <param name="api"></param>
         /// <param name="message"></param>
-        /// <param name="terminal"></param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="terminal">Terminal that initiated request</param>
         /// <param name="response"></param>
-        IResponse HandleCreateCharacterRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        IResponse HandleCreateCharacterRequest(
+            IMessage message,
+            IModuleManager mm,
+            ITerminal terminal,
+            IResponse response);
     }
 }

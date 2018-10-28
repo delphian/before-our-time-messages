@@ -44,7 +44,11 @@ namespace BeforeOurTime.Models.Modules
         /// <param name="message"></param>
         /// <param name="terminal"></param>
         /// <param name="response"></param>
-        IResponse HandleMessage(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        IResponse HandleMessage(
+            IMessage message, 
+            IModuleManager moduleManage, 
+            ITerminal terminal, 
+            IResponse response);
         /// <summary>
         /// Initialize module
         /// </summary>

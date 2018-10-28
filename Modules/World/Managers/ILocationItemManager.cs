@@ -20,18 +20,26 @@ namespace BeforeOurTime.Models.Modules.World.Managers
         /// <summary>
         /// Read location summary
         /// </summary>
-        /// <param name="api"></param>
         /// <param name="message"></param>
-        /// <param name="terminal"></param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="terminal">Terminal that initiated request</param>
         /// <param name="response"></param>
-        IResponse HandleReadLocationSummaryRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        IResponse HandleReadLocationSummaryRequest(
+            IMessage message,
+            IModuleManager mm,
+            ITerminal terminal,
+            IResponse response);
         /// <summary>
         /// Create location
         /// </summary>
-        /// <param name="api"></param>
-        /// <param name="terminal"></param>
-        /// <param name="request"></param>
+        /// <param name="message"></param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="terminal">Terminal that initiated request</param>
         /// <param name="response"></param>
-        IResponse HandleCreateLocationQuickRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        IResponse HandleCreateLocationQuickRequest(
+            IMessage message,
+            IModuleManager mm,
+            ITerminal terminal,
+            IResponse response);
     }
 }

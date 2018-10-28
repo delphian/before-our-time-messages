@@ -34,34 +34,50 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <summary>
         /// Handle a message
         /// </summary>
-        /// <param name="api"></param>
         /// <param name="message"></param>
-        /// <param name="terminal"></param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="terminal">Terminal that initiated request</param>
         /// <param name="response"></param>
-        IResponse HandleCreateAccountRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        IResponse HandleCreateAccountRequest(
+            IMessage message,
+            IModuleManager mm,
+            ITerminal terminal,
+            IResponse response);
         /// <summary>
         /// Update account endpoint
         /// </summary>
-        /// <param name="api"></param>
         /// <param name="message"></param>
-        /// <param name="terminal"></param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="terminal">Terminal that initiated request</param>
         /// <param name="response"></param>
-        IResponse HandleUpdateAccountRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        IResponse HandleUpdateAccountRequest(
+            IMessage message,
+            IModuleManager mm,
+            ITerminal terminal,
+            IResponse response);
         /// <summary>
         /// Handle a message
         /// </summary>
-        /// <param name="api"></param>
         /// <param name="message"></param>
-        /// <param name="terminal"></param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="terminal">Terminal that initiated request</param>
         /// <param name="response"></param>
-        IResponse HandleLoginAccountRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        IResponse HandleLoginAccountRequest(
+            IMessage message,
+            IModuleManager mm,
+            ITerminal terminal,
+            IResponse response);
         /// <summary>
         /// Handle a message
         /// </summary>
-        /// <param name="api"></param>
         /// <param name="message"></param>
-        /// <param name="terminal"></param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="terminal">Terminal that initiated request</param>
         /// <param name="response"></param>
-        IResponse HandleLogoutAccountRequest(IMessage message, IApi api, ITerminal terminal, IResponse response);
+        IResponse HandleLogoutAccountRequest(
+            IMessage message,
+            IModuleManager mm,
+            ITerminal terminal,
+            IResponse response);
     }
 }
