@@ -18,8 +18,8 @@ namespace BeforeOurTime.Models.Modules.Core.Messages.ItemJson.CreateItemJson
         /// <summary>
         /// List of unique item identifiers to read
         /// </summary>
-        [JsonProperty(PropertyName = "itemsJson", Order = 100)]
-        public List<CoreItemJson> ItemsJson { set; get; }
+        [JsonProperty(PropertyName = "itemJson", Order = 100)]
+        public string ItemJson { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>

@@ -17,6 +17,11 @@ namespace BeforeOurTime.Models.Modules.Core.Messages.ItemJson
         [JsonProperty(PropertyName = "id", Order = 1000)]
         public string Id { set; get; }
         /// <summary>
+        /// Recursively include all children in json
+        /// </summary>
+        [JsonProperty(PropertyName = "include_children", Order = 1050)]
+        public bool IncludeChildren { set; get; }
+        /// <summary>
         /// Item encoded as JSON
         /// </summary>
         [JsonProperty(PropertyName = "json", Order = 1100)]

@@ -22,6 +22,11 @@ namespace BeforeOurTime.Models.Modules.Core.Messages.ItemJson.ReadItemJson
         [JsonProperty(PropertyName = "itemIds", Order = 100)]
         public List<Guid> ItemIds { set; get; }
         /// <summary>
+        /// Recursively include all children
+        /// </summary>
+        [JsonProperty(PropertyName = "include_children", Order = 200)]
+        public bool IncludeChildren { set; get; }
+        /// <summary>
         /// Constructor
         /// </summary>
         public CoreReadItemJsonRequest()

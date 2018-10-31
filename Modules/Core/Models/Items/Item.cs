@@ -49,6 +49,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         [JsonProperty(PropertyName = "childrenIds", Order = 60)]
         public List<Guid> ChildrenIds { set; get; }
         [JsonIgnore]
+        [JsonProperty(PropertyName = "children", Order = 12000)]
         public List<Item> Children { set; get; }
         /// <summary>
         /// If set, the terminal identifier which is in control of the item
@@ -147,6 +148,31 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         public void NotifyPropertyChanged(String propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+    /// <summary>
+    /// Extension functions for List<Item>
+    /// </summary>
+    public static class ListItemExtensions
+    {
+        /// <summary>
+        /// Flatten out an Item tree and remove all children
+        /// </summary>
+        /// <param name="childItems"></param>
+        /// <returns></returns>
+        public static List<Item> Flatten(this List<Item> items)
+        {
+            var flatItems = items
+                .Where(x => x.Children != null)
+                .SelectMany(x => x.Children.Flatten())
+            .Concat(items)
+            .GroupBy(x => x.Id)
+            .Select(grp => grp.First()).ToList();
+            flatItems.ForEach(item =>
+            {
+                item.Children = new List<Item>();
+            });
+            return flatItems;
         }
     }
 }
