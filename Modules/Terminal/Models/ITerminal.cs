@@ -1,5 +1,4 @@
-﻿using BeforeOurTime.Business.Apis.Terminals;
-using BeforeOurTime.Models.Messages;
+﻿using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Requests;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Modules.World.Models.Items;
@@ -7,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Terminals
+namespace BeforeOurTime.Models.Modules.Terminal.Models
 {
     /// <summary>
     /// Define delgate that environment can use to update terminal

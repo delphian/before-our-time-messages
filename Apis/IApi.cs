@@ -1,5 +1,4 @@
 ﻿using BeforeOurTime.Business.Apis.Messages;
-using BeforeOurTime.Business.Apis.Terminals;
 using BeforeOurTime.Models.Logs;
 using BeforeOurTime.Models.Modules;
 using BeforeOurTime.Models.Modules.Core.Managers;
@@ -23,7 +22,6 @@ namespace BeforeOurTime.Models.Apis
         IConfiguration GetConfiguration();
         IMessageManager GetMessageManager();
         IItemManager GetItemManager();
-        ITerminalManager GetTerminalManager();
         IModuleManager GetModuleManager();
         /// <summary>
         /// (awaitable) Execute all item scripts that desire a regular periodic event

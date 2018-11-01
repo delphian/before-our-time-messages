@@ -1,11 +1,10 @@
-﻿using BeforeOurTime.Models.Apis;
-using BeforeOurTime.Models.Logs;
+﻿using BeforeOurTime.Models.Logs;
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Modules.Core.Dbs;
 using BeforeOurTime.Models.Modules.Core.Messages.UseItem;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
-using BeforeOurTime.Models.Terminals;
+using BeforeOurTime.Models.Modules.Terminal.Models;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;

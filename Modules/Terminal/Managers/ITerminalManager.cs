@@ -1,13 +1,16 @@
-﻿using BeforeOurTime.Models.Messages;
-using BeforeOurTime.Models.Terminals;
+﻿using BeforeOurTime.Models.Apis;
+using BeforeOurTime.Models.Messages;
+using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Modules.Account.Models.Data;
+using BeforeOurTime.Models.Modules.Terminal.Models;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-namespace BeforeOurTime.Business.Apis.Terminals
+namespace BeforeOurTime.Models.Modules.Terminal.Managers
 {
-    public interface ITerminalManager
+    public interface ITerminalManager : IModelManager
     {
         /// <summary>
         /// Create a new terminal

@@ -1,10 +1,17 @@
 ﻿using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Modules.Core.Managers;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
+using BeforeOurTime.Models.Modules.Terminal.Managers;
+using BeforeOurTime.Models.Modules.World.Managers;
+using BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocationSummary;
 using BeforeOurTime.Models.Modules.World.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BeforeOurTime.Models.Modules.World.Models.Data
@@ -80,6 +87,29 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
                 };
             }
             return (T)previousValue;
+        }
+        /// <summary>
+        /// Execute a command that this data provides
+        /// </summary>
+        /// <param name="command">Command to be performed</param>
+        /// <param name="user">Item that is initiating the command</param>
+        /// <param name="moduleManager">Manager of all modules</param>
+        public override void UseItem(Use command, Item user, IModuleManager moduleManager)
+        {
+            var itemManager = moduleManager.GetManager<IItemManager>();
+            var terminalManager = moduleManager.GetManager<ITerminalManager>();
+            var terminal = terminalManager.GetTerminals().Where(x => x.GetId() == user.TerminalId).FirstOrDefault();
+            if (command.Id == new Guid("c558c1f9-7d01-45f3-bc35-dcab52b5a37c"))
+            {
+                IResponse response = null;
+                var destinationItem = itemManager.Read(DestinationLocationId);
+                itemManager.Move(user, destinationItem, user);
+                var locationSummary = moduleManager.GetManager<ILocationItemManager>()
+                    .HandleReadLocationSummaryRequest(new WorldReadLocationSummaryRequest()
+                    {
+                    }, moduleManager, terminal, response);
+                terminal.SendToClient(locationSummary);
+            }
         }
     }
 }

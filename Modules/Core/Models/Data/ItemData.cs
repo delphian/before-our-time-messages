@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using BeforeOurTime.Models;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 
 namespace BeforeOurTime.Models.Modules.Core.Models.Data
 {
@@ -38,6 +39,15 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Data
         public virtual T GetProperty<T>(string propertyName, object previousValue) where T : ItemProperty, new()
         {
             return (T)previousValue;
+        }
+        /// <summary>
+        /// Execute a command that this data provides
+        /// </summary>
+        /// <param name="command">Command to be performed</param>
+        /// <param name="user">Item that is initiating the command</param>
+        /// <param name="moduleManager">Manager of all modules</param>
+        public virtual void UseItem(Use command, Item user, IModuleManager moduleManager)
+        {
         }
         /// <summary>
         /// Get priority order of attribute in comparison to other attributes

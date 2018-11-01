@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Business.Apis.Terminals
+namespace BeforeOurTime.Models.Modules.Terminal.Models
 {
     /// <summary>
     /// Connection status of terminal
