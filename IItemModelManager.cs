@@ -1,4 +1,7 @@
-﻿using BeforeOurTime.Models.Modules.Core.Models.Items;
+﻿using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Modules.Core.Messages.UseItem;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
+using BeforeOurTime.Models.Terminals;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,6 +31,13 @@ namespace BeforeOurTime.Models
         /// </summary>
         /// <returns></returns>
         List<Guid> GetItemIds();
+        /// <summary>
+        /// Execute a use item request
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="user"></param>
+        /// <returns>Description of error, or null on success</returns>
+        string UseItem(CoreUseItemRequest request, Item user, ITerminal terminal, IResponse response);
         /// <summary>
         /// Append attribute to base item when it is loaded
         /// </summary>

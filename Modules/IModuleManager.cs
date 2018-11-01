@@ -3,6 +3,7 @@ using BeforeOurTime.Models.Logs;
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Modules.Core.Dbs;
+using BeforeOurTime.Models.Modules.Core.Messages.UseItem;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Terminals;
 using Microsoft.Extensions.Configuration;
@@ -90,5 +91,15 @@ namespace BeforeOurTime.Models.Modules
         /// </summary>
         /// <returns></returns>
         IItemRepo GetItemRepo();
+        /// <summary>
+        /// Execute a use item request
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="userItem"></param>
+        CoreUseItemResponse UseItem(
+            CoreUseItemRequest request, 
+            Item usingItem, 
+            ITerminal terminal,
+            IResponse response);
     }
 }
