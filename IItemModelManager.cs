@@ -35,9 +35,9 @@ namespace BeforeOurTime.Models
         /// Execute a use item request
         /// </summary>
         /// <param name="request"></param>
-        /// <param name="user"></param>
+        /// <param name="origin">Item that initiated request</param>
         /// <returns>Description of error, or null on success</returns>
-        string UseItem(CoreUseItemRequest request, Item user, ITerminal terminal, IResponse response);
+        string UseItem(CoreUseItemRequest request, Item origin, IResponse response);
         /// <summary>
         /// Append attribute to base item when it is loaded
         /// </summary>

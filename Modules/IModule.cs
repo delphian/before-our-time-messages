@@ -1,5 +1,6 @@
 ﻿using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Modules.Terminal.Models;
 using System;
 using System.Collections.Generic;
@@ -40,13 +41,13 @@ namespace BeforeOurTime.Models.Modules
         /// Handle a message
         /// </summary>
         /// <param name="api"></param>
+        /// <param name="origin">Item that initiated request</param>
         /// <param name="message"></param>
-        /// <param name="terminal"></param>
         /// <param name="response"></param>
         IResponse HandleMessage(
             IMessage message, 
+            Item origin,
             IModuleManager moduleManage, 
-            ITerminal terminal, 
             IResponse response);
         /// <summary>
         /// Initialize module

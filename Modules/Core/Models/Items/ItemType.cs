@@ -10,6 +10,10 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
     public enum ItemType
     {
         Unknown = 0,
+        /// <summary>
+        /// Fantom item assigned to clients that have connected, but not logged in
+        /// </summary>
+        Ghost = 1,
         Game = 100,
         Location = 200,
         Exit = 300,

@@ -69,11 +69,11 @@ namespace BeforeOurTime.Models.Modules
         /// Handle a message
         /// </summary>
         /// <param name="message"></param>
-        /// <param name="terminal"></param>
+        /// <param name="origin">Item that initiated request</param>
         /// <param name="response"></param>
         IResponse HandleMessage(
             IMessage message, 
-            ITerminal terminal, 
+            Item origin, 
             IResponse response);
         /// <summary>
         /// Get configuration
@@ -93,12 +93,10 @@ namespace BeforeOurTime.Models.Modules
         /// <summary>
         /// Execute a use item request
         /// </summary>
-        /// <param name="item"></param>
-        /// <param name="userItem"></param>
+        /// <param name="origin">Item that initiated request</param>
         CoreUseItemResponse UseItem(
             CoreUseItemRequest request, 
-            Item usingItem, 
-            ITerminal terminal,
+            Item origin, 
             IResponse response);
     }
 }

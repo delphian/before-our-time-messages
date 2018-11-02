@@ -92,22 +92,22 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
         /// Execute a command that this data provides
         /// </summary>
         /// <param name="command">Command to be performed</param>
-        /// <param name="user">Item that is initiating the command</param>
+        /// <param name="origin">Item that initiated request</param>
         /// <param name="moduleManager">Manager of all modules</param>
-        public override void UseItem(Use command, Item user, IModuleManager moduleManager)
+        public override void UseItem(Use command, Item origin, IModuleManager moduleManager)
         {
             var itemManager = moduleManager.GetManager<IItemManager>();
             var terminalManager = moduleManager.GetManager<ITerminalManager>();
-            var terminal = terminalManager.GetTerminals().Where(x => x.GetId() == user.TerminalId).FirstOrDefault();
+            var terminal = terminalManager.GetTerminals().Where(x => x.GetId() == origin.TerminalId).FirstOrDefault();
             if (command.Id == new Guid("c558c1f9-7d01-45f3-bc35-dcab52b5a37c"))
             {
                 IResponse response = null;
                 var destinationItem = itemManager.Read(DestinationLocationId);
-                itemManager.Move(user, destinationItem, user);
+                itemManager.Move(origin, destinationItem, origin);
                 var locationSummary = moduleManager.GetManager<ILocationItemManager>()
                     .HandleReadLocationSummaryRequest(new WorldReadLocationSummaryRequest()
                     {
-                    }, moduleManager, terminal, response);
+                    }, origin, moduleManager, response);
                 terminal.SendToClient(locationSummary);
             }
         }
