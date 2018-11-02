@@ -5,6 +5,7 @@ using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using BeforeOurTime.Models.Modules.Terminal.Managers;
+using BeforeOurTime.Models.Modules.Terminal.Models.Data;
 using BeforeOurTime.Models.Modules.World.Managers;
 using BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocationSummary;
 using BeforeOurTime.Models.Modules.World.Properties;
@@ -98,7 +99,7 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
         {
             var itemManager = moduleManager.GetManager<IItemManager>();
             var terminalManager = moduleManager.GetManager<ITerminalManager>();
-            var terminal = terminalManager.GetTerminals().Where(x => x.GetId() == origin.TerminalId).FirstOrDefault();
+            var terminal = origin.GetData<TerminalData>().Terminal;
             if (command.Id == new Guid("c558c1f9-7d01-45f3-bc35-dcab52b5a37c"))
             {
                 IResponse response = null;

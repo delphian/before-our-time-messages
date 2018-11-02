@@ -2,6 +2,7 @@
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Modules.Account.Models.Data;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Modules.Terminal.Models;
 using System;
 using System.Collections.Generic;
@@ -35,5 +36,10 @@ namespace BeforeOurTime.Models.Modules.Terminal.Managers
         /// </summary>
         /// <returns></returns>
         List<ITerminal> GetTerminals();
+        /// <summary>
+        /// Append attribute to base item when it is loaded
+        /// </summary>
+        /// <param name="item">Base item just read from datastore</param>
+        void OnItemRead(Item item);
     }
 }
