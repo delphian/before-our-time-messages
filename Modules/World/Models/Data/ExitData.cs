@@ -97,20 +97,7 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
         /// <param name="moduleManager">Manager of all modules</param>
         public override void UseItem(Use command, Item origin, IModuleManager moduleManager)
         {
-            var itemManager = moduleManager.GetManager<IItemManager>();
-            var terminalManager = moduleManager.GetManager<ITerminalManager>();
-            var terminal = origin.GetData<TerminalData>().Terminal;
-            if (command.Id == new Guid("c558c1f9-7d01-45f3-bc35-dcab52b5a37c"))
-            {
-                IResponse response = null;
-                var destinationItem = itemManager.Read(DestinationLocationId);
-                itemManager.Move(origin, destinationItem, origin);
-                var locationSummary = moduleManager.GetManager<ILocationItemManager>()
-                    .HandleReadLocationSummaryRequest(new WorldReadLocationSummaryRequest()
-                    {
-                    }, origin, moduleManager, response);
-                terminal.SendToClient(locationSummary);
-            }
+            throw new NotImplementedException();
         }
     }
 }
