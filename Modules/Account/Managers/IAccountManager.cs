@@ -12,6 +12,11 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
     public interface IAccountManager : IModelManager
     {
         /// <summary>
+        /// Attach terminal data to item
+        /// </summary>
+        /// <param name="item"></param>
+        void OnItemRead(Item item);
+        /// <summary>
         /// Create a new account
         /// </summary>
         /// <param name="name">Login name</param>

@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using BeforeOurTime.Models.Modules.Core.Models.Data;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BeforeOurTime.Models.Modules.Account.Models.Data
 {
-    public class AccountData : Model
+    public class AccountData : ItemData, IItemData
     {
         /// <summary>
         /// Login name for account
@@ -30,5 +31,12 @@ namespace BeforeOurTime.Models.Modules.Account.Models.Data
         /// </summary>
         [JsonProperty(PropertyName = "characters", Order = 200)]
         public List<Guid> Characters { set; get; } = new List<Guid>();
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public AccountData()
+        {
+            DataType = this.GetType().ToString();
+        }
     }
 }

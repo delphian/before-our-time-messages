@@ -32,6 +32,12 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <returns></returns>
         List<AccountCharacterData> ReadByAccount(Guid accountId);
         /// <summary>
+        /// Read account for a single character
+        /// </summary>
+        /// <param name="characterId">Unique character (item) identifier</param>
+        /// <returns></returns>
+        AccountCharacterData ReadByCharacter(Guid characterId);
+        /// <summary>
         /// Handle a message
         /// </summary>
         /// <param name="message"></param>
