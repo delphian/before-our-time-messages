@@ -22,7 +22,12 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <param name="name">Login name</param>
         /// <param name="password">Login password</param>
         /// <param name="temporary">Account is temporary for trial purposes</param>
-        AccountData Create(string name, string password, bool temporary = false);
+        /// <param name="admin">Account has administrative rights</param>
+        AccountData Create(
+            string name, 
+            string password, 
+            bool temporary = false,
+            bool admin = false);
         /// <summary>
         /// Update existing account
         /// </summary>

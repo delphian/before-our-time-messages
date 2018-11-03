@@ -27,6 +27,11 @@ namespace BeforeOurTime.Models.Modules.Account.Models.Data
         [JsonProperty(PropertyName = "temporary", Order = 130)]
         public bool Temporary { set; get; }
         /// <summary>
+        /// Administrative account
+        /// </summary>
+        [JsonProperty(PropertyName = "admin", Order = 140)]
+        public bool Admin { set; get; }
+        /// <summary>
         /// Characters attached to account
         /// </summary>
         [JsonProperty(PropertyName = "characters", Order = 200)]
