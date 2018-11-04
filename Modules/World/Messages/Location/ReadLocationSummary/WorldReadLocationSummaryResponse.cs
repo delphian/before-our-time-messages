@@ -2,6 +2,7 @@
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Messages.Responses.List;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using BeforeOurTime.Models.Modules.World.Models.Items;
 using Newtonsoft.Json;
 using System;
@@ -46,6 +47,11 @@ namespace BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocationSumma
         /// </summary>
         [JsonProperty(PropertyName = "items", Order = 1490)]
         public List<Item> Items { set; get; } = new List<Item>();
+        /// <summary>
+        /// Commands that items will respond to
+        /// </summary>
+        [JsonProperty(PropertyName = "commands", Order = 1495)]
+        public List<Command> Commands { set; get; } = new List<Command>();
         /// <summary>
         /// Additional descrete textual adendums to the description
         /// </summary>

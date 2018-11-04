@@ -11,18 +11,18 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Properties
     /// <remarks>
     /// Item manager is responsible for executing the use
     /// </remarks>
-    public class UseProperty : ItemProperty
+    public class CommandProperty : ItemProperty
     {
         /// <summary>
         /// List of possible commands item will respond to
         /// </summary>
-        [JsonProperty(PropertyName = "uses", Order = 20)]
-        public List<Use> Uses
+        [JsonProperty(PropertyName = "commands", Order = 20)]
+        public List<Command> Commands
         {
-            set { _uses = value; NotifyPropertyChanged("Uses"); }
-            get { return _uses; }
+            set { _commands = value; NotifyPropertyChanged("Commands"); }
+            get { return _commands; }
         }
-        private List<Use> _uses { set; get; }
+        private List<Command> _commands { set; get; }
 
     }
 }

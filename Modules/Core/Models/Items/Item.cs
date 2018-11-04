@@ -121,11 +121,17 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         /// <typeparam name="T"></typeparam>
         /// <param name="propertyName"></param>
         /// <returns></returns>
-        public T GetProperty<T>(string propertyName) where T : ItemProperty, new()
+        public T GetProperty<T>(string propertyName = null) where T : ItemProperty, new()
         {
-            // Allow item subclasses to fill their properties first
-            var value = this.GetType().GetProperty(propertyName)?.GetValue(this, null);
-            if (value == null)
+            object value = null;
+            // Allow item subclasses to fill their properties first. If
+            // property name is specified then use reflection to locate
+            // value. Otherwise send to subclass datas for type comparison.
+            if (propertyName != null)
+            {
+                value = this.GetType().GetProperty(propertyName)?.GetValue(this, null);
+            }
+            else
             {
                 // If we are running on the superclass then get values directly from data
                 Data?.ForEach((data) =>

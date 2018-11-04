@@ -75,13 +75,14 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
                 previousValue = previousValue ?? new ExitProperty();
                 ((ExitProperty)previousValue).DestinationId = DestinationLocationId.ToString();
             }
-            if (typeof(T) == typeof(UseProperty))
+            if (typeof(T) == typeof(CommandProperty))
             {
-                previousValue = previousValue ?? new UseProperty();
-                ((UseProperty)previousValue).Uses = new List<Use>()
+                previousValue = previousValue ?? new CommandProperty();
+                ((CommandProperty)previousValue).Commands = new List<Command>()
                 {
-                    new Use()
+                    new Command()
                     {
+                        ItemId = this.DataItemId,
                         Id = new Guid("c558c1f9-7d01-45f3-bc35-dcab52b5a37c"),
                         Name = "Go"
                     }
@@ -95,7 +96,7 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
         /// <param name="command">Command to be performed</param>
         /// <param name="origin">Item that initiated request</param>
         /// <param name="moduleManager">Manager of all modules</param>
-        public override void UseItem(Use command, Item origin, IModuleManager moduleManager)
+        public override void UseItem(Command command, Item origin, IModuleManager moduleManager)
         {
             throw new NotImplementedException();
         }

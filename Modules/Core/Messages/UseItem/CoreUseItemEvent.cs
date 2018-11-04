@@ -34,7 +34,7 @@ namespace BeforeOurTime.Models.Modules.Core.Messages.UseItem
         /// How item is to be used
         /// </summary>
         [JsonProperty(PropertyName = "use", Order = 1200)]
-        public Use Use { set; get; }
+        public Command Use { set; get; }
         /// <summary>
         /// Item use attempt was a success or failure
         /// </summary>

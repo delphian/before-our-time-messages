@@ -6,12 +6,12 @@ using System.Text;
 namespace BeforeOurTime.Models.Modules.Core.Models.Properties
 {
     /// <summary>
-    /// Describe a single use
+    /// Describe a single command
     /// </summary>
-    public class Use : ItemProperty
+    public class Command : ItemProperty
     {
         /// <summary>
-        /// Unique identifier of use
+        /// Unique identifier of command
         /// </summary>
         [JsonProperty(PropertyName = "id", Order = 20)]
         public Guid Id
@@ -20,6 +20,15 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Properties
             get { return _id; }
         }
         private Guid _id { set; get; }
+        /// <summary>
+        /// Item that command is attached to
+        /// </summary>
+        public Guid? ItemId
+        {
+            set { _itemId = value; NotifyPropertyChanged("ItemId"); }
+            get { return _itemId; }
+        }
+        private Guid? _itemId { set; get; }
         /// <summary>
         /// Displayed command name
         /// </summary>

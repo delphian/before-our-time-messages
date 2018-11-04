@@ -46,7 +46,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Data
         /// <param name="command">Command to be performed</param>
         /// <param name="user">Item that is initiating the command</param>
         /// <param name="moduleManager">Manager of all modules</param>
-        public virtual void UseItem(Use command, Item user, IModuleManager moduleManager)
+        public virtual void UseItem(Command command, Item user, IModuleManager moduleManager)
         {
         }
         /// <summary>

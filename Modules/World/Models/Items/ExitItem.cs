@@ -60,24 +60,24 @@ namespace BeforeOurTime.Models.Modules.World.Models.Items
         /// <summary>
         /// List of commands an item may respond to
         /// </summary>
-        public UseProperty Uses
+        public CommandProperty CommandList
         {
-            set { _uses = value; NotifyPropertyChanged("Uses"); }
+            set { _commandList = value; NotifyPropertyChanged("CommandList"); }
             get
             {
-                var value = _uses;
+                var value = _commandList;
                 if (value == null)
                 {
                     Data?.ForEach((data) =>
                     {
-                        value = data.GetProperty<UseProperty>("Uses", value);
+                        value = data.GetProperty<CommandProperty>("CommandsList", value);
                     });
-                    _uses = value;
+                    _commandList = value;
                 }
                 return value;
             }
         }
-        private UseProperty _uses { set; get; }
+        private CommandProperty _commandList { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
