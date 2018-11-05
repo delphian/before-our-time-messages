@@ -1,16 +1,17 @@
 ﻿using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Messages.Events;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Messages.Events.Emotes
+namespace BeforeOurTime.Models.Modules.World.Messages.Emotes
 {
     /// <summary>
     /// An item has emoted
     /// </summary>
-    public class EmoteEvent : Event, IEvent
+    public class WorldEmoteEvent : Event, IEvent
     {
         /// <summary>
         /// Our unique message identifier
@@ -19,24 +20,24 @@ namespace BeforeOurTime.Models.Messages.Events.Emotes
         [JsonConverter(typeof(GuidJsonConverter))]
         public static Guid _Id = new Guid("6cedfd1c-89ec-4389-998b-1e076c9d7b48");
         /// <summary>
-        /// Name of item that has emoted
+        /// Source of the emote
         /// </summary>
-        [JsonProperty(PropertyName = "name", Order = 1000)]
-        public string Name { set; get; }
+        [JsonProperty(PropertyName = "origin", Order = 1200)]
+        public Item Origin { set; get; }
         /// <summary>
         /// Type of emote
         /// </summary>
-        [JsonProperty(PropertyName = "type", Order = 1100)]
-        public EmoteType Type { set; get; }
+        [JsonProperty(PropertyName = "emoteType", Order = 1100)]
+        public WorldEmoteType EmoteType { set; get; }
         /// <summary>
-        /// Item object
+        /// Item that emote is directed toward (if any)
         /// </summary>
-        [JsonProperty(PropertyName = "item", Order = 1200)]
-        public Item Item { set; get; }
+        [JsonProperty(PropertyName = "destination", Order = 1200)]
+        public Item Destination { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public EmoteEvent()
+        public WorldEmoteEvent()
         {
             this.MessageId = _Id;
             this.MessageName = "Item has emoted";
