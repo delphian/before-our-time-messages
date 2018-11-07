@@ -131,7 +131,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
             {
                 value = this.GetType().GetProperty(propertyName)?.GetValue(this, null);
             }
-            else
+            if (value == null)
             {
                 // If we are running on the superclass then get values directly from data
                 Data?.ForEach((data) =>

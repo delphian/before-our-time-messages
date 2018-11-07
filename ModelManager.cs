@@ -15,7 +15,7 @@ namespace BeforeOurTime.Models
         /// </summary>
         /// <param name="modelType"></param>
         /// <returns></returns>
-        public bool IsManaging(Type modelType)
+        public virtual bool IsManaging(Type modelType)
         {
             return modelType == typeof(T);
         }
