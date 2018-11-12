@@ -8,7 +8,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Properties
     /// <summary>
     /// Collections of related information used as item properties
     /// </summary>
-    public abstract class ItemProperty : INotifyPropertyChanged
+    public abstract class ItemProperty : IItemProperty, INotifyPropertyChanged
     {
         /// <summary>
         /// Structure that subscriber must implement to recieve property updates

@@ -5,6 +5,7 @@ using BeforeOurTime.Models.Modules.World.Models.Items;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BeforeOurTime.Models.Modules.Terminal.Models
 {
@@ -23,7 +24,7 @@ namespace BeforeOurTime.Models.Modules.Terminal.Models
         /// Send a message to the client
         /// </summary>
         /// <param name="message"></param>
-        void SendToClient(IMessage message);
+        Task SendToClientAsync(IMessage message);
         /// <summary>
         /// Send a message to the environment
         /// </summary>

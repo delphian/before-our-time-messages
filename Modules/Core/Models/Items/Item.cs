@@ -54,7 +54,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         /// <summary>
         /// Additional optional properties provided by attribute managers
         /// </summary>
-        [JsonProperty(PropertyName = "data", Order = 11000)]
+        [JsonProperty(PropertyName = "data", Order = 11500)]
         [JsonConverter(typeof(ItemDataJsonConverter))]
         public List<IItemData> Data
         {
@@ -62,6 +62,95 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
             get { return _data; }
         }
         private List<IItemData> _data { set; get; } = new List<IItemData>();
+        /// <summary>
+        /// View model properties
+        /// </summary>
+        [JsonProperty(PropertyName = "properties", Order = 11000)]
+        [JsonConverter(typeof(ItemViewModelJsonConverter))]
+        public Dictionary<Type, IItemProperty> ViewModels
+        {
+            get { return _viewModels; }
+            set { _viewModels = value; NotifyPropertyChanged("ViewModels"); }
+        }
+        private Dictionary<Type, IItemProperty> _viewModels { set; get; } = new Dictionary<Type, IItemProperty>();
+        #region View Model Property Getters
+        /// <summary>
+        /// Determine if item has a specific view model
+        /// </summary>
+        /// <returns></returns>
+        public bool HasViewModel(Type viewModelType)
+        {
+            return ViewModels.ContainsKey(viewModelType);
+        }
+        /// <summary>
+        /// Determin if item has a specific view model
+        /// </summary>
+        /// <returns></returns>
+        public bool HasViewModel<T>()
+        {
+            return HasViewModel(typeof(T));
+        }
+        /// <summary>
+        /// Get view model property of a specified type
+        /// </summary>
+        /// <param name="viewModelType"></param>
+        /// <returns></returns>
+        public object GetViewModel(Type viewModelType)
+        {
+            return (HasViewModel(viewModelType)) ?
+                Convert.ChangeType(ViewModels[viewModelType], viewModelType) :
+                null;
+        }
+        /// <summary>
+        /// Set item property view model
+        /// </summary>
+        /// <param name="viewModelType"></param>
+        /// <param name="viewModel"></param>
+        /// <returns></returns>
+        public Item SetViewModel(Type viewModelType, IItemProperty viewModel)
+        {
+            if (ViewModels.ContainsKey(viewModelType))
+            {
+                ViewModels.Add(viewModelType, viewModel);
+            }
+            else
+            {
+                ViewModels[viewModelType] = viewModel;
+            }
+            return this;
+        }
+        /// <summary>
+        /// Get view model property of specified name or type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public T GetProperty<T>(string propertyName = null) where T : ItemProperty, new()
+        {
+            object value = null;
+            // Allow item subclasses to fill their properties first. If
+            // property name is specified then use reflection to locate
+            // value. Otherwise send to subclass datas for type comparison.
+            if (propertyName != null)
+            {
+                value = this.GetType().GetProperty(propertyName)?.GetValue(this, null);
+            }
+            if (value == null)
+            {
+                value = (T)GetViewModel(typeof(T));
+            }
+            if (value == null)
+            {
+                // If we are running on the superclass then get values directly from data
+                Data?.ForEach((data) =>
+                {
+                    value = data.GetProperty<T>(propertyName, value);
+                });
+            }
+            return (T)value;
+        }
+        #endregion
+        #region Item Data Getters
         /// <summary>
         /// Determine if item has data
         /// </summary>
@@ -97,6 +186,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         {
             return (T)GetData(typeof(T));
         }
+        #endregion
         /// <summary>
         /// Convert item to a derrived type
         /// </summary>
@@ -114,32 +204,6 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
                 ParentId = ParentId
             };
             return derrivedItem;
-        }
-        /// <summary>
-        /// Get a property by name
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
-        public T GetProperty<T>(string propertyName = null) where T : ItemProperty, new()
-        {
-            object value = null;
-            // Allow item subclasses to fill their properties first. If
-            // property name is specified then use reflection to locate
-            // value. Otherwise send to subclass datas for type comparison.
-            if (propertyName != null)
-            {
-                value = this.GetType().GetProperty(propertyName)?.GetValue(this, null);
-            }
-            if (value == null)
-            {
-                // If we are running on the superclass then get values directly from data
-                Data?.ForEach((data) =>
-                {
-                    value = data.GetProperty<T>(propertyName, value);
-                });
-            }
-            return (T)value;
         }
         /// <summary>
         /// Notify all subscribers that a property has been updated
