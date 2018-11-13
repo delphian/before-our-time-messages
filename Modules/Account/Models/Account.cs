@@ -46,6 +46,16 @@ namespace BeforeOurTime.Models.Modules.Account.Models
         }
         private bool _temporary { set; get; }
         /// <summary>
+        /// Administrative account
+        /// </summary>
+        [JsonProperty(PropertyName = "admin", Order = 140)]
+        public bool Admin
+        {
+            get { return _admin; }
+            set { _admin = value; NotifyPropertyChanged("Admin"); }
+        }
+        private bool _admin { set; get; }
+        /// <summary>
         /// Notify all subscribers that a property has been updated
         /// </summary>
         /// <param name="propertyName">Name of public property that has changed</param>
