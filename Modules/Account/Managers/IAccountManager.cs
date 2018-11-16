@@ -42,6 +42,18 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <returns>User account if authenticated, otherwise null</returns>
         AccountData Authenticate(string name, string password);
         /// <summary>
+        /// Update account password
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="origin">Item that initiated request</param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="response"></param>
+        IResponse HandleUpdatePasswordRequest(
+            IMessage message,
+            Item origin,
+            IModuleManager mm,
+            IResponse response);
+        /// <summary>
         /// Handle a message
         /// </summary>
         /// <param name="message"></param>
