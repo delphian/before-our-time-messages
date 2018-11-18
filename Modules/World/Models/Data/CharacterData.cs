@@ -1,5 +1,6 @@
 ﻿using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
+using BeforeOurTime.Models.Modules.World.Models.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,11 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
                 previousValue = previousValue ?? new VisibleProperty();
                 ((VisibleProperty)previousValue).Name = Name;
                 ((VisibleProperty)previousValue).Description = Description;
+            }
+            if (typeof(T) == typeof(CharacterProperty))
+            {
+                previousValue = previousValue ?? new CharacterProperty();
+                ((CharacterProperty)previousValue).Temporary = Temporary;
             }
             return (T)previousValue;
         }

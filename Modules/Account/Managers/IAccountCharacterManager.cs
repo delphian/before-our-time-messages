@@ -61,5 +61,17 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
             Item origin,
             IModuleManager mm,
             IResponse response);
+        /// <summary>
+        /// Handle a message
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="origin">Item that initiated request</param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="response"></param>
+        IResponse HandleRegisterCharacterRequest(
+            IMessage message,
+            Item origin,
+            IModuleManager mm,
+            IResponse response);
     }
 }

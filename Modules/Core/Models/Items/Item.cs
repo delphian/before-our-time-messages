@@ -197,6 +197,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
             var derrivedItem = new T
             {
                 Data = Data,
+                ViewModels = ViewModels,
                 Children = Children,
                 ChildrenIds = ChildrenIds,
                 Id = Id,
