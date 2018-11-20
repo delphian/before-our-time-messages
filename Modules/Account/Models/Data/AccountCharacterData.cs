@@ -8,6 +8,11 @@ namespace BeforeOurTime.Models.Modules.Account.Models.Data
     public class AccountCharacterData : Model
     {
         /// <summary>
+        /// Account associated with character
+        /// </summary>
+        [JsonIgnore]
+        public AccountData Account { set; get; }
+        /// <summary>
         /// Unique account identifier
         /// </summary>
         [JsonProperty(PropertyName = "accountId")]

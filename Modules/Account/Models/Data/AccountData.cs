@@ -35,7 +35,7 @@ namespace BeforeOurTime.Models.Modules.Account.Models.Data
         /// Characters attached to account
         /// </summary>
         [JsonProperty(PropertyName = "characters", Order = 200)]
-        public List<Guid> Characters { set; get; } = new List<Guid>();
+        public List<AccountCharacterData> Characters { set; get; } = new List<AccountCharacterData>();
         /// <summary>
         /// Constructor
         /// </summary>

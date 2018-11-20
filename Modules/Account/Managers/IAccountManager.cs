@@ -66,6 +66,30 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
             IModuleManager mm,
             IResponse response);
         /// <summary>
+        /// Read account data endpoint
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="origin">Item that initiated request</param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="response"></param>
+        IResponse HandleReadAccountRequest(
+            IMessage message,
+            Item origin,
+            IModuleManager mm,
+            IResponse response);
+        /// <summary>
+        /// Read account data json endpoint
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="origin">Item that initiated request</param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="response"></param>
+        IResponse HandleJsonReadAccountRequest(
+            IMessage message,
+            Item origin,
+            IModuleManager mm,
+            IResponse response);
+        /// <summary>
         /// Update account endpoint
         /// </summary>
         /// <param name="message"></param>
