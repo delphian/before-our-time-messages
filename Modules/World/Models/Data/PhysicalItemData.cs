@@ -48,12 +48,6 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
         /// <returns></returns>
         public override T GetProperty<T>(string propertyName, object previousValue)
         {
-            if (typeof(T) == typeof(VisibleProperty))
-            {
-                previousValue = previousValue ?? new VisibleProperty();
-                ((VisibleProperty)previousValue).Name = Name;
-                ((VisibleProperty)previousValue).Description = Description;
-            }
             return (T)previousValue;
         }
     }
