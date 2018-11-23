@@ -125,5 +125,17 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
             Item origin,
             IModuleManager mm,
             IResponse response);
+        /// <summary>
+        /// Erase all accounts and restore from backup json data
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="origin">Item that initiated request</param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="response"></param>
+        IResponse HandleJsonRestoreAccountRequest(
+            IMessage message,
+            Item origin,
+            IModuleManager mm,
+            IResponse response);
     }
 }

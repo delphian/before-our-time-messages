@@ -1,5 +1,5 @@
 ﻿using BeforeOurTime.Models.Json;
-using BeforeOurTime.Models.Messages.Requests;
+using BeforeOurTime.Models.Messages.Responses;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,26 +10,21 @@ namespace BeforeOurTime.Models.Modules.Account.Messages.Json.RestoreAccount
     /// <summary>
     /// Read JSON of one or more accounts
     /// </summary>
-    public class AccountJsonRestoreAccountRequest : Request, IRequest
+    public class AccountJsonRestoreAccountResponse : Response, IResponse
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("6a34bf84-23e2-4304-9e6a-fd70ae869aab");
-        /// <summary>
-        /// JSON of account array to restore
-        /// </summary>
-        [JsonProperty("accountsJson")]
-        public string AccountsJson { set; get; }
+        public static Guid _Id = new Guid("ecb5fb97-0fcc-4078-b61d-af7102fb439d");
         /// <summary>
         /// Constructor
         /// </summary>
-        public AccountJsonRestoreAccountRequest()
+        public AccountJsonRestoreAccountResponse()
         {
             this.MessageId = _Id;
-            this.MessageName = "Account Json Restore Account Request";
+            this.MessageName = "Account Json Restore Account Response";
         }
     }
 }
