@@ -54,5 +54,14 @@ namespace BeforeOurTime.Models.Modules
         /// </summary>
         /// <param name="repositories"></param>
         void Initialize(List<ICrudModelRepository> repositories);
+        /// <summary>
+        /// Get module's self assigned order. 
+        /// </summary>
+        /// <remarks>
+        /// Lower numbers execute first, therefore a higher module order
+        /// allows for previous module loaded values to be altered.
+        /// </remarks>
+        /// <returns></returns>
+        int GetOrder();
     }
 }
