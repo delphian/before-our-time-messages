@@ -13,16 +13,6 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
     public class PhysicalItemData : ItemData, IItemData
     {
         /// <summary>
-        /// Short description of item
-        /// </summary>
-        [JsonProperty(PropertyName = "name", Order = 30)]
-        public string Name { set; get; }
-        /// <summary>
-        /// Long description of item
-        /// </summary>
-        [JsonProperty(PropertyName = "description", Order = 40)]
-        public string Description { set; get; }
-        /// <summary>
         /// Item may be moved
         /// </summary>
         [JsonProperty(PropertyName = "mobile", Order = 50)]

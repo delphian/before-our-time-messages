@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.ModelsModels.Modules.Core.Messages.ItemCrud.CreateItem
+namespace BeforeOurTime.Models.Modules.Core.Messages.ItemCrud.CreateItem
 {
     public class CoreCreateItemCrudRequest : Request, IRequest
     {
