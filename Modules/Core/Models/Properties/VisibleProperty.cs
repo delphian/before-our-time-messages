@@ -36,12 +36,12 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Properties
         /// Small image representation of item suitable as an icon
         /// </summary>
         [JsonProperty(PropertyName = "icon", Order = 40)]
-        public Image Icon
+        public Guid? Icon
         {
             set { _icon = value; NotifyPropertyChanged("Icon"); }
             get { return _icon; }
         }
-        private Image _icon { set; get; }
+        private Guid? _icon { set; get; }
         /// <summary>
         /// Compare this object to another object of same type
         /// </summary>

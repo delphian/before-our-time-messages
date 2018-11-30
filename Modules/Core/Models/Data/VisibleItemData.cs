@@ -23,6 +23,11 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Data
         [JsonProperty(PropertyName = "description", Order = 40)]
         public string Description { set; get; }
         /// <summary>
+        /// Small image representation of item suitable as an icon
+        /// </summary>
+        [JsonProperty(PropertyName = "icon", Order = 50)]
+        public Guid? Icon { set; get; }
+        /// <summary>
         /// Constructor
         /// </summary>
         public VisibleItemData()
