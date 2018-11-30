@@ -1,4 +1,5 @@
-﻿using BeforeOurTime.Models.Modules.Core.Models.Properties;
+﻿using BeforeOurTime.Models.Json;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using BeforeOurTime.Models.Primitives.Images;
 using Newtonsoft.Json;
 using System;
@@ -36,6 +37,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Properties
         /// Small image representation of item suitable as an icon
         /// </summary>
         [JsonProperty(PropertyName = "icon", Order = 40)]
+        [JsonConverter(typeof(GuidJsonConverter))]
         public Guid? Icon
         {
             set { _icon = value; NotifyPropertyChanged("Icon"); }
