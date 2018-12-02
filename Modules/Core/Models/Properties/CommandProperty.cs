@@ -17,12 +17,12 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Properties
         /// List of possible commands item will respond to
         /// </summary>
         [JsonProperty(PropertyName = "commands", Order = 20)]
-        public List<Command> Commands
+        public List<ItemCommand> Commands
         {
             set { _commands = value; NotifyPropertyChanged("Commands"); }
             get { return _commands; }
         }
-        private List<Command> _commands { set; get; }
+        private List<ItemCommand> _commands { set; get; }
 
     }
 }

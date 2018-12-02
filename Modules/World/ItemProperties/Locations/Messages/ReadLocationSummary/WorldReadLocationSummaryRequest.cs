@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocationSummary
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations.Messages.ReadLocationSummary
 {
     public class WorldReadLocationSummaryRequest : Request, IRequest
     {

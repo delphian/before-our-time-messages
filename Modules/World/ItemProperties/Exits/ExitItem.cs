@@ -1,12 +1,11 @@
 ﻿using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
-using BeforeOurTime.Models.Modules.World.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Models.Items
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Exits
 {
     /// <summary>
     /// A one way path from one item to another
@@ -39,7 +38,7 @@ namespace BeforeOurTime.Models.Modules.World.Models.Items
         /// Movement between locations
         /// </summary>
         [JsonProperty(PropertyName = "exit", Order = 110)]
-        public ExitProperty Exit
+        public ExitItemProperty Exit
         {
             set { _exit = value; NotifyPropertyChanged("Exit"); }
             get
@@ -49,14 +48,14 @@ namespace BeforeOurTime.Models.Modules.World.Models.Items
                 {
                     Data?.ForEach((data) =>
                     {
-                        value = data.GetProperty<ExitProperty>("Exit", value);
+                        value = data.GetProperty<ExitItemProperty>("Exit", value);
                     });
                     _exit = value;
                 }
                 return value;
             }
         }
-        private ExitProperty _exit { set; get; }
+        private ExitItemProperty _exit { set; get; }
         /// <summary>
         /// List of commands an item may respond to
         /// </summary>

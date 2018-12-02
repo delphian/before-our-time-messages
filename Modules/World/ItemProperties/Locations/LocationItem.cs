@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Models.Items
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations
 {
     /// <summary>
     /// A localized area

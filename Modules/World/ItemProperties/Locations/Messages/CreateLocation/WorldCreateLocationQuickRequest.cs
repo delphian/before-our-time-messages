@@ -5,29 +5,29 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocation
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations.Messages.CreateLocation
 {
-    public class WorldReadLocationRequest : Request, IRequest
+    public class WorldCreateLocationQuickRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("272baa24-6725-4e97-9af7-3bc816209e5d");
+        public static Guid _Id = new Guid("100a31d2-24b8-4bf0-80e6-94ba88f0f5b9");
         /// <summary>
-        /// List of location items to read
+        /// Location from which to create an exit to the new location
         /// </summary>
+        [JsonProperty(PropertyName = "fromLocationItemId", Order = 1000)]
         [JsonConverter(typeof(GuidJsonConverter))]
-        [JsonProperty(PropertyName = "itemIds", Order = 1000)]
-        public List<Guid> ItemIds { set; get; }
+        public Guid? FromLocationItemId { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public WorldReadLocationRequest()
+        public WorldCreateLocationQuickRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "World Read Location Request";
+            this.MessageName = "Create Location Quick Request";
         }
     }
 }

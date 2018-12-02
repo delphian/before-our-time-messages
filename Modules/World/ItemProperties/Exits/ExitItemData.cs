@@ -1,37 +1,20 @@
 ﻿using BeforeOurTime.Models.Json;
-using BeforeOurTime.Models.Messages.Responses;
-using BeforeOurTime.Models.Modules.Core.Managers;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
-using BeforeOurTime.Models.Modules.Terminal.Managers;
-using BeforeOurTime.Models.Modules.Terminal.Models.Data;
-using BeforeOurTime.Models.Modules.World.Managers;
-using BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocationSummary;
-using BeforeOurTime.Models.Modules.World.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Models.Data
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Exits
 {
     /// <summary>
     /// A one way path from the exit's current location to a specified and static one
     /// </summary>
-    public class ExitData : ItemData, IItemData
+    public class ExitItemData : ItemData, IItemData
     {
-        /// <summary>
-        /// Short description of exit
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { set; get; }
-        /// <summary>
-        /// Long description of exit
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { set; get; }
         /// <summary>
         /// Destination location
         /// </summary>
@@ -51,7 +34,7 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
         /// <summary>
         /// Constructor
         /// </summary>
-        public ExitData()
+        public ExitItemData()
         {
             DataType = this.GetType().ToString();
         }
@@ -64,23 +47,17 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
         /// <returns></returns>
         public override T GetProperty<T>(string propertyName, object previousValue)
         {
-            if (typeof(T) == typeof(VisibleProperty))
+            if (typeof(T) == typeof(ExitItemProperty))
             {
-                previousValue = previousValue ?? new VisibleProperty();
-                ((VisibleProperty)previousValue).Name = Name;
-                ((VisibleProperty)previousValue).Description = Description;
-            }
-            if (typeof(T) == typeof(ExitProperty))
-            {
-                previousValue = previousValue ?? new ExitProperty();
-                ((ExitProperty)previousValue).DestinationId = DestinationLocationId.ToString();
+                previousValue = previousValue ?? new ExitItemProperty();
+                ((ExitItemProperty)previousValue).DestinationId = DestinationLocationId.ToString();
             }
             if (typeof(T) == typeof(CommandProperty))
             {
                 previousValue = previousValue ?? new CommandProperty();
-                ((CommandProperty)previousValue).Commands = new List<Command>()
+                ((CommandProperty)previousValue).Commands = new List<ItemCommand>()
                 {
-                    new Command()
+                    new ItemCommand()
                     {
                         ItemId = this.DataItemId,
                         Id = new Guid("c558c1f9-7d01-45f3-bc35-dcab52b5a37c"),
@@ -96,7 +73,7 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
         /// <param name="command">Command to be performed</param>
         /// <param name="origin">Item that initiated request</param>
         /// <param name="moduleManager">Manager of all modules</param>
-        public override void UseItem(Command command, Item origin, IModuleManager moduleManager)
+        public override void UseItem(ItemCommand command, Item origin, IModuleManager moduleManager)
         {
             throw new NotImplementedException();
         }

@@ -7,9 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Managers
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations
 {
-    public interface ILocationItemManager : IItemModelManager
+    public interface ILocationItemDataManager : IItemModelManager
     {
         /// <summary>
         /// Create an empty new location and connecting exits from a provided location

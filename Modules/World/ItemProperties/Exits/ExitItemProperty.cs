@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Properties
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Exits
 {
     /// <summary>
     /// Movement between locations
     /// </summary>
-    public class ExitProperty : ItemProperty
+    public class ExitItemProperty : ItemProperty
     {
         /// <summary>
         /// Destination item id where character shall go
@@ -46,7 +46,7 @@ namespace BeforeOurTime.Models.Modules.World.Properties
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public bool Equals(ExitProperty obj)
+        public bool Equals(ExitItemProperty obj)
         {
             if (obj == null)
                 return false;

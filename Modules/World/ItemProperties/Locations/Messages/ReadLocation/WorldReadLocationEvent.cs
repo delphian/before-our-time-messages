@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocation
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations.Messages.ReadLocation
 {
     /// <summary>
     /// An location item has been created

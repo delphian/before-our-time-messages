@@ -32,13 +32,6 @@ namespace BeforeOurTime.Models
         /// <returns></returns>
         List<Guid> GetItemIds();
         /// <summary>
-        /// Execute a use item request
-        /// </summary>
-        /// <param name="request"></param>
-        /// <param name="origin">Item that initiated request</param>
-        /// <returns>Description of error, or null on success</returns>
-        string UseItem(CoreUseItemRequest request, Item origin, IResponse response);
-        /// <summary>
         /// Append attribute to base item when it is loaded
         /// </summary>
         /// <param name="item">Base item just read from datastore</param>

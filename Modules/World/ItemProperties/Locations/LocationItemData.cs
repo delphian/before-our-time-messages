@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Models.Data
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations
 {
     /// <summary>
     /// A physical, common area of influence
     /// </summary>
-    public class LocationData : ItemData, IItemData
+    public class LocationItemData : ItemData, IItemData
     {
         /// <summary>
         /// Short description of location
@@ -25,7 +25,7 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
         /// <summary>
         /// Constructor
         /// </summary>
-        public LocationData()
+        public LocationItemData()
         {
             DataType = this.GetType().ToString();
         }

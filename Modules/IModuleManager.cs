@@ -4,6 +4,7 @@ using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Modules.Core.Dbs;
 using BeforeOurTime.Models.Modules.Core.Messages.UseItem;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
+using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using BeforeOurTime.Models.Modules.Terminal.Models;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -12,6 +13,7 @@ using System.Text;
 
 namespace BeforeOurTime.Models.Modules
 {
+    public delegate CoreUseItemEvent HandleItemCommand(ItemCommand itemCommand, Item origin);
     /// <summary>
     /// Register through reflection and manage all modules
     /// </summary>
@@ -90,6 +92,12 @@ namespace BeforeOurTime.Models.Modules
         /// </summary>
         /// <returns></returns>
         IItemRepo GetItemRepo();
+        /// <summary>
+        /// Register to handle item commands when they are used
+        /// </summary>
+        /// <param name="itemCommandHandler"></param>
+        void RegisterForItemCommands(
+            HandleItemCommand itemCommandHandler);
         /// <summary>
         /// Execute a use item request
         /// </summary>

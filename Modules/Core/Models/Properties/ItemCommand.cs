@@ -8,7 +8,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Properties
     /// <summary>
     /// Describe a single command
     /// </summary>
-    public class Command : ItemProperty
+    public class ItemCommand : ItemProperty
     {
         /// <summary>
         /// Unique identifier of command

@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocationSummary
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations.Messages.ReadLocationSummary
 {
     /// <summary>
     /// Describe a location and enumerate essential properties
@@ -51,7 +51,7 @@ namespace BeforeOurTime.Models.Modules.World.Messages.Location.ReadLocationSumma
         /// Commands that items will respond to
         /// </summary>
         [JsonProperty(PropertyName = "commands", Order = 1495)]
-        public List<Command> Commands { set; get; } = new List<Command>();
+        public List<ItemCommand> Commands { set; get; } = new List<ItemCommand>();
         /// <summary>
         /// Additional descrete textual adendums to the description
         /// </summary>

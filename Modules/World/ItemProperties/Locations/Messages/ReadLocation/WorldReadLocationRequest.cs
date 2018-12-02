@@ -5,29 +5,29 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Messages.Location.DeleteLocation
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations.Messages.ReadLocation
 {
-    public class WorldDeleteLocationRequest : Request, IRequest
+    public class WorldReadLocationRequest : Request, IRequest
     {
         /// <summary>
         /// Our unique message identifier
         /// </summary>
         [JsonIgnore]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public static Guid _Id = new Guid("45eb269d-e061-4ebc-b3d6-1d410d6d8a8c");
+        public static Guid _Id = new Guid("272baa24-6725-4e97-9af7-3bc816209e5d");
         /// <summary>
-        /// Location to delete
+        /// List of location items to read
         /// </summary>
-        [JsonProperty(PropertyName = "locationItemId", Order = 1000)]
         [JsonConverter(typeof(GuidJsonConverter))]
-        public Guid LocationItemId { set; get; }
+        [JsonProperty(PropertyName = "itemIds", Order = 1000)]
+        public List<Guid> ItemIds { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public WorldDeleteLocationRequest()
+        public WorldReadLocationRequest()
         {
             this.MessageId = _Id;
-            this.MessageName = "World Delete Location Request";
+            this.MessageName = "World Read Location Request";
         }
     }
 }
