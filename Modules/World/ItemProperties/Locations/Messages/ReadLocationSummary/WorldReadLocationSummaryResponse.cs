@@ -3,7 +3,7 @@ using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Messages.Responses.List;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
-using BeforeOurTime.Models.Modules.World.Models.Items;
+using BeforeOurTime.Models.Modules.World.ItemProperties.Characters;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

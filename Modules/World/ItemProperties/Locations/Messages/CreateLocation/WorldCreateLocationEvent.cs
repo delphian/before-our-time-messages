@@ -1,6 +1,5 @@
 ﻿using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Messages.Events;
-using BeforeOurTime.Models.Modules.World.Models.Items;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

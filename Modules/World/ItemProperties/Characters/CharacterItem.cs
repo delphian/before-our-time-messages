@@ -1,18 +1,16 @@
 ﻿using BeforeOurTime.Models.Modules.Core.ItemProperties.Visibles;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
-using BeforeOurTime.Models.Modules.Core.Models.Properties;
-using BeforeOurTime.Models.Modules.World.Models.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Models.Items
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Characters
 {
     /// <summary>
-    /// Game wide definition and configurations
+    /// Any item with an animating force
     /// </summary>
-    public class GameItem : Item
+    public class CharacterItem : Item
     {
         /// <summary>
         /// Make an item visible
@@ -37,33 +35,11 @@ namespace BeforeOurTime.Models.Modules.World.Models.Items
         }
         private VisibleItemProperty _visible { set; get; }
         /// <summary>
-        /// Game wide definition and configurations
-        /// </summary>
-        [JsonProperty(PropertyName = "game", Order = 110)]
-        public GameProperty Game
-        {
-            set { _game = value; NotifyPropertyChanged("Game"); }
-            get
-            {
-                var value = _game;
-                if (value == null)
-                {
-                    Data?.ForEach((data) =>
-                    {
-                        value = data.GetProperty<GameProperty>("Game", value);
-                    });
-                    _game = value;
-                }
-                return value;
-            }
-        }
-        private GameProperty _game { set; get; }
-        /// <summary>
         /// Constructor
         /// </summary>
-        public GameItem()
+        public CharacterItem()
         {
-            Type = ItemType.Game;
+            Type = ItemType.Character;
         }
     }
 }

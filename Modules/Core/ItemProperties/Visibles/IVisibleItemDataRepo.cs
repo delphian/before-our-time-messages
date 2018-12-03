@@ -1,11 +1,10 @@
 ﻿using BeforeOurTime.Models.Modules.Core.ItemProperties.Visibles;
-using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Dbs
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Visibles
 {
     /// <summary>
     /// Central data repository for all exit items

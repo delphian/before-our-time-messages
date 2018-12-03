@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Models.Properties
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Characters
 {
     /// <summary>
     /// Properties specific to characters
     /// </summary>
-    public class CharacterProperty : ItemProperty
+    public class CharacterItemProperty : ItemProperty
     {
         /// <summary>
         /// Character is temporary, created for account to test game

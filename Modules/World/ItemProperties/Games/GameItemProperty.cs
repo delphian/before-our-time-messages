@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Models.Properties
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Games
 {
     /// <summary>
     /// Game wide definition and configurations
     /// </summary>
-    public class GameProperty : ItemProperty
+    public class GameItemProperty : ItemProperty
     {
         /// <summary>
         /// Default location at which all player characters begin and respawn
@@ -26,7 +26,7 @@ namespace BeforeOurTime.Models.Modules.World.Models.Properties
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public bool Equals(GameProperty obj)
+        public bool Equals(GameItemProperty obj)
         {
             if (obj == null)
                 return false;

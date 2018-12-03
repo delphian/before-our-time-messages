@@ -1,7 +1,7 @@
 ﻿using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Requests;
 using BeforeOurTime.Models.Messages.Responses;
-using BeforeOurTime.Models.Modules.World.Models.Items;
+using BeforeOurTime.Models.Modules.World.ItemProperties.Characters;
 using System;
 using System.Collections.Generic;
 using System.Text;

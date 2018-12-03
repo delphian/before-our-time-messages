@@ -1,11 +1,10 @@
-﻿using BeforeOurTime.Models.Modules.World.Models.Items;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Managers
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Characters
 {
-    public interface ICharacterItemManager : IItemModelManager
+    public interface ICharacterItemDataManager : IItemModelManager
     {
         /// <summary>
         /// Create a new character

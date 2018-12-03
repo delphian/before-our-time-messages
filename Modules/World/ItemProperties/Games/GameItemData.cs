@@ -1,41 +1,32 @@
 ﻿using BeforeOurTime.Models.Modules.Core.ItemProperties.Visibles;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
-using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using BeforeOurTime.Models.Modules.World.Models.Properties;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Models.Data
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Games
 {
     /// <summary>
-    /// Item with an animating force
+    /// A game environmnent containing users, locations, items, and unique rules
     /// </summary>
-    public class CharacterData : ItemData, IItemData
+    public class GameItemData : ItemData, IItemData
     {
         /// <summary>
-        /// Character was auto generated for guest and still in temporary state
+        /// Name of the game
         /// </summary>
-        /// <remarks>
-        /// Any temporary character is subject to deletion
-        /// </remarks>
-        [JsonProperty(PropertyName = "temporary", Order = 20)]
-        public bool Temporary { set; get; }
-        /// <summary>
-        /// Short description of character
-        /// </summary>
-        [JsonProperty(PropertyName = "name", Order = 30)]
+        [JsonProperty(PropertyName = "name")]
         public string Name { set; get; }
         /// <summary>
-        /// Long description of character
+        /// Default location of a new item when parent is not specified
         /// </summary>
-        [JsonProperty(PropertyName = "description", Order = 40)]
-        public string Description { set; get; }
+        [JsonProperty(PropertyName = "defaultLocationId")]
+        public Guid? DefaultLocationId { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
-        public CharacterData()
+        public GameItemData()
         {
             DataType = this.GetType().ToString();
         }
@@ -52,12 +43,11 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
             {
                 previousValue = previousValue ?? new VisibleItemProperty();
                 ((VisibleItemProperty)previousValue).Name = Name;
-                ((VisibleItemProperty)previousValue).Description = Description;
             }
-            if (typeof(T) == typeof(CharacterProperty))
+            if (typeof(T) == typeof(GameItemProperty))
             {
-                previousValue = previousValue ?? new CharacterProperty();
-                ((CharacterProperty)previousValue).Temporary = Temporary;
+                previousValue = previousValue ?? new GameItemProperty();
+                ((GameItemProperty)previousValue).DefaultLocationId = DefaultLocationId?.ToString();
             }
             return (T)previousValue;
         }

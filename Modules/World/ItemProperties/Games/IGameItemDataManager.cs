@@ -1,11 +1,11 @@
-﻿using BeforeOurTime.Models.Modules.World.Models.Data;
+﻿using BeforeOurTime.Models.Modules.World.ItemProperties.Games;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Managers
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Games
 {
-    public interface IGameItemManager : IItemModelManager
+    public interface IGameItemDataManager : IItemModelManager
     {
         /// <summary>
         /// Update games's default location
@@ -13,6 +13,6 @@ namespace BeforeOurTime.Models.Modules.World.Managers
         /// <param name="id">Unique game attribute identifier</param>
         /// <param name="locationId">Game's new default location</param>
         /// <returns></returns>
-        GameData UpdateDefaultLocation(Guid id, Guid locationId);
+        GameItemData UpdateDefaultLocation(Guid id, Guid locationId);
     }
 }
