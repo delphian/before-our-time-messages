@@ -107,15 +107,15 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         /// <param name="viewModelType"></param>
         /// <param name="viewModel"></param>
         /// <returns></returns>
-        public Item SetViewModel(Type viewModelType, IItemProperty viewModel)
+        public Item AddProperty(Type itemPropertyType, IItemProperty viewModel)
         {
-            if (ViewModels.ContainsKey(viewModelType))
+            if (ViewModels.ContainsKey(itemPropertyType))
             {
-                ViewModels.Add(viewModelType, viewModel);
+                ViewModels.Add(itemPropertyType, viewModel);
             }
             else
             {
-                ViewModels[viewModelType] = viewModel;
+                ViewModels[itemPropertyType] = viewModel;
             }
             return this;
         }

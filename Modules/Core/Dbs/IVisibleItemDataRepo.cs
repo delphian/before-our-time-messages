@@ -1,4 +1,5 @@
-﻿using BeforeOurTime.Models.Modules.Core.Models.Data;
+﻿using BeforeOurTime.Models.Modules.Core.ItemProperties.Visibles;
+using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
 using System;
 using System.Collections.Generic;

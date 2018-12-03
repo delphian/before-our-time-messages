@@ -1,4 +1,5 @@
-﻿using BeforeOurTime.Models.Modules.Core.Models.Data;
+﻿using BeforeOurTime.Models.Modules.Core.ItemProperties.Visibles;
+using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using Newtonsoft.Json;
 using System;
@@ -12,16 +13,6 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations
     /// </summary>
     public class LocationItemData : ItemData, IItemData
     {
-        /// <summary>
-        /// Short description of location
-        /// </summary>
-        [JsonProperty(PropertyName = "name", Order = 30)]
-        public string Name { set; get; }
-        /// <summary>
-        /// Long description of location
-        /// </summary>
-        [JsonProperty(PropertyName = "description", Order = 40)]
-        public string Description { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
@@ -38,12 +29,6 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations
         /// <returns></returns>
         public override T GetProperty<T>(string propertyName, object previousValue)
         {
-            if (typeof(T) == typeof(VisibleProperty))
-            {
-                previousValue = previousValue ?? new VisibleProperty();
-                ((VisibleProperty)previousValue).Name = Name;
-                ((VisibleProperty)previousValue).Description = Description;
-            }
             return (T)previousValue;
         }
     }

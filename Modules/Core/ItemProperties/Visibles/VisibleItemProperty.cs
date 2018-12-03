@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.Core.Models.Properties
+namespace BeforeOurTime.Models.Modules.Core.ItemProperties.Visibles
 {
     /// <summary>
     /// Make an item visible
     /// </summary>
-    public class VisibleProperty : ItemProperty
+    public class VisibleItemProperty : ItemProperty
     {
         /// <summary>
         /// Short name of item
@@ -49,7 +49,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Properties
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public bool Equals(VisibleProperty obj)
+        public bool Equals(VisibleItemProperty obj)
         {
             if (obj == null)
                 return false;

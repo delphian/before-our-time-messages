@@ -1,4 +1,5 @@
-﻿using BeforeOurTime.Models.Modules.Core.Models.Items;
+﻿using BeforeOurTime.Models.Modules.Core.ItemProperties.Visibles;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using Newtonsoft.Json;
 using System;
@@ -16,7 +17,7 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Exits
         /// Make an item visible
         /// </summary>
         [JsonProperty(PropertyName = "visible", Order = 100)]
-        public VisibleProperty Visible
+        public VisibleItemProperty Visible
         {
             set { _visible = value; NotifyPropertyChanged("Visible"); }
             get
@@ -26,14 +27,14 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Exits
                 {
                     Data?.ForEach((data) =>
                     {
-                        value = data.GetProperty<VisibleProperty>("Visible", value);
+                        value = data.GetProperty<VisibleItemProperty>("Visible", value);
                     });
                     _visible = value;
                 }
                 return value;
             }
         }
-        private VisibleProperty _visible { set; get; }
+        private VisibleItemProperty _visible { set; get; }
         /// <summary>
         /// Movement between locations
         /// </summary>

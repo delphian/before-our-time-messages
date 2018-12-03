@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.Core.Models.Data
+namespace BeforeOurTime.Models.Modules.Core.ItemProperties.Visibles
 {
     /// <summary>
     /// An item perceived through the senses, tangible and concrete

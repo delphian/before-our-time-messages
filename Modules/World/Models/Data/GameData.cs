@@ -1,4 +1,5 @@
-﻿using BeforeOurTime.Models.Modules.Core.Models.Data;
+﻿using BeforeOurTime.Models.Modules.Core.ItemProperties.Visibles;
+using BeforeOurTime.Models.Modules.Core.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Properties;
 using BeforeOurTime.Models.Modules.World.Models.Properties;
 using Newtonsoft.Json;
@@ -39,10 +40,10 @@ namespace BeforeOurTime.Models.Modules.World.Models.Data
         /// <returns></returns>
         public override T GetProperty<T>(string propertyName, object previousValue)
         {
-            if (typeof(T) == typeof(VisibleProperty))
+            if (typeof(T) == typeof(VisibleItemProperty))
             {
-                previousValue = previousValue ?? new VisibleProperty();
-                ((VisibleProperty)previousValue).Name = Name;
+                previousValue = previousValue ?? new VisibleItemProperty();
+                ((VisibleItemProperty)previousValue).Name = Name;
             }
             if (typeof(T) == typeof(GameProperty))
             {
