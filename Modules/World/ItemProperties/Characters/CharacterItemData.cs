@@ -1,6 +1,4 @@
-﻿using BeforeOurTime.Models.Modules.Core.ItemProperties.Visibles;
-using BeforeOurTime.Models.Modules.Core.Models.Data;
-using BeforeOurTime.Models.Modules.World.Models.Properties;
+﻿using BeforeOurTime.Models.Modules.Core.Models.Data;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

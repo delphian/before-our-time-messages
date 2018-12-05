@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Models.Properties
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Physicals
 {
     /// <summary>
     /// Properties specific to physical items
     /// </summary>
-    public class PhysicalItemVM : ItemProperty
+    public class PhysicalItemProperty : ItemProperty
     {
         /// <summary>
         /// Item is able to be moved by a character

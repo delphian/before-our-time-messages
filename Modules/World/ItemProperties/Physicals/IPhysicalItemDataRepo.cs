@@ -1,10 +1,9 @@
 ﻿using BeforeOurTime.Models.Modules.Core.Models.Items;
-using BeforeOurTime.Models.Modules.World.Models.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeforeOurTime.Models.Modules.World.Dbs
+namespace BeforeOurTime.Models.Modules.World.ItemProperties.Physicals
 {
     /// <summary>
     /// Central data repository for all exit items
