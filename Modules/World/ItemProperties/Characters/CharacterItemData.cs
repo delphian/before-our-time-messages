@@ -22,16 +22,6 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Characters
         [JsonProperty(PropertyName = "temporary", Order = 20)]
         public bool Temporary { set; get; }
         /// <summary>
-        /// Short description of character
-        /// </summary>
-        [JsonProperty(PropertyName = "name", Order = 30)]
-        public string Name { set; get; }
-        /// <summary>
-        /// Long description of character
-        /// </summary>
-        [JsonProperty(PropertyName = "description", Order = 40)]
-        public string Description { set; get; }
-        /// <summary>
         /// Constructor
         /// </summary>
         public CharacterItemData()
@@ -47,17 +37,6 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Characters
         /// <returns></returns>
         public override T GetProperty<T>(string propertyName, object previousValue)
         {
-            if (typeof(T) == typeof(VisibleItemProperty))
-            {
-                previousValue = previousValue ?? new VisibleItemProperty();
-                ((VisibleItemProperty)previousValue).Name = Name;
-                ((VisibleItemProperty)previousValue).Description = Description;
-            }
-            if (typeof(T) == typeof(CharacterItemProperty))
-            {
-                previousValue = previousValue ?? new CharacterItemProperty();
-                ((CharacterItemProperty)previousValue).Temporary = Temporary;
-            }
             return (T)previousValue;
         }
     }
