@@ -18,6 +18,10 @@ namespace BeforeOurTime.Models.Json
             if (property.UnderlyingName == "Children") {
                 property.Ignored = false;
             }
+            if (property.UnderlyingName == nameof(Item.ViewModels))
+            {
+                property.Ignored = true;
+            }
             return property;
         }
     }

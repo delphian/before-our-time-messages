@@ -14,11 +14,6 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Games
     public class GameItemData : ItemData, IItemData
     {
         /// <summary>
-        /// Name of the game
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { set; get; }
-        /// <summary>
         /// Default location of a new item when parent is not specified
         /// </summary>
         [JsonProperty(PropertyName = "defaultLocationId")]
@@ -39,16 +34,6 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Games
         /// <returns></returns>
         public override T GetProperty<T>(string propertyName, object previousValue)
         {
-            if (typeof(T) == typeof(VisibleItemProperty))
-            {
-                previousValue = previousValue ?? new VisibleItemProperty();
-                ((VisibleItemProperty)previousValue).Name = Name;
-            }
-            if (typeof(T) == typeof(GameItemProperty))
-            {
-                previousValue = previousValue ?? new GameItemProperty();
-                ((GameItemProperty)previousValue).DefaultLocationId = DefaultLocationId?.ToString();
-            }
             return (T)previousValue;
         }
     }
