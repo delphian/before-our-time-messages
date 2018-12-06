@@ -26,16 +26,6 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
-        /// Type of item, conveying it's primary purpose
-        /// </summary>
-        [JsonProperty(PropertyName = "type", Order = 10)]
-        public ItemType Type
-        {
-            set { _type = value; NotifyPropertyChanged("Type"); }
-            get { return _type; }
-        }
-        private ItemType _type { set; get; }
-        /// <summary>
         /// Parent item
         /// </summary>
         [JsonProperty(PropertyName = "parentId", Order = 50)]
@@ -187,25 +177,6 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
             return (T)GetData(typeof(T));
         }
         #endregion
-        /// <summary>
-        /// Convert item to a derrived type
-        /// </summary>
-        /// <typeparam name="T">Derrived item type</typeparam>
-        /// <returns></returns>
-        public T GetAsItem<T>() where T : Item, new()
-        {
-            var derrivedItem = new T
-            {
-                Data = Data,
-                ViewModels = ViewModels,
-                Children = Children,
-                ChildrenIds = ChildrenIds,
-                Id = Id,
-                Parent = Parent,
-                ParentId = ParentId
-            };
-            return derrivedItem;
-        }
         /// <summary>
         /// Notify all subscribers that a property has been updated
         /// </summary>

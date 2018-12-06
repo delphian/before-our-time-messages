@@ -1,6 +1,7 @@
 ﻿using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Requests;
 using BeforeOurTime.Models.Messages.Responses;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using BeforeOurTime.Models.Modules.World.ItemProperties.Characters;
 using System;
 using System.Collections.Generic;
@@ -82,7 +83,7 @@ namespace BeforeOurTime.Models.Modules.Terminal.Models
         /// Get available characters for terminal attachment
         /// </summary>
         /// <returns>Detached items</returns>
-        List<CharacterItem> GetAttachable();
+        List<Item> GetAttachable();
         /// <summary>
         /// Subscribe to messages sent to terminals
         /// </summary>

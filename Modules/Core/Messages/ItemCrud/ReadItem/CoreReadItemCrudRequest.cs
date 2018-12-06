@@ -22,11 +22,6 @@ namespace BeforeOurTime.Models.Modules.Core.Messages.ItemCrud.ReadItem
         [JsonProperty(PropertyName = "itemIds", Order = 100)]
         public List<Guid> ItemIds { set; get; }
         /// <summary>
-        /// List of item types.
-        /// </summary>
-        [JsonProperty(PropertyName = "itemTypes", Order = 110)]
-        public List<string> ItemTypes { set; get; }
-        /// <summary>
         /// List of item data types.
         /// </summary>
         [JsonProperty(PropertyName = "itemDataTypes", Order = 120)]

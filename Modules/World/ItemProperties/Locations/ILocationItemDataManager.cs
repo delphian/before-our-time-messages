@@ -14,7 +14,7 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations
         /// </summary>
         /// <param name="currentLocationItemId">Existing location item to link to new location with exits</param>
         /// <returns></returns>
-        LocationItem CreateFromHere(Guid currentLocationItemId);
+        Item CreateFromHere(Guid currentLocationItemId);
         /// <summary>
         /// Read location summary
         /// </summary>

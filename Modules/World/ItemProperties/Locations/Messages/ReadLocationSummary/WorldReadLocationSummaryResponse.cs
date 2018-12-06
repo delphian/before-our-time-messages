@@ -26,7 +26,7 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations.Messages.R
         /// Unique location item identifier
         /// </summary>
         [JsonProperty(PropertyName = "item", Order = 1000)]
-        public LocationItem Item { set; get; }
+        public Item Item { set; get; }
         /// <summary>
         /// Background image for location
         /// </summary>
@@ -41,7 +41,7 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations.Messages.R
         /// Character items at the location
         /// </summary>
         [JsonProperty(PropertyName = "characters", Order = 1480)]
-        public List<CharacterItem> Characters { set; get; } = new List<CharacterItem>();
+        public List<Item> Characters { set; get; } = new List<Item>();
         /// <summary>
         /// All items present at location
         /// </summary>

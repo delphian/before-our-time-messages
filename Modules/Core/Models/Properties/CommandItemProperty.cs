@@ -11,7 +11,7 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Properties
     /// <remarks>
     /// Item manager is responsible for executing the use
     /// </remarks>
-    public class CommandProperty : ItemProperty
+    public class CommandItemProperty : ItemProperty
     {
         /// <summary>
         /// List of possible commands item will respond to

@@ -52,10 +52,10 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Exits
                 previousValue = previousValue ?? new ExitItemProperty();
                 ((ExitItemProperty)previousValue).DestinationId = DestinationLocationId.ToString();
             }
-            if (typeof(T) == typeof(CommandProperty))
+            if (typeof(T) == typeof(CommandItemProperty))
             {
-                previousValue = previousValue ?? new CommandProperty();
-                ((CommandProperty)previousValue).Commands = new List<ItemCommand>()
+                previousValue = previousValue ?? new CommandItemProperty();
+                ((CommandItemProperty)previousValue).Commands = new List<ItemCommand>()
                 {
                     new ItemCommand()
                     {

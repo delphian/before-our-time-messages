@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeforeOurTime.Models.Modules.Core.Models.Items;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,6 +13,6 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Characters
         /// <param name="name">Name of character</param>
         /// <param name="locationItemId">Initial location of new character</param>
         /// <returns></returns>
-        CharacterItem Create(string name, Guid locationItemId);
+        Item Create(string name, Guid locationItemId);
     }
 }

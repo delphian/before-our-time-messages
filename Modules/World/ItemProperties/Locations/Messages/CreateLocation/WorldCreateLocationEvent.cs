@@ -1,5 +1,6 @@
 ﻿using BeforeOurTime.Models.Json;
 using BeforeOurTime.Models.Messages.Events;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations.Messages.C
         /// Item that has been created
         /// </summary>
         [JsonProperty(PropertyName = "item", Order = 1100)]
-        public LocationItem Item { set; get; }
+        public Item Item { set; get; }
         /// <summary>
         /// Constructor
         /// </summary>
