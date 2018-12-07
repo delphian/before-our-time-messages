@@ -57,39 +57,28 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         /// </summary>
         [JsonProperty(PropertyName = "properties", Order = 11000)]
         [JsonConverter(typeof(ItemViewModelJsonConverter))]
-        public Dictionary<Type, IItemProperty> ViewModels
+        public Dictionary<Type, IItemProperty> Properties
         {
-            get { return _viewModels; }
-            set { _viewModels = value; NotifyPropertyChanged("ViewModels"); }
+            get { return _properties; }
+            set { _properties = value; NotifyPropertyChanged("Properties"); }
         }
-        private Dictionary<Type, IItemProperty> _viewModels { set; get; } = new Dictionary<Type, IItemProperty>();
+        private Dictionary<Type, IItemProperty> _properties { set; get; } = new Dictionary<Type, IItemProperty>();
         #region View Model Property Getters
         /// <summary>
         /// Determine if item has a specific view model
         /// </summary>
         /// <returns></returns>
-        public bool HasViewModel(Type viewModelType)
+        public bool HasProperty(Type viewModelType)
         {
-            return ViewModels.ContainsKey(viewModelType);
+            return Properties.ContainsKey(viewModelType);
         }
         /// <summary>
         /// Determin if item has a specific view model
         /// </summary>
         /// <returns></returns>
-        public bool HasViewModel<T>()
+        public bool HasProperty<T>()
         {
-            return HasViewModel(typeof(T));
-        }
-        /// <summary>
-        /// Get view model property of a specified type
-        /// </summary>
-        /// <param name="viewModelType"></param>
-        /// <returns></returns>
-        public object GetViewModel(Type viewModelType)
-        {
-            return (HasViewModel(viewModelType)) ?
-                Convert.ChangeType(ViewModels[viewModelType], viewModelType) :
-                null;
+            return HasProperty(typeof(T));
         }
         /// <summary>
         /// Set item property view model
@@ -99,13 +88,13 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         /// <returns></returns>
         public Item AddProperty(Type itemPropertyType, IItemProperty viewModel)
         {
-            if (ViewModels.ContainsKey(itemPropertyType))
+            if (Properties.ContainsKey(itemPropertyType))
             {
-                ViewModels.Add(itemPropertyType, viewModel);
+                Properties.Add(itemPropertyType, viewModel);
             }
             else
             {
-                ViewModels[itemPropertyType] = viewModel;
+                Properties[itemPropertyType] = viewModel;
             }
             return this;
         }
@@ -127,15 +116,9 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
             }
             if (value == null)
             {
-                value = (T)GetViewModel(typeof(T));
-            }
-            if (value == null)
-            {
-                // If we are running on the superclass then get values directly from data
-                Data?.ForEach((data) =>
-                {
-                    value = data.GetProperty<T>(propertyName, value);
-                });
+                value = (HasProperty<T>()) ?
+                    Convert.ChangeType(Properties[typeof(T)], typeof(T)) :
+                    null;
             }
             return (T)value;
         }

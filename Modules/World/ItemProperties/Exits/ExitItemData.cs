@@ -39,35 +39,6 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Exits
             DataType = this.GetType().ToString();
         }
         /// <summary>
-        /// Populate an item property value
-        /// </summary>
-        /// <typeparam name="T">Type of property to populate with value</typeparam>
-        /// <param name="propertyName">Name of item property to populate with value</param>
-        /// <param name="previousValue">Value assigned to property by previous attribute</param>
-        /// <returns></returns>
-        public override T GetProperty<T>(string propertyName, object previousValue)
-        {
-            if (typeof(T) == typeof(ExitItemProperty))
-            {
-                previousValue = previousValue ?? new ExitItemProperty();
-                ((ExitItemProperty)previousValue).DestinationId = DestinationLocationId.ToString();
-            }
-            if (typeof(T) == typeof(CommandItemProperty))
-            {
-                previousValue = previousValue ?? new CommandItemProperty();
-                ((CommandItemProperty)previousValue).Commands = new List<ItemCommand>()
-                {
-                    new ItemCommand()
-                    {
-                        ItemId = this.DataItemId,
-                        Id = new Guid("c558c1f9-7d01-45f3-bc35-dcab52b5a37c"),
-                        Name = "Go"
-                    }
-                };
-            }
-            return (T)previousValue;
-        }
-        /// <summary>
         /// Execute a command that this data provides
         /// </summary>
         /// <param name="command">Command to be performed</param>

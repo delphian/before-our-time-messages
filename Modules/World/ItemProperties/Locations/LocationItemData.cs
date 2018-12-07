@@ -20,16 +20,5 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Locations
         {
             DataType = this.GetType().ToString();
         }
-        /// <summary>
-        /// Populate an item property value
-        /// </summary>
-        /// <typeparam name="T">Type of property to populate with value</typeparam>
-        /// <param name="propertyName">Name of item property to populate with value</param>
-        /// <param name="previousValue">Value assigned to property by previous attribute</param>
-        /// <returns></returns>
-        public override T GetProperty<T>(string propertyName, object previousValue)
-        {
-            return (T)previousValue;
-        }
     }
 }
