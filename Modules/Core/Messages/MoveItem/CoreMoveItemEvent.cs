@@ -36,6 +36,11 @@ namespace BeforeOurTime.Models.Modules.Core.Messages.MoveItem
         [JsonProperty(PropertyName = "newParent", Order = 1200)]
         public Item NewParent { set; get; }
         /// <summary>
+        /// Source that initiated the movement
+        /// </summary>
+        [JsonProperty(PropertyName = "source", Order = 1300)]
+        public Item Source { set; get; }
+        /// <summary>
         /// Constructor
         /// </summary>
         public CoreMoveItemEvent()

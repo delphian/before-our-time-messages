@@ -16,5 +16,11 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Characters
         /// <param name="item">Item that may have associated data</param>
         /// <returns></returns>
         CharacterItemData Read(Item item);
+        /// <summary>
+        /// Read associated character data of item id
+        /// </summary>
+        /// <param name="itemId">Item id that may have associated data</param>
+        /// <returns></returns>
+        CharacterItemData ReadItemId(Guid itemId);
     }
 }
