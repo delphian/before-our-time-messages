@@ -19,6 +19,13 @@ namespace BeforeOurTime.Models.Modules.Core.Managers
         /// <param name="origin">Origin of the messages</param>
         void SendMessage(List<IMessage> messages, List<Item> items, Item origin = null);
         /// <summary>
+        /// Send messages to recipient and all of it's siblings
+        /// </summary>
+        /// <param name="messages">List of messages to send</param>
+        /// <param name="recipient">Recipient to send messages to</param>
+        /// <param name="origin">Origin of the messages</param>
+        void SendMessageToSiblings(List<IMessage> messages, Item recipient, Item origin = null);
+        /// <summary>
         /// Send one message to one or more items
         /// </summary>
         /// <param name="messages">List of messages to send</param>
