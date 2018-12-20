@@ -32,6 +32,11 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Exits
         [JsonProperty(PropertyName = "effort", Order = 50)]
         public int Effort { set; get; }
         /// <summary>
+        /// Compas direction that exit leads
+        /// </summary>
+        [JsonProperty(PropertyName = "direction", Order = 60)]
+        public ExitDirection Direction { set; get; }
+        /// <summary>
         /// Constructor
         /// </summary>
         public ExitItemData()

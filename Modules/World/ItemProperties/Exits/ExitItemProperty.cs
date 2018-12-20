@@ -42,6 +42,16 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Exits
         }
         private int _time;
         /// <summary>
+        /// Compass direction of exit
+        /// </summary>
+        [JsonProperty(PropertyName = "direction", Order = 130)]
+        public ExitDirection Direction
+        {
+            set { _direction = value; NotifyPropertyChanged("Direction"); }
+            get { return _direction; }
+        }
+        private ExitDirection _direction { set; get; }
+        /// <summary>
         /// Compare this object to another object of same type
         /// </summary>
         /// <param name="obj"></param>
