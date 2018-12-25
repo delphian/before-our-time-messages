@@ -38,6 +38,11 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <returns></returns>
         AccountCharacterData ReadByCharacter(Guid characterId);
         /// <summary>
+        /// Delete account character item association and the character item
+        /// </summary>
+        /// <param name="characterItemIds">List of character item identifiers to delete</param>
+        void Delete(List<Guid> characterItemIds);
+        /// <summary>
         /// Handle a message
         /// </summary>
         /// <param name="message"></param>

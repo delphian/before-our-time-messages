@@ -35,6 +35,11 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <returns></returns>
         AccountData Update(AccountData accountData);
         /// <summary>
+        /// Delete an account and all associated account characters
+        /// </summary>
+        /// <param name="accountId"></param>
+        void Delete(Guid accountId);
+        /// <summary>
         /// Authenticate a user name and password
         /// </summary>
         /// <param name="name"></param>
@@ -97,6 +102,18 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
         /// <param name="mm">Module manager</param>
         /// <param name="response"></param>
         IResponse HandleUpdateAccountRequest(
+            IMessage message,
+            Item origin,
+            IModuleManager mm,
+            IResponse response);
+        /// <summary>
+        /// Delete an account endpoint
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="origin">Item that initiated request</param>
+        /// <param name="mm">Module manager</param>
+        /// <param name="response"></param>
+        IResponse HandleDeleteAccountRequest(
             IMessage message,
             Item origin,
             IModuleManager mm,

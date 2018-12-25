@@ -16,7 +16,7 @@ namespace BeforeOurTime.Models.Modules.Account.Dbs
         /// <summary>
         /// Read all account identifiers associated with characters
         /// </summary>
-        /// <param name="characterIds"></param>
+        /// <param name="characterIds">List of character item identifiers</param>
         /// <returns></returns>
         List<AccountCharacterData> ReadByCharacter(List<Guid> characterIds);
     }
