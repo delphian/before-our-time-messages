@@ -26,6 +26,12 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
+        /// Unique item type identifier
+        /// </summary>
+        [JsonProperty(PropertyName = "typeId", Order = 40)]
+        [JsonConverter(typeof(GuidJsonConverter))]
+        public Guid? TypeId { set; get; }
+        /// <summary>
         /// Parent item
         /// </summary>
         [JsonProperty(PropertyName = "parentId", Order = 50)]
