@@ -14,6 +14,7 @@ using System.Text;
 namespace BeforeOurTime.Models.Modules
 {
     public delegate CoreUseItemEvent HandleItemCommand(ItemCommand itemCommand, Item origin);
+    public delegate void TickDelegate();
     /// <summary>
     /// Register through reflection and manage all modules
     /// </summary>
@@ -106,5 +107,9 @@ namespace BeforeOurTime.Models.Modules
             CoreUseItemRequest request, 
             Item origin, 
             IResponse response);
+        /// <summary>
+        /// Allow handlers to take action every tick
+        /// </summary>
+        event TickDelegate Ticks;
     }
 }

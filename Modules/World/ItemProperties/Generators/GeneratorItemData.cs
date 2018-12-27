@@ -12,10 +12,15 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Generators
     public class GeneratorItemData : ItemData, IItemData
     {
         /// <summary>
-        /// Seconds between item generation
+        /// Ticks between item generation
         /// </summary>
         [JsonProperty(PropertyName = "interval", Order = 50)]
         public int Interval { set; get; }
+        /// <summary>
+        /// Ticks between item generation
+        /// </summary>
+        [JsonProperty(PropertyName = "intervalTime", Order = 60)]
+        public DateTime? IntervalTime { set; get; }
         /// <summary>
         /// Maximum number of items that can exist at parent.
         /// Determined by comparing type ids

@@ -16,5 +16,11 @@ namespace BeforeOurTime.Models.Modules.World.ItemProperties.Generators
         /// <param name="item">Item that may have associated data</param>
         /// <returns></returns>
         GeneratorItemData Read(Item item);
+        /// <summary>
+        /// Read generator data for all generators ready to run
+        /// </summary>
+        /// <param name="futureTime">Optional future time. Defaults to now</param>
+        /// <returns></returns>
+        List<GeneratorItemData> ReadReadyToRun(DateTime? futureTime = null);
     }
 }
