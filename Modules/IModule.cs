@@ -12,6 +12,10 @@ namespace BeforeOurTime.Models.Modules
     public interface IModule
     {
         /// <summary>
+        /// Subscribe to be notified when all modules and managers have been loaded
+        /// </summary>
+        event ModuleReadyDelegate ModuleReadyEvent;
+        /// <summary>
         /// Get repositories declared by the module
         /// </summary>
         /// <returns></returns>

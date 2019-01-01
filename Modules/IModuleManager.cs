@@ -14,12 +14,18 @@ using System.Text;
 namespace BeforeOurTime.Models.Modules
 {
     public delegate CoreUseItemEvent HandleItemCommand(ItemCommand itemCommand, Item origin);
+    public delegate void ModuleManagerReadyDelegate();
+    public delegate void ModuleReadyDelegate();
     public delegate void TickDelegate();
     /// <summary>
     /// Register through reflection and manage all modules
     /// </summary>
     public interface IModuleManager
     {
+        /// <summary>
+        /// Subscribe to be notified when all modules and managers have been loaded
+        /// </summary>
+        event ModuleManagerReadyDelegate ModuleManagerReadyEvent;
         /// <summary>
         /// Get API module that implements interface
         /// </summary>
