@@ -1,4 +1,6 @@
-﻿using BeforeOurTime.Models.Modules.Core.Models.Items;
+﻿using BeforeOurTime.Models.Messages.Events;
+using BeforeOurTime.Models.Modules.Core.Messages.MoveItem;
+using BeforeOurTime.Models.Modules.Core.Models.Items;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,10 +8,19 @@ using System.Text;
 namespace BeforeOurTime.Models.Modules.Core.Managers
 {
     /// <summary>
+    /// Delegate format to receive item manager generated events with
+    /// </summary>
+    /// <param name="e">IEvent</param>
+    public delegate void ItemEventDelegate(IEvent e);
+    /// <summary>
     /// Manages security, environment messages, CRUD, and run time considerations for items
     /// </summary>
     public interface IItemManager : IModelManager
     {
+        /// <summary>
+        /// Subscribe to receive updates when an item changes locations
+        /// </summary>
+        event ItemEventDelegate ItemMoveEvent;
         /// <summary>
         /// Create a new item
         /// </summary>
