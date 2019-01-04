@@ -96,12 +96,24 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Items
         {
             if (Properties.ContainsKey(itemPropertyType))
             {
-                Properties.Add(itemPropertyType, viewModel);
+                Properties[itemPropertyType] = viewModel;
             }
             else
             {
-                Properties[itemPropertyType] = viewModel;
+                Properties.Add(itemPropertyType, viewModel);
             }
+            return this;
+        }
+        public Item AddProperty(IItemProperty property)
+        {
+            return AddProperty(property.GetType(), property);
+        }
+        public Item AddProperty(List<IItemProperty> properties)
+        {
+            properties.ForEach((property) =>
+            {
+                AddProperty(property);
+            });
             return this;
         }
         /// <summary>

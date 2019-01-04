@@ -23,12 +23,23 @@ namespace BeforeOurTime.Models.Modules.Core.Models.Properties
         /// <summary>
         /// Item that command is attached to
         /// </summary>
+        [JsonProperty(PropertyName = "itemId", Order = 25)]
         public Guid? ItemId
         {
             set { _itemId = value; NotifyPropertyChanged("ItemId"); }
             get { return _itemId; }
         }
         private Guid? _itemId { set; get; }
+        /// <summary>
+        /// Generic data object defined by id value
+        /// </summary>
+        [JsonProperty(PropertyName = "data", Order = 28)]
+        public object Data
+        {
+            set { _data = value; NotifyPropertyChanged("Data"); }
+            get { return _data; }
+        }
+        private object _data { set; get; }
         /// <summary>
         /// Displayed command name
         /// </summary>
