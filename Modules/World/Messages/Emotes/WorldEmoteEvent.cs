@@ -30,6 +30,11 @@ namespace BeforeOurTime.Models.Modules.World.Messages.Emotes
         [JsonProperty(PropertyName = "emoteType", Order = 1100)]
         public WorldEmoteType EmoteType { set; get; }
         /// <summary>
+        /// Optional parameter for emote type
+        /// </summary>
+        [JsonProperty(PropertyName = "parameter", Order = 1150)]
+        public string Parameter { set; get; }
+        /// <summary>
         /// Item that emote is directed toward (if any)
         /// </summary>
         [JsonProperty(PropertyName = "destination", Order = 1200)]

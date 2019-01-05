@@ -17,6 +17,10 @@ namespace BeforeOurTime.Models.Modules.World.Messages.Emotes
         /// <summary>
         /// Frown
         /// </summary>
-        Frown = 200
+        Frown = 200,
+        /// <summary>
+        /// Speak
+        /// </summary>
+        Speak = 300
     }
 }
