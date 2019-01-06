@@ -21,6 +21,10 @@ namespace BeforeOurTime.Models.Modules.World.Messages.Emotes
         /// <summary>
         /// Speak
         /// </summary>
-        Speak = 300
+        Speak = 300,
+        /// <summary>
+        /// An emote that should not be preceeded by the item name
+        /// </summary>
+        Raw = 400
     }
 }
