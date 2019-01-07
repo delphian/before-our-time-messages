@@ -12,10 +12,15 @@ namespace BeforeOurTime.Models.Modules.Account.Managers
     public interface IAccountManager : IModelManager
     {
         /// <summary>
-        /// Attach terminal data to item
+        /// Attach account data to item
         /// </summary>
         /// <param name="item"></param>
         void OnItemRead(Item item);
+        /// <summary>
+        /// Append attribute to base item when it is loaded
+        /// </summary>
+        /// <param name="item">Base item about to be persisted to datastore</param>
+        void OnItemUpdate(Item item);
         /// <summary>
         /// Create a new account
         /// </summary>
