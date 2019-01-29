@@ -1,4 +1,5 @@
 ﻿using BeforeOurTime.Models.Exceptions;
+using BeforeOurTime.Models.Modules.Account.Models;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -25,6 +26,11 @@ namespace BeforeOurTime.Models.Json
                         throw new InvalidAttributeTypeException($"Unable to locate class for item data type: {itemDataTypeName}");
                     }
                     var data = (IItemData)JsonConvert.DeserializeObject(attributeObj.ToString(), itemDataType);
+                    // Blank out password when it is contained in item data list
+                    if (itemDataType == typeof(Account))
+                    {
+                        ((Account)data).Password = null;
+                    }
                     itemData.Add(data);
                 }
                 return itemData;
