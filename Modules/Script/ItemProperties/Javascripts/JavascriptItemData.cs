@@ -35,7 +35,7 @@ namespace BeforeOurTime.Models.Modules.Script.ItemProperties.Javascripts
         /// <summary>
         /// Number of thrown errors encountered while script was running
         /// </summary>
-        [JsonProperty(PropertyName = "errDescriptions", Order = 70)]
+        [JsonProperty(PropertyName = "errCount", Order = 70)]
         public int ErrCount { set; get; }
         /// <summary>
         /// Thrown errors while script is executing
