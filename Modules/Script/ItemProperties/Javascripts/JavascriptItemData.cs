@@ -28,6 +28,21 @@ namespace BeforeOurTime.Models.Modules.Script.ItemProperties.Javascripts
         [JsonProperty(PropertyName = "dataBag", Order = 60)]
         public string DataBag { set; get; }
         /// <summary>
+        /// Prevent the script from executing
+        /// </summary>
+        [JsonProperty(PropertyName = "disabled", Order = 65)]
+        public bool Disabled { set; get; }
+        /// <summary>
+        /// Number of thrown errors encountered while script was running
+        /// </summary>
+        [JsonProperty(PropertyName = "errDescriptions", Order = 70)]
+        public int ErrCount { set; get; }
+        /// <summary>
+        /// Thrown errors while script is executing
+        /// </summary>
+        [JsonProperty(PropertyName = "errDescriptions", Order = 75)]
+        public string ErrDescriptions { set; get; }
+        /// <summary>
         /// Constructor
         /// </summary>
         public JavascriptItemData()
