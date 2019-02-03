@@ -4,6 +4,7 @@ using System.Text;
 using BeforeOurTime.Models.Messages;
 using BeforeOurTime.Models.Messages.Responses;
 using BeforeOurTime.Models.Modules.Core.Models.Items;
+using Jint;
 
 namespace BeforeOurTime.Models.Modules.Script.ItemProperties.Javascripts
 {
@@ -21,5 +22,19 @@ namespace BeforeOurTime.Models.Modules.Script.ItemProperties.Javascripts
             Item origin,
             IModuleManager mm,
             IResponse response);
+        /// <summary>
+        /// Add a javascript function definition
+        /// </summary>
+        /// <param name="function"></param>
+        void AddFunctionDefinition(JavascriptFunctionDefinition function);
+        /// <summary>
+        /// Execute a javascript function of an item
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="name"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        object ExecuteFunction(Item item, string name, params object[] parameters);
+        Engine GetJSEngine();
     }
 }
