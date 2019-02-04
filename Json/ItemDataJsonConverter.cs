@@ -1,17 +1,24 @@
 ﻿using BeforeOurTime.Models.Exceptions;
-using BeforeOurTime.Models.Modules.Account.Models;
+using BeforeOurTime.Models.Modules.Account.Models.Data;
 using BeforeOurTime.Models.Modules.Core.Models.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BeforeOurTime.Models.Json
 {
     public class ItemDataJsonConverter : JsonConverter
     {
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override bool CanRead => true;
+        public override object ReadJson(
+            JsonReader reader, 
+            Type objectType, 
+            object existingValue, 
+            JsonSerializer serializer)
         {
             JToken token = JToken.Load(reader);
             if (token.Type == JTokenType.Array)
@@ -26,23 +33,30 @@ namespace BeforeOurTime.Models.Json
                         throw new InvalidAttributeTypeException($"Unable to locate class for item data type: {itemDataTypeName}");
                     }
                     var data = (IItemData)JsonConvert.DeserializeObject(attributeObj.ToString(), itemDataType);
-                    // Blank out password when it is contained in item data list
-                    if (itemDataType == typeof(Account))
-                    {
-                        ((Account)data).Password = null;
-                    }
                     itemData.Add(data);
                 }
                 return itemData;
             }
             return null;
         }
-        public override bool CanWrite => false;
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override bool CanWrite => true;
+        public override void WriteJson(
+            JsonWriter writer,
+            object value,
+            JsonSerializer serializer)
         {
-            throw new NotImplementedException("There is no writing implemantation");
+            var itemData = ((IList)value).Cast<ItemData>().ToList();
+            JArray jDatas = new JArray();
+            itemData.ForEach(data =>
+            {
+                if (data.GetType() == typeof(AccountData))
+                {
+                    ((AccountData)data).Password = null;
+                }
+                jDatas.Add(JObject.FromObject(data));
+            });
+            jDatas.WriteTo(writer);
         }
-
         public override bool CanConvert(Type objectType)
         {
             throw new NotImplementedException();
